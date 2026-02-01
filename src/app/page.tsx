@@ -13,23 +13,23 @@ const FAQ = dynamic(() => import("@/components/FAQ/FAQ"), {
 });
 
 export const metadata = {
-  title: "Build Academic Projects with Expert Guidance | ProjectKaro",
+  title: "Custom Engineering Projects Built For You | ProjectKaro",
   description:
-    "ProjectKaro helps engineering students build and complete real-world academic projects. Get expert mentorship, clear milestones, and comprehensive documentation for final year and mini projects.",
+    "We build custom engineering projects based on your abstract. Get complete code, hardware, and academic documentation for final year and mini projects. 100% viva support.",
   keywords: [
-    "academic projects for engineering students",
-    "final year projects",
-    "mini projects for engineering",
+    "custom engineering projects",
+    "buy final year projects",
+    "paid project help",
+    "project completion service",
+    "academic project developers",
+    "projects for engineering students",
     "real world student projects",
-    "guided academic projects",
-    "project execution platform",
-    "project mentorship",
-    "IoT project help",
+    "IoT project development",
     "computer science projects",
   ],
   openGraph: {
-    title: "Build Academic Projects with Expert Guidance | ProjectKaro",
-    description: "Structured support for engineering students. 500+ projects completed. Expert mentorship from concept to completion.",
+    title: "Get Your Engineering Project Built & Delivered | ProjectKaro",
+    description: "Submit your abstract -> We build it -> You get code, report & viva support. Stress-free project completion for students.",
     type: "website",
   },
 };
@@ -83,13 +83,13 @@ export default function HomePage() {
 
             {/* Main Headline */}
             <h1 id="hero-heading" className={styles.heroTitle}>
-              Build Real-World Academic Projects{" "}
-              <span className={styles.heroTitleAccent}>— With Expert Guidance.</span>
+              University Projects?{" "}
+              <span className={styles.heroTitleAccent}>Consider It Done.</span>
             </h1>
 
             {/* Value Proposition */}
             <p className={styles.heroSubtext}>
-              From concept to completion—get structured support, clear milestones, and comprehensive documentation that meets your college standards. Stop struggling with where to start. Start finishing your project with confidence.
+              Skip the all-nighters. We build your complete engineering project from scratch—code, hardware, and the documentation. You just ace the viva.
             </p>
 
             {/* Social Proof Stats */}
@@ -152,12 +152,12 @@ export default function HomePage() {
 
       <Stats />
 
-      {/* Who It's For - CSS icons only */}
+      {/* Who It's For - Gen Z Vibe */}
       <section className={`section section--alt ${styles.section}`} aria-labelledby="who-heading">
         <div className="container">
-          <p className={styles.eyebrow}>Who it&apos;s for</p>
+          <p className={styles.eyebrow}>Is this you?</p>
           <h2 id="who-heading" className={styles.sectionTitle}>
-            Built for students who want to get it done
+            We built this for students who just want it done.
           </h2>
           <ul className={styles.cardList} role="list">
             <li className={styles.card}>
@@ -168,8 +168,8 @@ export default function HomePage() {
                   <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3>Engineering students</h3>
-              <p>Structured support for college and final-year project requirements.</p>
+              <h3>Final Year Pressure?</h3>
+              <p>Deadlines are close, and you have zero code? We'll handle the entire build.</p>
             </li>
             <li className={styles.card}>
               <div className={styles.cardIcon}>
@@ -181,8 +181,8 @@ export default function HomePage() {
                   <path d="M12 16V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3>Beginners in tech</h3>
-              <p>Learn by doing with guided, real-world project execution.</p>
+              <h3>Need a Portfolio Boost?</h3>
+              <p>Get a killer project that actually looks good on your resume (and LinkedIn).</p>
             </li>
             <li className={styles.card}>
               <div className={styles.cardIcon}>
@@ -190,8 +190,8 @@ export default function HomePage() {
                   <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3>Students struggling to start or finish</h3>
-              <p>Clear process and mentorship so you can complete your project on time.</p>
+              <h3>Stuck on Errors?</h3>
+              <p>Tried building it yourself but nothing works? We fix, finish, and deliver.</p>
             </li>
           </ul>
         </div>
@@ -200,9 +200,9 @@ export default function HomePage() {
       {/* What We Offer */}
       <section className={`section ${styles.section}`} aria-labelledby="offer-heading">
         <div className="container">
-          <p className={styles.eyebrow}>What we offer</p>
+          <p className={styles.eyebrow}>What we do</p>
           <h2 id="offer-heading" className={styles.sectionTitle}>
-            Project types we support
+            Everything you need to pass
           </h2>
           <ul className={styles.cardListOffer} role="list">
             <li className={styles.cardOffer}>
@@ -212,8 +212,8 @@ export default function HomePage() {
                   <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3>College Mini Projects</h3>
-              <p>Short-term, focused projects suitable for semester or lab requirements.</p>
+              <h3>Mini Projects</h3>
+              <p>Quick Semester projects. Done in days, not weeks. Perfect for lab submissions.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
@@ -223,8 +223,8 @@ export default function HomePage() {
                   <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3>Final-Year Projects</h3>
-              <p>End-to-end support for your final-year or capstone project.</p>
+              <h3>Major / Final Year</h3>
+              <p>The big one. We handle the code, the report, and the viva prep. Zero stress.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
@@ -236,8 +236,8 @@ export default function HomePage() {
                   <path d="M6 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3>Portfolio Projects</h3>
-              <p>Projects that showcase your skills and strengthen your resume.</p>
+              <h3>Resume Projects</h3>
+              <p>Projects that actually get you hired. Modern tech stacks, deployed and live.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
@@ -248,8 +248,8 @@ export default function HomePage() {
                   <line x1="12" y1="20" x2="12.01" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3>IoT Projects</h3>
-              <p>Hardware and software integration for Internet of Things applications.</p>
+              <h3>IoT & Hardware</h3>
+              <p>Sensors, Arduino, ESP32? We build the physical kit and ship the code.</p>
             </li>
           </ul>
         </div>
@@ -260,7 +260,7 @@ export default function HomePage() {
         <div className="container">
           <p className={styles.eyebrow}>Why ProjectKaro</p>
           <h2 id="why-heading" className={styles.sectionTitle}>
-            Why choose us for your project
+            Why students choose us?
           </h2>
           <div className={styles.whyGrid}>
             <article className={styles.whyCard}>
@@ -274,8 +274,8 @@ export default function HomePage() {
                   <path d="M2 7L7 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Academic expertise</h3>
-              <p className={styles.whyCardDesc}>Deep understanding of academic requirements and evaluation criteria.</p>
+              <h3 className={styles.whyCardTitle}>We know the syllabus</h3>
+              <p className={styles.whyCardDesc}>We adhere to university guidelines so your external examiner stays happy.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -285,7 +285,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className={styles.whyCardTitle}>Fast turnaround</h3>
-              <p className={styles.whyCardDesc}>Quick response times and efficient project execution.</p>
+              <p className={styles.whyCardDesc}>Running late? We can sprint. Get your project delivered in as little as 2 days.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -293,8 +293,8 @@ export default function HomePage() {
                   <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Expert mentorship</h3>
-              <p className={styles.whyCardDesc}>Guidance from experienced professionals in your field.</p>
+              <h3 className={styles.whyCardTitle}>1-on-1 Explanation</h3>
+              <p className={styles.whyCardDesc}>Don't just buy it, understand it. We explain every line of code for your viva.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -302,8 +302,8 @@ export default function HomePage() {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Quality assurance</h3>
-              <p className={styles.whyCardDesc}>Rigorous testing and documentation standards.</p>
+              <h3 className={styles.whyCardTitle}>Quality code</h3>
+              <p className={styles.whyCardDesc}>Clean, documented, and working code. No "it works on my machine" excuses.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -311,8 +311,8 @@ export default function HomePage() {
                   <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Flexible pricing</h3>
-              <p className={styles.whyCardDesc}>Transparent pricing with no hidden costs.</p>
+              <h3 className={styles.whyCardTitle}>Student-friendly pricing</h3>
+              <p className={styles.whyCardDesc}>We know student budgets. Fair pricing, no hidden costs.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -323,8 +323,8 @@ export default function HomePage() {
                   <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Completion-focused approach</h3>
-              <p className={styles.whyCardDesc}>We focus on helping you finish, not just start.</p>
+              <h3 className={styles.whyCardTitle}>Complete Documentation</h3>
+              <p className={styles.whyCardDesc}>Reports, flowcharts, PPTs? Included. We handle the boring stuff too.</p>
             </article>
           </div>
         </div>

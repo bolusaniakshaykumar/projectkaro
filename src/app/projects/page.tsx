@@ -10,7 +10,7 @@ export const metadata = {
 const CATEGORIES = [
   {
     title: "Mini Projects",
-    description: "Short-term, focused projects suitable for semester or lab requirements. Ideal for building foundational skills.",
+    description: "Need a project for your semester submission? We build simple, effective projects in React, Python, or Java in just 2-3 days.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -19,7 +19,7 @@ const CATEGORIES = [
   },
   {
     title: "Final-Year Projects",
-    description: "End-to-end support for your final-year or capstone project. From problem statement to documentation and delivery.",
+    description: "The complete package. We provide the source code, running software, 50+ page project report, and PPT. Guaranteed to run on your laptop.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -29,7 +29,7 @@ const CATEGORIES = [
   },
   {
     title: "Portfolio Projects",
-    description: "Projects designed to showcase your skills and strengthen your resume for placements and internships.",
+    description: "Get a high-quality, deployed project link for your resume. Impress recruiters with clean code and modern tech stacks (Next.js, MERN, AI).",
     icon: (
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
@@ -39,7 +39,7 @@ const CATEGORIES = [
   },
   {
     title: "IoT Projects",
-    description: "Hardware and software integration for Internet of Things applications. Sensors, connectivity, and real-world deployment.",
+    description: "We build the physical hardware kit (Arduino/Raspberry Pi/ESP32) and ship it to you. Includes circuit diagrams and explanation videos.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />

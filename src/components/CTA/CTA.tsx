@@ -8,8 +8,8 @@ interface CTAProps {
 }
 
 export default function CTA({
-  title = "Ready to start your project?",
-  description = "Don't let deadlines stress you out. Get expert guidance and finish your project on time. We'll review your abstract and reply within 3-6 hours.",
+  title = "Ready to pass with zero stress?",
+  description = "Submit your abstract now, and we'll handle the rest. Code, Report, PPT — All sorted for you.",
   showButton = true,
 }: CTAProps) {
   return (

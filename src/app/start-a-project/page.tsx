@@ -44,22 +44,22 @@ export default function StartAProjectPage() {
                 <li className={styles.processItem}>
                   <div className={styles.processNumber}>1</div>
                   <div className={styles.processContent}>
-                    <h4>Review</h4>
-                    <p>Our experts analyze your requirements and feasibility.</p>
+                    <h4>We Quote</h4>
+                    <p>You get a strict timeline and fixed price within 6 hours.</p>
                   </div>
                 </li>
                 <li className={styles.processItem}>
                   <div className={styles.processNumber}>2</div>
                   <div className={styles.processContent}>
-                    <h4>Consultation</h4>
-                    <p>We connect to discuss the scope, timeline, and deliverables.</p>
+                    <h4>You Approve</h4>
+                    <p>Confirm the details, and we start coding immediately.</p>
                   </div>
                 </li>
                 <li className={styles.processItem}>
                   <div className={styles.processNumber}>3</div>
                   <div className={styles.processContent}>
-                    <h4>Kickoff</h4>
-                    <p>Once approved, we start development immediately.</p>
+                    <h4>We Build</h4>
+                    <p>Sit back. We deliver the code, report, and viva guide on time.</p>
                   </div>
                 </li>
               </ul>
@@ -76,15 +76,15 @@ export default function StartAProjectPage() {
               <ul className={styles.contactList}>
                 <li className={styles.contactItem}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>100% Confidentiality</span>
+                  <span>Your Project, Your IP</span>
                 </li>
                 <li className={styles.contactItem}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Complete Documentation</span>
+                  <span>Full Docs Included</span>
                 </li>
                 <li className={styles.contactItem}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>On-time Delivery</span>
+                  <span>Deadlines Met, Always</span>
                 </li>
               </ul>
             </div>
