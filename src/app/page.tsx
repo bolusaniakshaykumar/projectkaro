@@ -13,23 +13,22 @@ const FAQ = dynamic(() => import("@/components/FAQ/FAQ"), {
 });
 
 export const metadata = {
-  title: "Build Your Academic Project with Expert Guidance | ProjectKaro",
+  title: "Build Academic Projects with Expert Guidance | ProjectKaro",
   description:
-    "Get structured support for engineering projects—college mini projects, final-year projects, IoT projects. 500+ projects completed. 3-6 hours response time. Expert mentorship, clear milestones, comprehensive documentation.",
+    "ProjectKaro helps engineering students build and complete real-world academic projects. Get expert mentorship, clear milestones, and comprehensive documentation for final year and mini projects.",
   keywords: [
-    "academic project help",
-    "engineering project support",
-    "final year project assistance",
-    "college project completion",
+    "academic projects for engineering students",
+    "final year projects",
+    "mini projects for engineering",
+    "real world student projects",
+    "guided academic projects",
+    "project execution platform",
     "project mentorship",
     "IoT project help",
-    "student project guidance",
-    "academic project execution",
-    "engineering student support",
-    "project documentation help",
+    "computer science projects",
   ],
   openGraph: {
-    title: "Build Your Academic Project with Expert Guidance",
+    title: "Build Academic Projects with Expert Guidance | ProjectKaro",
     description: "Structured support for engineering students. 500+ projects completed. Expert mentorship from concept to completion.",
     type: "website",
   },
@@ -43,10 +42,14 @@ export default function HomePage() {
     "description": "Academic project execution platform for engineering students",
     "url": "https://projectkaro.com",
     "logo": "https://projectkaro.com/logo.png",
-    "sameAs": [],
+    "sameAs": [
+      "https://www.linkedin.com/company/projectkaro",
+      "https://instagram.com/projectkaro"
+    ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Service",
+      "email": "contact@projectkaro.com",
       "availableLanguage": ["English", "Hindi"]
     },
     "areaServed": "IN",
@@ -80,8 +83,8 @@ export default function HomePage() {
 
             {/* Main Headline */}
             <h1 id="hero-heading" className={styles.heroTitle}>
-              From Abstract to Submission{" "}
-              <span className={styles.heroTitleAccent}>— We&apos;ve Got You.</span>
+              Build Real-World Academic Projects{" "}
+              <span className={styles.heroTitleAccent}>— With Expert Guidance.</span>
             </h1>
 
             {/* Value Proposition */}

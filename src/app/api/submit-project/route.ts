@@ -65,13 +65,16 @@ export async function POST(request: Request) {
     if (!message) {
       return NextResponse.json({ error: "Project description is required." }, { status: 400 });
     }
-    if (!abstract || !(abstract instanceof File) || abstract.size === 0) {
-      return NextResponse.json({ error: "Please upload your project abstract." }, { status: 400 });
-    }
+    let buffer: Buffer | null = null;
+    let fileName = "";
 
-    const fileError = validateFile(abstract);
-    if (fileError) {
-      return NextResponse.json({ error: fileError }, { status: 400 });
+    if (abstract && abstract instanceof File && abstract.size > 0) {
+      const fileError = validateFile(abstract);
+      if (fileError) {
+        return NextResponse.json({ error: fileError }, { status: 400 });
+      }
+      buffer = Buffer.from(await abstract.arrayBuffer());
+      fileName = abstract.name || "abstract.pdf";
     }
 
     // Env config: prefer Zoho-specific vars, fallback to legacy
@@ -114,8 +117,6 @@ export async function POST(request: Request) {
       );
     }
 
-    const buffer = Buffer.from(await abstract.arrayBuffer());
-
     const adminMailOptions = {
       from: `"ProjectKaro" <${fromEmail}>`,
       to: toList,
@@ -152,19 +153,19 @@ export async function POST(request: Request) {
         `<p style="margin:0;color:#d5d6e6;font-size:15px">Message / Description:</p>`,
         `<pre style="white-space:pre-wrap;background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:12px;color:#eaeaf0;font-size:14px;line-height:1.5;margin:8px 0 0">${message.replace(/</g, "&lt;")}</pre>`,
         `</td></tr>`,
-        `<tr><td style="padding:0 24px 24px">`,
-        `<p style="margin:0;color:#9fa1b6;font-size:13px">Attachment: ${abstract.name || "abstract.pdf"}</p>`,
-        `</td></tr>`,
+        buffer ? `<tr><td style="padding:0 24px 24px">
+        <p style="margin:0;color:#9fa1b6;font-size:13px">Attachment: ${fileName}</p>
+        </td></tr>` : "",
         `</table>`,
         `</td></tr>`,
         `</table>`,
       ].join(""),
-      attachments: [
+      attachments: buffer ? [
         {
-          filename: abstract.name || "abstract.pdf",
+          filename: fileName,
           content: buffer,
         },
-      ],
+      ] : [],
     };
 
     // User confirmation email (no attachment)

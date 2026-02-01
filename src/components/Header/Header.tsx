@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/" className={styles.logo} aria-label="ProjectKaro home">
             <Image
               src="/logo.png"
-              alt="ProjectKaro"
+              alt="ProjectKaro academic project platform logo"
               width={180}
               height={45}
               priority

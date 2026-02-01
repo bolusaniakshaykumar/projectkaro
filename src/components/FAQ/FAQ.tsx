@@ -56,6 +56,20 @@ export default function FAQ() {
   const column1 = FAQ_ITEMS.slice(0, 5);
   const column2 = FAQ_ITEMS.slice(5, 10);
 
+  // FAQ structured data for rich snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  };
+
   const renderFAQItem = (item: typeof FAQ_ITEMS[0], index: number, columnOffset: number) => {
     const actualIndex = index + columnOffset;
     return (
@@ -104,6 +118,10 @@ export default function FAQ() {
 
   return (
     <section className={styles.faq} aria-labelledby="faq-heading">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container">
         <div className={styles.faqHeader}>
           <p className={styles.eyebrow}>FAQ</p>

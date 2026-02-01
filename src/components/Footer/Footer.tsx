@@ -21,7 +21,7 @@ export default function Footer() {
             <Link href="/" className={styles.logo}>
               <Image
                 src="/logo.png"
-                alt="ProjectKaro"
+                alt="ProjectKaro academic project platform logo"
                 width={150}
                 height={38}
                 className={styles.logoImage}
