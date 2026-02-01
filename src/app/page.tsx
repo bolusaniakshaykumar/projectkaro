@@ -224,7 +224,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3>Major / Final Year</h3>
-              <p>The big one. We handle the code, the report, and the viva prep. Zero stress.</p>
+              <p>The big one. We handle the code and implementation. Viva prep and documentation available as upgrades.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
@@ -323,8 +323,8 @@ export default function HomePage() {
                   <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className={styles.whyCardTitle}>Complete Documentation</h3>
-              <p className={styles.whyCardDesc}>Reports, flowcharts, PPTs? Included. We handle the boring stuff too.</p>
+              <h3 className={styles.whyCardTitle}>Basic Documentation Included</h3>
+              <p className={styles.whyCardDesc}>We include a standard report. PPTs and IEEE papers are available upgrades.</p>
             </article>
           </div>
         </div>

@@ -9,7 +9,7 @@ interface CTAProps {
 
 export default function CTA({
   title = "Ready to pass with zero stress?",
-  description = "Submit your abstract now, and we'll handle the rest. Code, Report, PPT — All sorted for you.",
+  description = "Submit your abstract now, and we'll handle the rest. Code & Basic Report included with every project.",
   showButton = true,
 }: CTAProps) {
   return (

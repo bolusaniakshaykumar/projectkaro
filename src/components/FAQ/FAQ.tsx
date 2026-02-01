@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   // Column 2 - Academic & Support
   {
     question: "Do you provide project reports and PPTs?",
-    answer: "Yes, we include standard academic documentation: Synopsis, SRS, System Design, Test Cases, and the Final Project Report (50-100 pages) formatted to IEEE/university standards.",
+    answer: "We include a standard basic project report with every order. However, specialized documentation (PPTs, In-depth Thesis, IEEE Research Papers) are available as premium add-ons.",
   },
   {
     question: "What if my guide asks for changes?",

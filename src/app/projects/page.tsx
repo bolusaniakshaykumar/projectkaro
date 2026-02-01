@@ -19,7 +19,7 @@ const CATEGORIES = [
   },
   {
     title: "Final-Year Projects",
-    description: "The complete package. We provide the source code, running software, 50+ page project report, and PPT. Guaranteed to run on your laptop.",
+    description: "The complete package. We provide the source code and running software. Reports, PPTs, and Papers available as add-ons.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
