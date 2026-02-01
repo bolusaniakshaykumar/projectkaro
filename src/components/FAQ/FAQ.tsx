@@ -111,7 +111,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className={styles.faqSubtitle}>
-            Everything you need to know about ProjectKaro's academic project support services.
+            Everything you need to know about ProjectKaro&apos;s academic project support services.
           </p>
         </div>
         <div className={styles.faqGrid}>
