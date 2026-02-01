@@ -325,7 +325,7 @@
 .answerWrap {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: grid-template-rows 0.25s ease-out;
   overflow: hidden;
 }
 
@@ -356,7 +356,15 @@
 .answer p {
   margin: 0;
   padding: 1.25rem 2rem 2rem 2.25rem;
-  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+  /* Removed animation for faster perceived performance */
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
@@ -372,6 +380,16 @@
 }
 
 @media (max-width: 767px) {
+
+  /* Disable expensive effects on mobile */
+  .item {
+    backdrop-filter: none !important;
+    animation: none !important;
+    transform: none !important;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    /* Remove transform transition */
+  }
+
   .question {
     padding: 1.25rem 1.5rem;
     gap: 1rem;
@@ -396,5 +414,9 @@
   .answer::before {
     left: 1.5rem;
     right: 1.5rem;
+  }
+
+  .answer p {
+    padding: 1rem 1.5rem 1.5rem 1.75rem;
   }
 }

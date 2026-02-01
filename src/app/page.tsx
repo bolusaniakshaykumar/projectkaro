@@ -99,12 +99,12 @@ export default function HomePage() {
                 <div className={styles.heroStatLabel}>Projects Completed</div>
               </div>
               <div className={styles.heroStat}>
-                <div className={styles.heroStatNumber}>3-6h</div>
-                <div className={styles.heroStatLabel}>Response Time</div>
+                <div className={styles.heroStatNumber}>2 Days</div>
+                <div className={styles.heroStatLabel}>Project Delivery</div>
               </div>
               <div className={styles.heroStat}>
-                <div className={styles.heroStatNumber}>98%</div>
-                <div className={styles.heroStatLabel}>Success Rate</div>
+                <div className={styles.heroStatNumber}>20+</div>
+                <div className={styles.heroStatLabel}>Tech Stacks</div>
               </div>
             </div>
 
