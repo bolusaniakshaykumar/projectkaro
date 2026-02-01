@@ -60,10 +60,10 @@ export default function HowItWorksPage() {
       <section className="section" aria-labelledby="how-heading">
         <div className="container">
           <h1 id="how-heading" className={styles.title}>
-            From "Stressed" to "Submitted"
+            From &quot;Stressed&quot; to &quot;Submitted&quot;
           </h1>
           <p className={styles.intro}>
-            We've made the process incredibly simple. You give us the requirements, we give you the completed project. Here's how it works:
+            We&apos;ve made the process incredibly simple. You give us the requirements, we give you the completed project. Here&apos;s how it works:
           </p>
 
           <div className={styles.timeline}>

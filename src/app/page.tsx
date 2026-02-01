@@ -169,7 +169,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3>Final Year Pressure?</h3>
-              <p>Deadlines are close, and you have zero code? We'll handle the entire build.</p>
+              <p>Deadlines are close, and you have zero code? We&apos;ll handle the entire build.</p>
             </li>
             <li className={styles.card}>
               <div className={styles.cardIcon}>
@@ -224,7 +224,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3>Major / Final Year</h3>
-              <p>The big one. We handle the code and implementation. Viva prep and documentation available as upgrades.</p>
+              <p>The big one. We handle the code and implementation. Thesis and PPT's available as upgrades.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
@@ -294,7 +294,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className={styles.whyCardTitle}>1-on-1 Explanation</h3>
-              <p className={styles.whyCardDesc}>Don't just buy it, understand it. We explain every line of code for your viva.</p>
+              <p className={styles.whyCardDesc}>Don&apos;t just buy it, understand it. We explain every line of code for your viva.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
@@ -303,7 +303,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className={styles.whyCardTitle}>Quality code</h3>
-              <p className={styles.whyCardDesc}>Clean, documented, and working code. No "it works on my machine" excuses.</p>
+              <p className={styles.whyCardDesc}>Clean, documented, and working code. No &quot;it works on my machine&quot; excuses.</p>
             </article>
             <article className={styles.whyCard}>
               <div className={styles.whyCardIcon}>
