@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import FloatingCTA from "@/components/FloatingCTA/FloatingCTA";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const SITE_URL = "https://projectkaro.com";
@@ -72,6 +73,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <FloatingCTA />
+        <SpeedInsights />
       </body>
     </html>
   );
