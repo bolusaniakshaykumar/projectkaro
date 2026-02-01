@@ -224,7 +224,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3>Major / Final Year</h3>
-              <p>The big one. We handle the code and implementation. Thesis and PPT's available as upgrades.</p>
+              <p>The big one. We handle the code and implementation. Thesis and PPTs available as upgrades.</p>
             </li>
             <li className={styles.cardOffer}>
               <div className={styles.cardOfferIcon}>
