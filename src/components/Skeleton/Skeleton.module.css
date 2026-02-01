@@ -1,0 +1,133 @@
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  animation: shimmerMove 1.2s infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    left: -150%;
+  }
+
+  60% {
+    left: 150%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+
+.line {
+  height: 14px;
+  margin: 8px 0;
+}
+
+.title {
+  height: 24px;
+  margin: 12px 0;
+}
+
+.block {
+  height: 120px;
+}
+
+.heroSkeleton {
+  padding: 6rem 0;
+  background: var(--color-bg);
+}
+
+.btnSkeleton {
+  width: 200px;
+  border-radius: var(--radius-full);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.gridSkeleton {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .gridSkeleton {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cardSkeleton {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelineSkeleton {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .faqGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.faqItem {
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(18, 18, 32, 0.6);
+}
+
+.formGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.small {
+  height: 10px;
+}
+
+.medium {
+  height: 14px;
+}
+
+.large {
+  height: 18px;
+}

@@ -1,0 +1,121 @@
+.section {
+    padding: 4rem 0 5rem;
+    border-bottom: 1px solid var(--color-border);
+    background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-section));
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    margin: 0 auto;
+    max-width: 600px;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.carouselContainer {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    /* Mask to fade edges */
+    mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black 10%,
+            black 90%,
+            transparent);
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    gap: 4rem;
+    animation: scroll 100s linear infinite;
+    /* Slow smooth scroll */
+    padding: 1rem 0;
+    will-change: transform;
+}
+
+.carouselContainer:hover .track {
+    animation-play-state: paused;
+}
+
+.logoItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fixed size for all items */
+    height: 60px;
+    width: auto;
+    min-width: 60px;
+
+    /* Filter Magic: Monochrome White Default */
+    /* brightness(0) -> Black. invert(1) -> White. */
+    filter: brightness(0) invert(1);
+    opacity: 0.5;
+    /* Muted white */
+
+    transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.logoItem:hover {
+    /* Restore original color */
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 1.875rem;
+    }
+}
+
+/* Screen reader only utility specifically for this component */
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

@@ -1,0 +1,150 @@
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.intro {
+  max-width: 700px;
+  margin: 0 auto 5rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  /* Mobile alignment */
+  width: 2px;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      var(--color-accent) 15%,
+      var(--color-accent) 85%,
+      transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.step {
+  position: relative;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: flex-end;
+  /* All right by default on mobile (but using flex-row for specific layout) */
+}
+
+/* Step Number/Icon container */
+.stepMarker {
+  position: absolute;
+  left: 2rem;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-weight: 700;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  box-shadow: 0 0 0 4px var(--color-bg);
+  /* Mask line behind */
+}
+
+@media (min-width: 768px) {
+  .stepMarker {
+    left: 50%;
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.25rem;
+  }
+}
+
+.stepContent {
+  width: calc(100% - 4rem);
+  /* Space for marker on mobile */
+  margin-left: 4rem;
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.stepContent:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  background: rgba(30, 41, 59, 0.6);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stepDesc {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Desktop Alternating Layout */
+@media (min-width: 768px) {
+  .step {
+    justify-content: center;
+    /* Centered relative to container, content pushed by width */
+    width: 100%;
+  }
+
+  .stepContent {
+    width: 42%;
+    /* Less than half */
+    margin: 0;
+  }
+
+  /* Odd steps: Left side */
+  .step:nth-child(odd) .stepContent {
+    margin-right: auto;
+    text-align: right;
+  }
+
+  .step:nth-child(odd) .stepTitle {
+    justify-content: flex-end;
+  }
+
+  /* Even steps: Right side */
+  .step:nth-child(even) .stepContent {
+    margin-left: auto;
+    text-align: left;
+  }
+}
