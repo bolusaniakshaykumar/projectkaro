@@ -24,63 +24,50 @@
     color: #fff;
 }
 
-.carouselWrapper {
+.scrollContainer {
     position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
-/* Horizontal Scroll Container */
-.carousel {
+.track {
     display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 1rem 1rem 2.5rem;
-    /* Bottom padding for hover effects */
-    margin: 0 -1rem;
-    /* Bleed on mobile */
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE/Edge */
+    width: max-content;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    animation: scroll 80s linear infinite;
+    /* Slow smooth scroll */
 }
 
-.carousel::-webkit-scrollbar {
-    display: none;
-    /* Chrome/Safari */
+.track:hover {
+    animation-play-state: paused;
 }
 
-@media (min-width: 768px) {
-    .carousel {
-        padding: 1rem 0 2.5rem;
-        margin: 0;
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
     }
 }
 
 .cardWrapper {
-    flex: 0 0 85%;
-    /* Mobile: Shows 85% of card to hint scroll */
-    scroll-snap-align: center;
-    min-width: 0;
-    /* Flexbox fix */
+    width: 320px;
+    flex-shrink: 0;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
     .cardWrapper {
-        flex: 0 0 45%;
-        /* Tablet: 2 cards */
-        scroll-snap-align: start;
-    }
-}
-
-@media (min-width: 1024px) {
-    .cardWrapper {
-        flex: 0 0 32%;
-        /* Desktop: 3 cards */
+        width: 400px;
     }
 }
 
 .card {
-    background: rgba(30, 41, 59, 0.2);
+    background: rgba(30, 41, 59, 0.4);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-xl);
@@ -90,46 +77,14 @@
     height: 100%;
     transition: all 0.3s ease;
     user-select: none;
-    /* easier scrolling */
 }
 
 .cardWrapper:hover .card {
     transform: translateY(-5px);
-    background: rgba(30, 41, 59, 0.4);
+    background: rgba(30, 41, 59, 0.6);
     border-color: rgba(96, 165, 250, 0.3);
     box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
-
-/* Fading Edges */
-.fadeLeft,
-.fadeRight {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100px;
-    pointer-events: none;
-    z-index: 10;
-    display: none;
-}
-
-@media (min-width: 768px) {
-
-    .fadeLeft,
-    .fadeRight {
-        display: block;
-    }
-
-    .fadeLeft {
-        left: -1px;
-        background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
-    }
-
-    .fadeRight {
-        right: -1px;
-        background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
-    }
-}
-
 
 .stars {
     display: flex;
@@ -149,7 +104,7 @@
 }
 
 .card:hover .text {
-    color: var(--color-text);
+    color: #e2e8f0;
 }
 
 .author {
