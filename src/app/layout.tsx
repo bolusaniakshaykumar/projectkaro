@@ -5,6 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import FloatingCTA from "@/components/FloatingCTA/FloatingCTA";
 import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SEO_KEYWORDS, SITE_CONFIG } from "@/lib/constants";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
@@ -122,6 +123,7 @@ export default function RootLayout({
         <Footer />
         <FloatingCTA />
         <GoogleAnalytics />
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
