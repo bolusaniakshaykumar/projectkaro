@@ -49,8 +49,9 @@ export default function TechStack() {
         <section className={styles.section} aria-labelledby="tech-stack-heading">
             <div className="container">
                 <div className={styles.header}>
+                    <p className={styles.eyebrow}>Tech Stack</p>
                     <h2 id="tech-stack-heading" className={styles.title}>
-                        Technology Stacks We Work With
+                        Technologies we work with
                     </h2>
                     <p className={styles.subtitle}>
                         We work with industry-relevant and academic-friendly technologies to deliver reliable project outcomes.
@@ -65,12 +66,13 @@ export default function TechStack() {
                             <div key={tech.name} className={styles.logoItem}>
                                 <img
                                     src={`${ICON_BASE_URL}/${tech.slug}`}
-                                    alt={`${tech.name} logo`}
+                                    alt=""
+                                    aria-hidden="true"
                                     className={styles.logo}
                                     width={40}
                                     height={40}
-                                    loading="eager"
-                                    title={tech.name}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         ))}
@@ -79,12 +81,13 @@ export default function TechStack() {
                             <div key={`${tech.name}-duplicate`} className={styles.logoItem}>
                                 <img
                                     src={`${ICON_BASE_URL}/${tech.slug}`}
-                                    alt={`${tech.name} logo`}
+                                    alt=""
+                                    aria-hidden="true"
                                     className={styles.logo}
                                     width={40}
                                     height={40}
-                                    loading="eager"
-                                    title={tech.name}
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         ))}

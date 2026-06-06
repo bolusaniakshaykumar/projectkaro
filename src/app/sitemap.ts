@@ -1,20 +1,19 @@
 import { MetadataRoute } from "next";
-
-const BASE_URL = "https://projectkaro.com";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    "",
-    "/projects",
-    "/how-it-works",
-    "/about",
-    "/start-a-project",
+    { path: "", priority: 1, changeFrequency: "weekly" as const },
+    { path: "/projects", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/how-it-works", priority: 0.85, changeFrequency: "monthly" as const },
+    { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/start-a-project", priority: 0.95, changeFrequency: "monthly" as const },
   ];
 
-  return routes.map((path) => ({
-    url: `${BASE_URL}${path}`,
+  return routes.map(({ path, priority, changeFrequency }) => ({
+    url: `${SITE_CONFIG.url}${path}`,
     lastModified: new Date(),
-    changeFrequency: path === "" ? "weekly" : ("monthly" as const),
-    priority: path === "" ? 1 : path === "/start-a-project" ? 0.9 : 0.8,
+    changeFrequency,
+    priority,
   }));
 }

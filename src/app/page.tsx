@@ -1,341 +1,463 @@
 import Link from "next/link";
 import CTA from "@/components/CTA/CTA";
-import Stats from "@/components/Stats/Stats";
+import FAQ from "@/components/FAQ/FAQ";
+import JsonLd from "@/components/JsonLd";
 import TechStack from "@/components/TechStack/TechStack";
 import Testimonials from "@/components/Testimonials/Testimonials";
-import dynamic from "next/dynamic";
-import { FAQSkeleton } from "@/components/Skeleton/Skeleton";
+import { SITE_CONFIG } from "@/lib/constants";
+import { FAQ_ITEMS } from "@/lib/faq-data";
+import {
+  createPageMetadata,
+  faqPageSchema,
+  speakableSchema,
+  webPageSchema,
+} from "@/lib/seo";
 import styles from "./page.module.css";
 
-const FAQ = dynamic(() => import("@/components/FAQ/FAQ"), {
-  ssr: false,
-  loading: () => <FAQSkeleton />,
+export const metadata = createPageMetadata({
+  title: "Web Development & Student Project Solutions",
+  description: SITE_CONFIG.description,
+  path: "/",
 });
 
-export const metadata = {
-  title: "Custom Engineering Projects Built For You | ProjectKaro",
-  description:
-    "We build custom engineering projects based on your abstract. Get complete code, hardware, and academic documentation for final year and mini projects. 100% viva support.",
-  keywords: [
-    "custom engineering projects",
-    "buy final year projects",
-    "paid project help",
-    "project completion service",
-    "academic project developers",
-    "projects for engineering students",
-    "real world student projects",
-    "IoT project development",
-    "computer science projects",
-  ],
-  openGraph: {
-    title: "Get Your Engineering Project Built & Delivered | ProjectKaro",
-    description: "Submit your abstract -> We build it -> You get code, report & viva support. Stress-free project completion for students.",
-    type: "website",
+const SERVICES_MARQUEE = [
+  "Website Development",
+  "Personal Portfolio Sites",
+  "Full Stack Applications",
+  "AI Solutions",
+  "Student Major Projects",
+  "Student Minor Projects",
+  "Research Projects",
+  "Startup MVP",
+  "Business Websites",
+  "Technical Consulting",
+];
+
+const ALL_SERVICES = [
+  {
+    title: "Website Development",
+    description: "Custom responsive websites, fast and production-ready.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+      </svg>
+    ),
   },
-};
+  {
+    title: "Personal Portfolio",
+    description: "Portfolios that impress employers and recruiters.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Full Stack Apps",
+    description: "End-to-end apps with frontend, backend, and database.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" />
+      </svg>
+    ),
+  },
+  {
+    title: "AI Solutions",
+    description: "ML models, automation, and AI-powered features.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" /><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
+      </svg>
+    ),
+  },
+  {
+    title: "Major Projects",
+    description: "Complete final-year project from code to documentation.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Minor Projects",
+    description: "Semester and lab submissions with clean code in 2–5 days.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><line x1="10" y1="9" x2="8" y2="9" />
+      </svg>
+    ),
+  },
+  {
+    title: "Research Projects",
+    description: "Structured research with methodology, analysis, and docs.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </svg>
+    ),
+  },
+  {
+    title: "Startup MVP",
+    description: "Rapid MVP to validate your idea and get to market faster.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" /><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+      </svg>
+    ),
+  },
+  {
+    title: "Business Websites",
+    description: "Professional sites with SEO, forms, and lead generation.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    ),
+  },
+  {
+    title: "Technical Consulting",
+    description: "Expert guidance on architecture, stack, and strategy.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3" /><path d="M19.07 4.93l-1.41 1.41M4.93 19.07l1.41-1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2" />
+      </svg>
+    ),
+  },
+];
+
+const PROCESS = [
+  { num: "01", title: "Submit", desc: "Share your requirements, abstract, or brief." },
+  { num: "02", title: "Proposal", desc: "Fixed price and timeline within 24 hours." },
+  { num: "03", title: "Build", desc: "We develop with milestone updates." },
+  { num: "04", title: "Deliver", desc: "Full handover with documentation and support." },
+];
 
 export default function HomePage() {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "EducationalOrganization",
-    "name": "ProjectKaro",
-    "description": "Academic project execution platform for engineering students",
-    "url": "https://projectkaro.com",
-    "logo": "https://projectkaro.com/logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/projectkaro",
-      "https://instagram.com/projectkaro"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Customer Service",
-      "email": "contact@projectkaro.com",
-      "availableLanguage": ["English", "Hindi"]
-    },
-    "areaServed": "IN",
-    "serviceType": ["Academic Project Support", "Engineering Project Mentorship", "IoT Project Development"],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "500"
-    }
-  };
+  const pageTitle = "Web Development & Student Project Solutions";
 
   return (
     <>
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/",
+            title: pageTitle,
+            description: SITE_CONFIG.description,
+          }),
+          faqPageSchema(FAQ_ITEMS),
+          speakableSchema({
+            path: "/",
+            cssSelectors: ["#hero-summary", "#site-definition"],
+          }),
+        ]}
       />
-      {/* Hero - Premium, conversion-focused design */}
+
+      {/* ── HERO ─────────────────────────────────────── */}
       <section className={styles.hero} aria-labelledby="hero-heading">
-        <div className={styles.heroBg} aria-hidden="true" />
-        <div className={styles.heroContent}>
+        {/* Animated background */}
+        <div className={styles.heroBg} aria-hidden="true">
+          <div className={styles.orb1} />
+          <div className={styles.orb2} />
+          <div className={styles.orb3} />
+          <div className={styles.gridLines} />
+        </div>
+
+        {/* Main content */}
+        <div className={styles.heroBody}>
           <div className="container">
-            {/* Trust Badge */}
-            <div className={styles.trustBadge}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              <span>Trusted by 500+ Engineering Students</span>
+            {/* Live badge */}
+            <div className={styles.badge}>
+              <span className={styles.badgePulse} aria-hidden="true" />
+              Web Development · Student Projects · AI Solutions
             </div>
 
-            {/* Main Headline */}
-            <h1 id="hero-heading" className={styles.heroTitle}>
-              University Projects?{" "}
-              <span className={styles.heroTitleAccent}>Consider It Done.</span>
+            {/* Headline */}
+            <h1 id="hero-heading" className={styles.headline}>
+              Websites &amp; projects,
+              <br />
+              <span className={styles.gradientText}>built to perfection.</span>
             </h1>
 
-            {/* Value Proposition */}
-            <p className={styles.heroSubtext}>
-              Skip the all-nighters. We build your complete engineering project from scratch—code, hardware, and the documentation. You just ace the viva.
+            {/* Sub */}
+            <p id="hero-summary" className={styles.heroSub}>
+              ProjectKaro builds professional websites, full-stack applications, and complete student projects in India — delivered on time with fixed pricing and full documentation.
             </p>
 
-            {/* Social Proof Stats */}
-            <div className={styles.heroStats}>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatNumber}>100+</div>
-                <div className={styles.heroStatLabel}>Projects Completed</div>
-              </div>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatNumber}>2 Days</div>
-                <div className={styles.heroStatLabel}>Project Delivery</div>
-              </div>
-              <div className={styles.heroStat}>
-                <div className={styles.heroStatNumber}>20+</div>
-                <div className={styles.heroStatLabel}>Tech Stacks</div>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className={styles.heroCta}>
-              <Link href="/start-a-project" className="btn btn--primary btn--large">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4v16m8-8H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            {/* CTAs */}
+            <div className={styles.heroCtas}>
+              <Link href="/start-a-project" className={styles.ctaPrimary}>
+                Get a Free Quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
-                Start Your Project Now
               </Link>
-              <Link href="/how-it-works" className="btn btn--secondary btn--large">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                  <polygon points="10,8 16,12 10,16" fill="currentColor" />
-                </svg>
-                See How It Works
+              <Link href="/projects" className={styles.ctaGhost}>
+                Explore Services
               </Link>
             </div>
 
-            {/* Trust Indicators */}
-            <div className={styles.heroTrust}>
-              <div className={styles.heroTrustItem}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span>No upfront payment</span>
+            {/* Trust row */}
+            <div className={styles.trustRow} aria-label="Key promises">
+              <span>✓ Free consultation</span>
+              <span>✓ Fixed pricing</span>
+              <span>✓ On-time delivery</span>
+              <span>✓ Full documentation</span>
+            </div>
+          </div>
+
+          {/* Scrolling service pills */}
+          <div className={styles.marquee} aria-hidden="true">
+            <div className={styles.marqueeTrack}>
+              {[...SERVICES_MARQUEE, ...SERVICES_MARQUEE].map((s, i) => (
+                <span key={i} className={styles.pill}>{s}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats bar pinned at bottom */}
+        <div className={styles.statsBar}>
+          <div className="container">
+            <div className={styles.statsRow}>
+              <div className={styles.stat}>
+                <span className={styles.statNum}>60+</span>
+                <span className={styles.statLabel}>College Projects</span>
               </div>
-              <div className={styles.heroTrustItem}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span>Free project consultation</span>
+              <div className={styles.stat}>
+                <span className={styles.statNum}>300+</span>
+                <span className={styles.statLabel}>Happy Clients</span>
               </div>
-              <div className={styles.heroTrustItem}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span>Academic-focused approach</span>
+              <div className={styles.stat}>
+                <span className={styles.statNum}>10</span>
+                <span className={styles.statLabel}>Services Offered</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statNum}>24h</span>
+                <span className={styles.statLabel}>Response Time</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Stats />
-
-      {/* Who It's For - Gen Z Vibe */}
-      <section className={`section section--alt ${styles.section}`} aria-labelledby="who-heading">
+      {/* ── DIRECT ANSWER (AEO / GEO) ─────────────────── */}
+      <section className={styles.definition} aria-labelledby="definition-heading">
         <div className="container">
-          <p className={styles.eyebrow}>Is this you?</p>
-          <h2 id="who-heading" className={styles.sectionTitle}>
-            We built this for students who just want it done.
-          </h2>
-          <ul className={styles.cardList} role="list">
-            <li className={styles.card}>
-              <div className={styles.cardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3>Final Year Pressure?</h3>
-              <p>Deadlines are close, and you have zero code? We&apos;ll handle the entire build.</p>
-            </li>
-            <li className={styles.card}>
-              <div className={styles.cardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" />
-                  <line x1="2" y1="7" x2="22" y2="7" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="12" cy="16" r="1" fill="currentColor" />
-                  <path d="M8 21H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M12 16V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <h3>Need a Portfolio Boost?</h3>
-              <p>Get a killer project that actually looks good on your resume (and LinkedIn).</p>
-            </li>
-            <li className={styles.card}>
-              <div className={styles.cardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3>Stuck on Errors?</h3>
-              <p>Tried building it yourself but nothing works? We fix, finish, and deliver.</p>
-            </li>
-          </ul>
+          <div className={styles.definitionInner}>
+            <h2 id="definition-heading" className={styles.definitionTitle}>
+              What is ProjectKaro?
+            </h2>
+            <p id="site-definition" className={styles.definitionText}>
+              ProjectKaro is a professional web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work — with a clear scope, fixed quote, and on-time delivery.
+            </p>
+            <div className={styles.definitionLinks}>
+              <Link href="/about">About us</Link>
+              <Link href="/how-it-works">How it works</Link>
+              <Link href="/projects">All services</Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className={`section ${styles.section}`} aria-labelledby="offer-heading">
+      {/* ── WHAT WE DO ────────────────────────────────── */}
+      <section className={styles.whatWeDo} aria-labelledby="whatwedo-h">
         <div className="container">
-          <p className={styles.eyebrow}>What we do</p>
-          <h2 id="offer-heading" className={styles.sectionTitle}>
-            Everything you need to pass
-          </h2>
-          <ul className={styles.cardListOffer} role="list">
-            <li className={styles.cardOffer}>
-              <div className={styles.cardOfferIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>What We Do</p>
+            <h2 id="whatwedo-h" className={styles.sectionHeading}>
+              Our core services
+            </h2>
+            <p className={styles.whatWeDoSub}>
+              Websites, student projects, and research work — we handle the full build from start to finish, so you can focus on what matters.
+            </p>
+          </div>
+
+          <div className={styles.pillarsGrid}>
+            {/* Web Development */}
+            <div className={`${styles.pillarCard} ${styles.pillarCardBlue}`}>
+              <div className={styles.pillarIconWrap} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
                 </svg>
               </div>
-              <h3>Mini Projects</h3>
-              <p>Quick Semester projects. Done in days, not weeks. Perfect for lab submissions.</p>
-            </li>
-            <li className={styles.cardOffer}>
-              <div className={styles.cardOfferIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <h3 className={styles.pillarTitle}>Web Development</h3>
+              <p className={styles.pillarDesc}>
+                Professional websites and applications built from the ground up. For businesses, freelancers, and startups who need something that actually works in production.
+              </p>
+              <ul className={styles.pillarBullets}>
+                {["Business Websites", "Personal Portfolios", "Full Stack Applications", "Startup MVPs", "AI-Powered Products"].map(s => (
+                  <li key={s}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/start-a-project" className={`${styles.pillarBtn} ${styles.pillarBtnBlue}`}>
+                Start a web project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Student Projects */}
+            <div className={`${styles.pillarCard} ${styles.pillarCardViolet}`}>
+              <div className={`${styles.pillarIconWrap} ${styles.pillarIconViolet}`} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" />
                 </svg>
               </div>
-              <h3>Major / Final Year</h3>
-              <p>The big one. We handle the code and implementation. Thesis and PPTs available as upgrades.</p>
-            </li>
-            <li className={styles.cardOffer}>
-              <div className={styles.cardOfferIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2" />
-                  <line x1="8" y1="6" x2="8" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="12" y1="6" x2="12" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <line x1="16" y1="6" x2="16" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  <path d="M6 12h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <h3 className={styles.pillarTitle}>Student Projects</h3>
+              <p className={styles.pillarDesc}>
+                Submit your project brief and we handle everything — implementation, report, and viva prep. Delivered clean, on time, every time.
+              </p>
+              <ul className={`${styles.pillarBullets} ${styles.pillarBulletsViolet}`}>
+                {["Final Year / Major Projects", "Minor & Semester Projects", "Lab & Assignment Work", "Viva Preparation Support"].map(s => (
+                  <li key={s}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/start-a-project" className={`${styles.pillarBtn} ${styles.pillarBtnViolet}`}>
+                Submit your project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Research Projects */}
+            <div className={`${styles.pillarCard} ${styles.pillarCardGreen}`}>
+              <div className={`${styles.pillarIconWrap} ${styles.pillarIconGreen}`} aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
               </div>
-              <h3>Resume Projects</h3>
-              <p>Projects that actually get you hired. Modern tech stacks, deployed and live.</p>
-            </li>
-            <li className={styles.cardOffer}>
-              <div className={styles.cardOfferIcon}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M1.42 9a16 16 0 0 1 21.16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <line x1="12" y1="20" x2="12.01" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <h3 className={styles.pillarTitle}>Research Projects</h3>
+              <p className={styles.pillarDesc}>
+                Structured academic research with proper methodology, analysis, and formatted documentation — ready for submission and presentation.
+              </p>
+              <ul className={`${styles.pillarBullets} ${styles.pillarBulletsGreen}`}>
+                {["Methodology & Literature Review", "Data Collection & Analysis", "IEEE Format Reports", "Thesis Documentation", "Presentation Support"].map(s => (
+                  <li key={s}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/start-a-project" className={`${styles.pillarBtn} ${styles.pillarBtnGreen}`}>
+                Start a research project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
-              </div>
-              <h3>IoT & Hardware</h3>
-              <p>Sensors, Arduino, ESP32? We build the physical kit and ship the code.</p>
-            </li>
-          </ul>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Why ProjectKaro - modern grid */}
-      <section className={`section section--alt ${styles.section} ${styles.whySection}`} aria-labelledby="why-heading">
+      {/* ── ALL SERVICES ──────────────────────────────── */}
+      <section className={styles.services} aria-labelledby="services-h">
         <div className="container">
-          <p className={styles.eyebrow}>Why ProjectKaro</p>
-          <h2 id="why-heading" className={styles.sectionTitle}>
-            Why students choose us?
-          </h2>
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>All Services</p>
+            <h2 id="services-h" className={styles.sectionHeading}>Everything we offer</h2>
+          </div>
+
+          <div className={styles.servicesGrid}>
+            {ALL_SERVICES.map((s) => (
+              <div key={s.title} className={styles.serviceCard}>
+                <div className={styles.serviceCardIcon} aria-hidden="true">
+                  {s.icon}
+                </div>
+                <h3 className={styles.serviceCardTitle}>{s.title}</h3>
+                <p className={styles.serviceCardDesc}>{s.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.servicesFooterRow}>
+            <Link href="/projects" className={styles.servicesViewAll}>
+              View full service details
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROCESS ───────────────────────────────────── */}
+      <section className={styles.process} aria-labelledby="process-h">
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>How It Works</p>
+            <h2 id="process-h" className={styles.sectionHeading}>Simple four-step process</h2>
+          </div>
+          <div className={styles.processSteps}>
+            {PROCESS.map((step, i) => (
+              <div key={step.num} className={styles.processStep}>
+                <span className={styles.processNum}>{step.num}</span>
+                <h3 className={styles.processTitle}>{step.title}</h3>
+                <p className={styles.processDesc}>{step.desc}</p>
+                {i < PROCESS.length - 1 && (
+                  <div className={styles.processArrow} aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className={styles.processFooter}>
+            <Link href="/how-it-works" className={styles.processLink}>
+              See the full process
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY US ────────────────────────────────────── */}
+      <section className={styles.whyUs} aria-labelledby="why-h">
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Why ProjectKaro</p>
+            <h2 id="why-h" className={styles.sectionHeading}>What makes us different</h2>
+          </div>
           <div className={styles.whyGrid}>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 22V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M22 7L17 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 7L7 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+            {[
+              { title: "Experienced developers", desc: "Real-world expertise across web, AI, and academic domains." },
+              { title: "On-time delivery", desc: "Defined milestones. Realistic timelines. Zero missed deadlines." },
+              { title: "Fixed pricing", desc: "Detailed quote before work starts. No hidden costs." },
+              { title: "Production-ready code", desc: "Clean, documented, scalable — industry standards from day one." },
+              { title: "Full documentation", desc: "Technical reports, setup guides, academic papers — all included." },
+              { title: "Dedicated support", desc: "Direct line throughout. Revisions handled without friction." },
+            ].map((item, i) => (
+              <div key={item.title} className={styles.whyCard}>
+                <span className={styles.whyCardNum} aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className={styles.whyCardTitle}>{item.title}</h3>
+                <p className={styles.whyCardDesc}>{item.desc}</p>
               </div>
-              <h3 className={styles.whyCardTitle}>We know the syllabus</h3>
-              <p className={styles.whyCardDesc}>We adhere to university guidelines so your external examiner stays happy.</p>
-            </article>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                  <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className={styles.whyCardTitle}>Fast turnaround</h3>
-              <p className={styles.whyCardDesc}>Running late? We can sprint. Get your project delivered in as little as 2 days.</p>
-            </article>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className={styles.whyCardTitle}>1-on-1 Explanation</h3>
-              <p className={styles.whyCardDesc}>Don&apos;t just buy it, understand it. We explain every line of code for your viva.</p>
-            </article>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className={styles.whyCardTitle}>Quality code</h3>
-              <p className={styles.whyCardDesc}>Clean, documented, and working code. No &quot;it works on my machine&quot; excuses.</p>
-            </article>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className={styles.whyCardTitle}>Student-friendly pricing</h3>
-              <p className={styles.whyCardDesc}>We know student budgets. Fair pricing, no hidden costs.</p>
-            </article>
-            <article className={styles.whyCard}>
-              <div className={styles.whyCardIcon}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                  <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <h3 className={styles.whyCardTitle}>Basic Documentation Included</h3>
-              <p className={styles.whyCardDesc}>We include a standard report. PPTs and IEEE papers are available upgrades.</p>
-            </article>
+            ))}
           </div>
         </div>
       </section>
 
       <Testimonials />
-
       <TechStack />
-
       <FAQ />
-
       <CTA />
     </>
   );

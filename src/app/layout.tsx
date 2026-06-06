@@ -1,38 +1,42 @@
 import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import FloatingCTA from "@/components/FloatingCTA/FloatingCTA";
+import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
+import JsonLd from "@/components/JsonLd";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SEO_KEYWORDS, SITE_CONFIG } from "@/lib/constants";
+import { organizationSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
-const SITE_URL = "https://projectkaro.com";
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-sora",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "ProjectKaro | Your Engineering Project, Sorted.",
+    default: "ProjectKaro | Web Development & Student Project Solutions",
     template: "%s | ProjectKaro",
   },
-  description:
-    "Don't panic about your final year project. We build custom code, hardware, and reports for you. Fast, reliable, and viva-ready.",
-  applicationName: "ProjectKaro",
-  authors: [{ name: "ProjectKaro", url: SITE_URL }],
+  description: SITE_CONFIG.description,
+  applicationName: SITE_CONFIG.name,
+  authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   generator: "Next.js",
-  keywords: [
-    "custom project development",
-    "buy engineering projects",
-    "final year project makers",
-    "pay for project completion",
-    "student project service",
-    "IoT project builders",
-    "ready made projects",
-    "computer science project help",
-    "electronics project sellers",
-    "project documentation service",
-  ],
+  keywords: [...SEO_KEYWORDS],
   referrer: "origin-when-cross-origin",
   creator: "ProjectKaro Team",
-  publisher: "ProjectKaro",
+  publisher: SITE_CONFIG.name,
   formatDetection: {
     email: false,
     address: false,
@@ -40,28 +44,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
-    url: SITE_URL,
-    siteName: "ProjectKaro",
-    title: "ProjectKaro | Custom Engineering Projects Built for You",
-    description:
-      "Submit your abstract and get a fully built project with documentation. Expert project development for engineering students.",
+    locale: SITE_CONFIG.locale,
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: "ProjectKaro | Web Development & Student Project Solutions",
+    description: SITE_CONFIG.description,
     images: [
       {
-        url: "/logo.png",
+        url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: "ProjectKaro - Custom Projects Built & Delivered",
+        alt: `${SITE_CONFIG.name} — Web Development & Student Project Solutions`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProjectKaro | We Build Your Engineering Project",
-    description:
-      "Struggling with your project? We build custom projects from your abstract with full documentation and viva support.",
-    creator: "@projectkaro",
-    images: ["/logo.png"],
+    title: "ProjectKaro | Web Development & Student Project Solutions",
+    description: SITE_CONFIG.description,
+    creator: SITE_CONFIG.twitterHandle,
+    images: [SITE_CONFIG.ogImage],
   },
   robots: {
     index: true,
@@ -73,12 +75,6 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  alternates: {
-    canonical: SITE_URL,
-  },
-  verification: {
-    google: "YOUR_VERIFICATION_CODE_HERE",
   },
   icons: {
     icon: "/favicon.svg",
@@ -92,12 +88,15 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "ProjectKaro",
+    title: SITE_CONFIG.name,
+  },
+  other: {
+    "ai-content-declaration": "human-authored",
   },
 };
 
 export const viewport = {
-  themeColor: "#0b0b12",
+  themeColor: "#080c14",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -109,16 +108,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN" className={`${inter.variable} ${sora.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700;800&family=Orbitron:wght@900&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
@@ -126,6 +121,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <FloatingCTA />
+        <GoogleAnalytics />
         <SpeedInsights />
       </body>
     </html>

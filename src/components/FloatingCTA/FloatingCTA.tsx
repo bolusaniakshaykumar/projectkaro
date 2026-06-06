@@ -25,14 +25,15 @@ export default function FloatingCTA() {
         <Link
             href="/start-a-project"
             className={`${styles.floatingBtn} ${isVisible ? styles.visible : ""}`}
-            aria-label="Start a Project"
+            aria-label="Get a free quote"
         >
             <div className={styles.iconWrapper}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4v16m8-8H4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
                 </svg>
             </div>
-            <span className={styles.label}>Start a Project</span>
+            <span className={styles.label}>Get a Free Quote</span>
         </Link>
     );
 }

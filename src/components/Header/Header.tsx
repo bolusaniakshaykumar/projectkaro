@@ -8,10 +8,10 @@ import styles from "./Header.module.css";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
+  { href: "/projects", label: "Services" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
-  { href: "/start-a-project", label: "Start a Project" },
+  { href: "/start-a-project", label: "Get a Quote" },
 ];
 
 export default function Header() {

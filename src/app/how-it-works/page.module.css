@@ -1,150 +1,145 @@
-.title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
+.header {
   text-align: center;
-  color: #fff;
-  margin-bottom: 1.5rem;
-}
-
-.intro {
   max-width: 700px;
-  margin: 0 auto 5rem;
-  font-size: 1.125rem;
-  line-height: 1.6;
-  text-align: center;
-  color: var(--color-text-muted);
+  margin: 0 auto 4rem;
 }
 
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-/* Vertical line */
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 2rem;
-  /* Mobile alignment */
-  width: 2px;
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      var(--color-accent) 15%,
-      var(--color-accent) 85%,
-      transparent 100%);
-}
-
-@media (min-width: 768px) {
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.step {
-  position: relative;
-  margin-bottom: 4rem;
-  display: flex;
-  justify-content: flex-end;
-  /* All right by default on mobile (but using flex-row for specific layout) */
-}
-
-/* Step Number/Icon container */
-.stepMarker {
-  position: absolute;
-  left: 2rem;
-  transform: translateX(-50%);
-  width: 3rem;
-  height: 3rem;
-  background: var(--color-bg);
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
+.eyebrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  gap: 0.625rem;
+  margin: 0 0 1rem;
+  font-size: 0.6875rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--color-accent);
-  font-family: var(--font-heading);
-  box-shadow: 0 0 0 4px var(--color-bg);
-  /* Mask line behind */
 }
 
-@media (min-width: 768px) {
-  .stepMarker {
-    left: 50%;
-    width: 4rem;
-    height: 4rem;
-    font-size: 1.25rem;
-  }
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.875rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* Timeline */
+.timeline {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+.stepLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.stepMarker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  border: 2px solid var(--color-accent);
+  flex-shrink: 0;
+}
+
+.stepNumber {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.stepConnector {
+  width: 2px;
+  flex: 1;
+  min-height: 2.5rem;
+  background: linear-gradient(to bottom, var(--color-accent), rgba(96, 165, 250, 0.1));
+  margin: 0.5rem 0;
 }
 
 .stepContent {
-  width: calc(100% - 4rem);
-  /* Space for marker on mobile */
-  margin-left: 4rem;
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  transition: transform 0.3s ease;
+  flex: 1;
+  padding-bottom: 3rem;
 }
 
-.stepContent:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
-  background: rgba(30, 41, 59, 0.6);
+.stepIconTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-bottom: 0.875rem;
+}
+
+.stepIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 .stepTitle {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  color: var(--color-text);
+  margin: 0;
 }
 
 .stepDesc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  margin-bottom: 0.875rem;
 }
 
-/* Desktop Alternating Layout */
-@media (min-width: 768px) {
-  .step {
-    justify-content: center;
-    /* Centered relative to container, content pushed by width */
-    width: 100%;
-  }
-
-  .stepContent {
-    width: 42%;
-    /* Less than half */
-    margin: 0;
-  }
-
-  /* Odd steps: Left side */
-  .step:nth-child(odd) .stepContent {
-    margin-right: auto;
-    text-align: right;
-  }
-
-  .step:nth-child(odd) .stepTitle {
-    justify-content: flex-end;
-  }
-
-  /* Even steps: Right side */
-  .step:nth-child(even) .stepContent {
-    margin-left: auto;
-    text-align: left;
-  }
+.stepNote {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-success);
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: var(--radius-full);
+  padding: 0.375rem 0.875rem;
 }
