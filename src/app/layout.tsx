@@ -78,7 +78,10 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/logo.png",
     other: {
@@ -87,7 +90,6 @@ export const metadata: Metadata = {
     },
   },
   appleWebApp: {
-    capable: true,
     statusBarStyle: "default",
     title: SITE_CONFIG.name,
   },
@@ -112,6 +114,7 @@ export default function RootLayout({
     <html lang="en-IN" className={`${inter.variable} ${sora.variable}`}>
       <head>
         <link rel="llms-txt" href="/llms.txt" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
