@@ -1,9 +1,14 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import CTA from "@/components/CTA/CTA";
-import FAQ from "@/components/FAQ/FAQ";
 import JsonLd from "@/components/JsonLd";
-import TechStack from "@/components/TechStack/TechStack";
-import Testimonials from "@/components/Testimonials/Testimonials";
+import { FAQSkeleton } from "@/components/Skeleton/Skeleton";
+
+const FAQ = dynamic(() => import("@/components/FAQ/FAQ"), {
+  loading: () => <FAQSkeleton />,
+});
+const TechStack = dynamic(() => import("@/components/TechStack/TechStack"));
+const Testimonials = dynamic(() => import("@/components/Testimonials/Testimonials"));
 import { SITE_CONFIG } from "@/lib/constants";
 import { FAQ_ITEMS } from "@/lib/faq-data";
 import {

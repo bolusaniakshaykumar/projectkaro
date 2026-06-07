@@ -28,7 +28,7 @@ export default function Header() {
               alt="ProjectKaro academic project platform logo"
               width={180}
               height={45}
-              priority
+              sizes="(max-width: 768px) 140px, 180px"
               className={styles.logoImage}
             />
           </Link>

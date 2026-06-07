@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import styles from "./TechStack.module.css";
 
 // Using simpleicons.org CDN for consistent SVGs
@@ -64,30 +63,32 @@ export default function TechStack() {
                         {/* Set 1 */}
                         {TECH_STACK.map((tech) => (
                             <div key={tech.name} className={styles.logoItem}>
-                                <img
+                                <Image
                                     src={`${ICON_BASE_URL}/${tech.slug}`}
                                     alt=""
-                                    aria-hidden="true"
+                                    aria-hidden
                                     className={styles.logo}
                                     width={40}
                                     height={40}
+                                    sizes="40px"
                                     loading="lazy"
-                                    decoding="async"
+                                    unoptimized
                                 />
                             </div>
                         ))}
                         {/* Set 2 (Duplicate for loop) */}
                         {TECH_STACK.map((tech) => (
                             <div key={`${tech.name}-duplicate`} className={styles.logoItem}>
-                                <img
+                                <Image
                                     src={`${ICON_BASE_URL}/${tech.slug}`}
                                     alt=""
-                                    aria-hidden="true"
+                                    aria-hidden
                                     className={styles.logo}
                                     width={40}
                                     height={40}
+                                    sizes="40px"
                                     loading="lazy"
-                                    decoding="async"
+                                    unoptimized
                                 />
                             </div>
                         ))}

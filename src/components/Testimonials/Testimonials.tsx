@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./Testimonials.module.css";
 
 const REVIEWS = [

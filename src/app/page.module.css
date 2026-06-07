@@ -28,8 +28,13 @@
   max-height: 800px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(79, 142, 247, 0.22) 0%, transparent 65%);
-  animation: orbDrift1 18s ease-in-out infinite;
-  will-change: transform;
+}
+
+@media (min-width: 769px) {
+  .orb1 {
+    animation: orbDrift1 18s ease-in-out infinite;
+    will-change: transform;
+  }
 }
 
 .orb2 {
@@ -42,8 +47,13 @@
   max-height: 700px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(167, 139, 250, 0.18) 0%, transparent 65%);
-  animation: orbDrift2 22s ease-in-out infinite;
-  will-change: transform;
+}
+
+@media (min-width: 769px) {
+  .orb2 {
+    animation: orbDrift2 22s ease-in-out infinite;
+    will-change: transform;
+  }
 }
 
 .orb3 {
@@ -56,8 +66,13 @@
   max-height: 600px;
   border-radius: 50%;
   background: radial-gradient(circle at center, rgba(34, 211, 238, 0.1) 0%, transparent 65%);
-  animation: orbDrift3 26s ease-in-out infinite;
-  will-change: transform;
+}
+
+@media (min-width: 769px) {
+  .orb3 {
+    animation: orbDrift3 26s ease-in-out infinite;
+    will-change: transform;
+  }
 }
 
 @keyframes orbDrift1 {
@@ -271,7 +286,12 @@
   display: flex;
   gap: 0.75rem;
   width: max-content;
-  animation: marquee 35s linear infinite;
+}
+
+@media (min-width: 769px) {
+  .marqueeTrack {
+    animation: marquee 35s linear infinite;
+  }
 }
 
 @keyframes marquee {
