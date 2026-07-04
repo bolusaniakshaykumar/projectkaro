@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "How It Works",
   description:
-    "ProjectKaro's four-step process: submit your requirements, receive a fixed quote within 24 hours, approve the proposal, and get your project delivered with full documentation and support.",
+    "ProjectKaro (Project Karo) four-step process: submit your requirements, receive a fixed quote within 24 hours, approve the proposal, and get your project delivered with full documentation and support.",
   path: "/how-it-works",
 });
 

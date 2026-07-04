@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { CONTACT_INFO, SERVICE_TYPES, SITE_CONFIG } from "./constants";
+import { BRAND_KEYWORDS, CONTACT_INFO, SERVICE_TYPES, SITE_CONFIG } from "./constants";
 import type { FaqItem } from "./faq-data";
 
 const OG_IMAGE = {
   url: "/opengraph-image",
   width: 1200,
   height: 630,
-  alt: `${SITE_CONFIG.name} — Web Development & Student Project Solutions`,
+  alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) — Web Development & Student Project Solutions`,
 };
 
 export function absoluteUrl(path = ""): string {
   return `${SITE_CONFIG.url}${path}`;
+}
+
+/** Merge page-specific keywords with global brand terms (deduplicated) */
+export function withBrandKeywords(keywords?: string[]): string[] {
+  const merged = keywords ? [...keywords, ...BRAND_KEYWORDS] : [...BRAND_KEYWORDS];
+  return Array.from(new Set(merged));
 }
 
 export function createPageMetadata({
@@ -31,14 +37,18 @@ export function createPageMetadata({
   return {
     title,
     description,
-    keywords,
-    alternates: {
-      canonical: url,
-    },
+    keywords: withBrandKeywords(keywords),
+    ...(noIndex
+      ? {}
+      : {
+          alternates: {
+            canonical: url,
+          },
+        }),
     openGraph: {
       type: "website",
       locale: "en_IN",
-      url,
+      url: noIndex ? undefined : url,
       siteName: SITE_CONFIG.name,
       title,
       description,
@@ -69,6 +79,8 @@ export function organizationSchema() {
     "@type": "ProfessionalService",
     "@id": `${SITE_CONFIG.url}/#organization`,
     name: SITE_CONFIG.name,
+    alternateName: [...SITE_CONFIG.alternateNames],
+    disambiguatingDescription: `${SITE_CONFIG.name} and ${SITE_CONFIG.alternateName} refer to the same web development and student project studio at ${SITE_CONFIG.url}.`,
     url: SITE_CONFIG.url,
     logo: absoluteUrl("/logo.png"),
     image: absoluteUrl("/opengraph-image"),
@@ -78,7 +90,7 @@ export function organizationSchema() {
       "@type": "Country",
       name: "India",
     },
-    knowsAbout: [...SERVICE_TYPES],
+    knowsAbout: [...SERVICE_TYPES, "Project Karo", "ProjectKaro"],
     serviceType: [...SERVICE_TYPES],
     contactPoint: {
       "@type": "ContactPoint",
@@ -88,7 +100,7 @@ export function organizationSchema() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "ProjectKaro Services",
+      name: `${SITE_CONFIG.name} Services`,
       itemListElement: SERVICE_TYPES.map((service, index) => ({
         "@type": "Offer",
         position: index + 1,
@@ -109,6 +121,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": `${SITE_CONFIG.url}/#website`,
     name: SITE_CONFIG.name,
+    alternateName: [...SITE_CONFIG.alternateNames],
     url: SITE_CONFIG.url,
     description: SITE_CONFIG.description,
     publisher: { "@id": `${SITE_CONFIG.url}/#organization` },
@@ -182,7 +195,7 @@ export function speakableSchema({
 
 export function howToSchema(
   steps: Array<{ name: string; text: string }>,
-  name = "How to get a project built with ProjectKaro"
+  name = `How to get a project built with ${SITE_CONFIG.name} (Project Karo)`
 ) {
   return {
     "@context": "https://schema.org",
@@ -205,7 +218,7 @@ export function serviceListSchema(
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "ProjectKaro Services",
+    name: `${SITE_CONFIG.name} Services`,
     itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,

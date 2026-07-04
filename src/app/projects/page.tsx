@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "Our Services",
   description:
-    "Explore ProjectKaro's services: website development, portfolio websites, full-stack applications, AI solutions, student major and minor projects, research projects, startup MVPs, business websites, and technical consulting.",
+    "Explore ProjectKaro (Project Karo) services: website development, portfolio websites, full-stack applications, AI solutions, student major and minor projects, research projects, startup MVPs, business websites, and technical consulting.",
   path: "/projects",
 });
 

@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.name} — Web Development & Student Project Solutions`,
+        alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) — Web Development & Student Project Solutions`,
       },
     ],
   },

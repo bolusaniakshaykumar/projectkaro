@@ -10,6 +10,16 @@ export const FAQ_ITEMS: FaqItem[] = [
       "ProjectKaro is a professional web development and student project studio in India. We build business websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects including major projects, minor projects, and research work — with fixed pricing and on-time delivery.",
   },
   {
+    question: "What is Project Karo?",
+    answer:
+      "Project Karo is the same studio as ProjectKaro — many people search with a space between the words. Project Karo (projectkaro.com) offers professional website development, full-stack applications, and complete student project delivery across India with fixed pricing and on-time delivery.",
+  },
+  {
+    question: "Is Project Karo the same as ProjectKaro?",
+    answer:
+      "Yes. Project Karo and ProjectKaro are the same company at projectkaro.com. ProjectKaro is the official brand name; Project Karo is a common way people type the name in Google searches. Both refer to our web development and student project services in India.",
+  },
+  {
     question: "What types of projects do you take on?",
     answer:
       "We work across web development (websites, full-stack applications, portfolio sites, business websites, startup MVPs) and student projects (major final-year projects, minor semester projects, research projects). We also offer AI solution development and technical consulting.",
@@ -55,8 +65,8 @@ export const FAQ_ITEMS: FaqItem[] = [
       "We offer post-delivery support for any issues or questions that arise from the delivered project. For web projects, we can discuss ongoing maintenance. For student projects, we remain available until your submission or presentation is complete.",
   },
   {
-    question: "How do I get started with ProjectKaro?",
+    question: "How do I get started with ProjectKaro or Project Karo?",
     answer:
-      "Visit the Get a Free Quote page, fill in your project details, and our team will respond within 24 hours with a structured proposal. There is no commitment required to receive a quote.",
+      "Visit the Get a Free Quote page at projectkaro.com/start-a-project, fill in your project details, and our team will respond within 24 hours with a structured proposal. There is no commitment required to receive a quote.",
   },
 ];

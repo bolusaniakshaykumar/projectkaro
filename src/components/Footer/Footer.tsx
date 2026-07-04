@@ -21,14 +21,14 @@ export default function Footer() {
             <Link href="/" className={styles.logo}>
               <Image
                 src="/logo.png"
-                alt="ProjectKaro — Web Development & Student Project Solutions"
+                alt="ProjectKaro (Project Karo) — Web Development & Student Project Solutions"
                 width={150}
                 height={38}
                 className={styles.logoImage}
               />
             </Link>
             <p className={styles.tagline}>
-              Professional web development and complete student project delivery — built with quality, delivered on time.
+              ProjectKaro (Project Karo) — professional web development and complete student project delivery across India. Built with quality, delivered on time.
             </p>
           </div>
           <nav className={styles.nav} aria-label="Footer navigation">

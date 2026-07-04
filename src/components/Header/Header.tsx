@@ -22,10 +22,10 @@ export default function Header() {
     <header className={styles.header} role="banner">
       <div className="container">
         <div className={styles.inner}>
-          <Link href="/" className={styles.logo} aria-label="ProjectKaro home">
+          <Link href="/" className={styles.logo} aria-label="ProjectKaro home — also known as Project Karo">
             <Image
               src="/logo.png"
-              alt="ProjectKaro academic project platform logo"
+              alt="ProjectKaro (Project Karo) academic project platform logo"
               width={180}
               height={45}
               sizes="(max-width: 768px) 140px, 180px"

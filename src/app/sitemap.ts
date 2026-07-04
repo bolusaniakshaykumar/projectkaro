@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${SITE_CONFIG.url}${path}`,
+    url: path ? `${SITE_CONFIG.url}${path}` : `${SITE_CONFIG.url}/`,
     lastModified: new Date(),
     changeFrequency,
     priority,

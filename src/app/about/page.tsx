@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "About Us",
   description:
-    "ProjectKaro is a professional development studio in India focused on websites, full-stack applications, and complete student project delivery. Learn about our mission, values, and approach.",
+    "ProjectKaro (Project Karo) is a professional development studio in India focused on websites, full-stack applications, and complete student project delivery. Learn about our mission, values, and approach.",
   path: "/about",
 });
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 <span className={styles.heroAccent}>on time — every time</span>
               </h1>
               <p className={styles.heroSubtitle}>
-                ProjectKaro is a professional development studio built around two core offerings: websites and web applications for businesses and individuals, and complete project delivery for students. We pair technical depth with a structured, transparent process so every engagement ends with a result you can be proud of.
+                ProjectKaro — also known as Project Karo — is a professional development studio built around two core offerings: websites and web applications for businesses and individuals, and complete project delivery for students. We pair technical depth with a structured, transparent process so every engagement ends with a result you can be proud of.
               </p>
               <div className={styles.heroActions}>
                 <Link href="/start-a-project" className={styles.heroCta}>

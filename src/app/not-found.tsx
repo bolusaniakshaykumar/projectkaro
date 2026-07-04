@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Page Not Found",
   description: "The page you are looking for does not exist on ProjectKaro.",
-  path: "/404",
+  path: "/",
   noIndex: true,
 });
 

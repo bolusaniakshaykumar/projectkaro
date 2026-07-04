@@ -1,15 +1,31 @@
 // Shared constants and configuration
 export const SITE_CONFIG = {
   name: 'ProjectKaro',
+  /** Common spaced spelling people search on Google */
+  alternateName: 'Project Karo',
+  alternateNames: ['Project Karo', 'Project Karo India', 'project karo'] as const,
   description:
-    'ProjectKaro is a professional web development and student project studio in India. We build websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects with fixed pricing and on-time delivery.',
+    'ProjectKaro — also known as Project Karo — is a professional web development and student project studio in India. We build websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects with fixed pricing and on-time delivery.',
   url: 'https://projectkaro.com',
   ogImage: '/opengraph-image',
   locale: 'en_IN',
   twitterHandle: '@projectkaro',
 } as const;
 
+/** Brand + service keywords for metadata (SEO, entity, brand SERP) */
+export const BRAND_KEYWORDS = [
+  'ProjectKaro',
+  'Project Karo',
+  'Project Karo India',
+  'project karo',
+  'project karo website',
+  'project karo student projects',
+  'project karo web development',
+  'ProjectKaro India',
+] as const;
+
 export const SEO_KEYWORDS = [
+  ...BRAND_KEYWORDS,
   'web development india',
   'website development service',
   'student major project help',

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export const runtime = "edge";
-export const alt = `${SITE_CONFIG.name} — Web Development & Student Project Solutions`;
+export const alt = `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) — Web Development & Student Project Solutions`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             marginBottom: 24,
           }}
         >
-          {SITE_CONFIG.name}
+          {SITE_CONFIG.name} · {SITE_CONFIG.alternateName}
         </div>
         <div
           style={{
