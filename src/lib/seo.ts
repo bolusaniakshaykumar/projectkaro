@@ -202,7 +202,7 @@ export function howToSchema(
     "@type": "HowTo",
     name,
     description:
-      "A four-step process to submit requirements, receive a fixed quote, build your project, and get full delivery with documentation.",
+      "A four-step process to submit requirements, receive a detailed quote, build your project, and get full delivery with documentation.",
     step: steps.map((step, index) => ({
       "@type": "HowToStep",
       position: index + 1,

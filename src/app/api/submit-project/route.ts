@@ -43,6 +43,7 @@ export async function POST(request: Request) {
     const email = (formData.get("email") as string)?.trim() || "";
     const phone = (formData.get("phone") as string)?.trim() || "";
     const projectTitle = (formData.get("projectTitle") as string)?.trim() || "";
+    const projectType = (formData.get("projectType") as string)?.trim() || "";
     const message = (formData.get("message") as string)?.trim() || "";
     const abstract = formData.get("abstract") as File | null;
 
@@ -128,6 +129,7 @@ export async function POST(request: Request) {
         `Email: ${email}`,
         `Phone: ${phone}`,
         `Project Title: ${projectTitle}`,
+        `Project Type: ${projectType || "Not specified"}`,
         ``,
         `Message / Project Description:`,
         message,
@@ -147,6 +149,7 @@ export async function POST(request: Request) {
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Email:</strong> <span style="color:#eaeaf0">${email}</span></p>`,
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Phone:</strong> <span style="color:#eaeaf0">${phone}</span></p>`,
         `<p style="margin:0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle}</span></p>`,
+`<p style="margin:0;color:#9fa1b6"><strong>Project Type:</strong> <span style="color:#eaeaf0">${projectType || "Not specified"}</span></p>`,
         `</div>`,
         `</td></tr>`,
         `<tr><td style="padding:0 24px 16px">`,
@@ -179,7 +182,7 @@ export async function POST(request: Request) {
       `<p style="margin:0 0 16px;color:#b5b6c6;font-size:15px">From Team ProjectKaro</p>`,
       `</td></tr>`,
       `<tr><td style="padding:0 24px 16px">`,
-      `<p style="margin:0;color:#d5d6e6;font-size:15px;line-height:1.6">We’ve received your project submission and will get back to you within <strong>3-6 hours</strong>. Below is a summary of what you sent us:</p>`,
+      `<p style="margin:0;color:#d5d6e6;font-size:15px;line-height:1.6">We’ve received your project submission and will get back to you within <strong>24 hours</strong>. Below is a summary of what you sent us:</p>`,
       `</td></tr>`,
       `<tr><td style="padding:0 24px 16px">`,
       `<div style="background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:16px">`,
@@ -187,6 +190,7 @@ export async function POST(request: Request) {
       `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Email:</strong> <span style="color:#eaeaf0">${email}</span></p>`,
       `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Phone:</strong> <span style="color:#eaeaf0">${phone}</span></p>`,
       `<p style="margin:0 8px 0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle}</span></p>`,
+`<p style="margin:8px 0 0;color:#9fa1b6"><strong>Project Type:</strong> <span style="color:#eaeaf0">${projectType || "Not specified"}</span></p>`,
       `</div>`,
       `</td></tr>`,
       `<tr><td style="padding:0 24px 16px">`,

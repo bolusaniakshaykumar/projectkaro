@@ -9,7 +9,7 @@ interface CTAProps {
 
 export default function CTA({
   title = "Ready to start your project?",
-  description = "Submit your requirements and receive a detailed proposal within 24 hours — fixed price, defined timeline, no surprises.",
+  description = "Submit your requirements and receive a detailed proposal within 24 hours — a detailed quote, defined timeline, no surprises.",
   showButton = true,
 }: CTAProps) {
   return (

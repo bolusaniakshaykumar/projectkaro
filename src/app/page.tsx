@@ -133,7 +133,7 @@ const ALL_SERVICES = [
 
 const PROCESS = [
   { num: "01", title: "Submit", desc: "Share your requirements, abstract, or brief." },
-  { num: "02", title: "Proposal", desc: "Fixed price and timeline within 24 hours." },
+  { num: "02", title: "Proposal", desc: "A detailed quote and timeline within 24 hours — priced for exactly what you need." },
   { num: "03", title: "Build", desc: "We develop with milestone updates." },
   { num: "04", title: "Deliver", desc: "Full handover with documentation and support." },
 ];
@@ -186,7 +186,7 @@ export default function HomePage() {
 
             {/* Sub */}
             <p id="hero-summary" className={styles.heroSub}>
-              ProjectKaro — also known as Project Karo — builds professional websites, full-stack applications, and complete student projects in India. Delivered on time with fixed pricing and full documentation.
+              ProjectKaro — also known as Project Karo — builds professional websites, full-stack applications, and complete student projects in India. Delivered on time with per-project pricing and full documentation.
             </p>
 
             {/* CTAs */}
@@ -205,7 +205,7 @@ export default function HomePage() {
             {/* Trust row */}
             <div className={styles.trustRow} aria-label="Key promises">
               <span>✓ Free consultation</span>
-              <span>✓ Fixed pricing</span>
+              <span>✓ Per-project pricing</span>
               <span>✓ On-time delivery</span>
               <span>✓ Full documentation</span>
             </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
               What is ProjectKaro?
             </h2>
             <p id="site-definition" className={styles.definitionText}>
-              ProjectKaro is a professional web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work — with a clear scope, fixed quote, and on-time delivery.
+              ProjectKaro is a professional web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work — with a clear scope, a detailed quote within 24 hours, and on-time delivery.
             </p>
             <h3 className={styles.definitionSubtitle}>What is Project Karo?</h3>
             <p id="brand-alias" className={styles.definitionText}>
@@ -449,7 +449,7 @@ export default function HomePage() {
             {[
               { title: "Experienced developers", desc: "Real-world expertise across web, AI, and academic domains." },
               { title: "On-time delivery", desc: "Defined milestones. Realistic timelines. Zero missed deadlines." },
-              { title: "Fixed pricing", desc: "Detailed quote before work starts. No hidden costs." },
+              { title: "Transparent per-project pricing", desc: "A detailed quote based on your requirements, before work starts. No hidden costs." },
               { title: "Production-ready code", desc: "Clean, documented, scalable — industry standards from day one." },
               { title: "Full documentation", desc: "Technical reports, setup guides, academic papers — all included." },
               { title: "Dedicated support", desc: "Direct line throughout. Revisions handled without friction." },

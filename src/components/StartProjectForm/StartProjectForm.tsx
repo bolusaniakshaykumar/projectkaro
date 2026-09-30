@@ -43,11 +43,25 @@ const COUNTRY_CODES = [
   { code: "+64", country: "New Zealand", flag: "🇳🇿" },
 ];
 
+const PROJECT_TYPES = [
+  "Website Development",
+  "Personal Portfolio",
+  "Full Stack Application",
+  "Business Website",
+  "Startup MVP",
+  "Student Major Project",
+  "Student Minor Project",
+  "Research Project",
+  "AI Solution",
+  "Technical Consulting",
+];
+
 interface FormErrors {
   fullName?: string;
   email?: string;
   phone?: string;
   projectTitle?: string;
+  projectType?: string;
   message?: string;
   abstract?: string;
 }
@@ -58,6 +72,7 @@ export default function StartProjectForm() {
   const [countryCode, setCountryCode] = useState("+91");
   const [phone, setPhone] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
+  const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const [abstractFile, setAbstractFile] = useState<File | null>(null);
 
@@ -113,6 +128,7 @@ export default function StartProjectForm() {
       newErrors.phone = "Enter a valid phone number.";
     }
     if (!projectTitle.trim()) newErrors.projectTitle = "Project title is required.";
+    if (!projectType) newErrors.projectType = "Please select a project type.";
     if (!message.trim()) newErrors.message = "Project description is required.";
     if (abstractFile) {
       const fileError = validateFile(abstractFile);
@@ -135,6 +151,7 @@ export default function StartProjectForm() {
     formData.append("email", email.trim());
     formData.append("phone", `${countryCode} ${phone.trim()}`);
     formData.append("projectTitle", projectTitle.trim());
+    formData.append("projectType", projectType);
     formData.append("message", message.trim());
     if (abstractFile) formData.append("abstract", abstractFile);
 
@@ -156,6 +173,7 @@ export default function StartProjectForm() {
       setEmail("");
       setPhone("");
       setProjectTitle("");
+      setProjectType("");
       setMessage("");
       setAbstractFile(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -178,7 +196,7 @@ export default function StartProjectForm() {
       <div className={styles.success} role="status" aria-live="polite">
         <h2 className={styles.successTitle}>Thank you for submitting your project</h2>
         <p className={styles.successText}>
-          Our team will review your details and respond within 3–6 hours at the email address you provided. If you have any questions in the meantime, contact us at{" "}
+          Our team will review your details and respond within 24 hours at the email address you provided. If you have any questions in the meantime, contact us at{" "}
           <a href="mailto:contact@projectkaro.com">contact@projectkaro.com</a>.
         </p>
       </div>
@@ -310,6 +328,25 @@ export default function StartProjectForm() {
           aria-invalid={!!errors.projectTitle}
         />
         {errors.projectTitle && <p className="form-error">{errors.projectTitle}</p>}
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="projectType">Project Type *</label>
+        <select
+          id="projectType"
+          name="projectType"
+          value={projectType}
+          onChange={(e) => setProjectType(e.target.value)}
+          required
+          disabled={status === "submitting"}
+          aria-invalid={!!errors.projectType}
+        >
+          <option value="" disabled>Select a service…</option>
+          {PROJECT_TYPES.map((type) => (
+            <option key={type} value={type}>{type}</option>
+          ))}
+        </select>
+        {errors.projectType && <p className="form-error">{errors.projectType}</p>}
       </div>
 
       <div className="form-group">

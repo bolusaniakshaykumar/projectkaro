@@ -180,7 +180,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className={styles.intro}>
-              We offer a comprehensive range of web development and project delivery services. Each engagement begins with a free consultation to understand your requirements, followed by a fixed quote and defined timeline.
+              We offer a comprehensive range of web development and project delivery services. Each engagement begins with a free consultation to understand your requirements, followed by a detailed quote and defined timeline.
             </p>
           </div>
 
@@ -227,7 +227,7 @@ export default function ServicesPage() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
             <p>
-              <strong>Pricing is determined after reviewing your requirements.</strong> Submit your project details and our team will respond within 24 hours with a detailed proposal, timeline, and fixed price.
+              <strong>Pricing is determined after reviewing your requirements.</strong> Submit your project details and our team will respond within 24 hours with a detailed proposal, timeline, and a per-project quote.
             </p>
           </div>
 
