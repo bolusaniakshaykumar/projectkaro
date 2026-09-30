@@ -153,7 +153,7 @@ export default function HomePage() {
           faqPageSchema(FAQ_ITEMS),
           speakableSchema({
             path: "/",
-            cssSelectors: ["#hero-summary", "#site-definition", "#brand-alias"],
+            cssSelectors: ["#hero-summary", "#site-definition"],
           }),
         ]}
       />
@@ -255,10 +255,6 @@ export default function HomePage() {
             </h2>
             <p id="site-definition" className={styles.definitionText}>
               ProjectKaro is a professional web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work — with a clear scope, a detailed quote within 24 hours, and on-time delivery.
-            </p>
-            <h3 className={styles.definitionSubtitle}>What is Project Karo?</h3>
-            <p id="brand-alias" className={styles.definitionText}>
-              Project Karo is the same studio — many people search for us with a space between the words. If you searched &ldquo;Project Karo&rdquo; or &ldquo;project karo&rdquo;, you&apos;re in the right place: <strong>Project Karo</strong> and <strong>ProjectKaro</strong> both refer to projectkaro.com, offering the same website development and student project services across India.
             </p>
             <div className={styles.definitionLinks}>
               <Link href="/about">About us</Link>
