@@ -7,12 +7,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is ProjectKaro?",
     answer:
-      "ProjectKaro is a professional web development and student project studio in India. We build business websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects including major projects, minor projects, and research work — with fixed pricing and on-time delivery.",
+      "ProjectKaro is a professional web development and student project studio in India. We build business websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects including major projects, minor projects, and research work — with per-project pricing and on-time delivery.",
   },
   {
     question: "What is Project Karo?",
     answer:
-      "Project Karo is the same studio as ProjectKaro — many people search with a space between the words. Project Karo (projectkaro.com) offers professional website development, full-stack applications, and complete student project delivery across India with fixed pricing and on-time delivery.",
+      "Project Karo is the same studio as ProjectKaro — many people search with a space between the words. Project Karo (projectkaro.com) offers professional website development, full-stack applications, and complete student project delivery across India with per-project pricing and on-time delivery.",
   },
   {
     question: "Is Project Karo the same as ProjectKaro?",
@@ -27,7 +27,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "How does the pricing work?",
     answer:
-      "Pricing is determined on a per-project basis after reviewing your requirements. We provide a fixed quote — no hourly rates, no surprise bills. Submit your requirements through our form and we respond with a detailed proposal within 24 hours.",
+      "Pricing is determined on a per-project basis after reviewing your requirements. We then share a detailed quote — no hourly rates, no surprise bills. Submit your requirements through our form and we respond with a detailed proposal within 24 hours.",
   },
   {
     question: "How long does a project typically take?",

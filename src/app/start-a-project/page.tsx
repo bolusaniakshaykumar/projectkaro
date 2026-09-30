@@ -12,7 +12,7 @@ const StartProjectForm = dynamic(() => import("@/components/StartProjectForm/Sta
 export const metadata = createPageMetadata({
   title: "Get a Free Quote",
   description:
-    "Submit your project requirements to ProjectKaro (Project Karo). We respond within 24 hours with a detailed proposal, fixed price, and timeline for web development or student project work.",
+    "Submit your project requirements to ProjectKaro (Project Karo). We respond within 24 hours with a detailed proposal, per-project quote, and timeline for web development or student project work.",
   path: "/start-a-project",
 });
 
@@ -27,7 +27,7 @@ export default function StartAProjectPage() {
             path: "/start-a-project",
             title: pageTitle,
             description:
-              "Submit your project requirements and receive a fixed quote within 24 hours.",
+              "Submit your project requirements and receive a detailed quote within 24 hours.",
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
@@ -41,7 +41,7 @@ export default function StartAProjectPage() {
         </h1>
         <p className={styles.intro}>
           Tell us about your project and we will respond within{" "}
-          <span className={styles.highlight}>24 hours</span> with a detailed proposal, timeline, and fixed price.
+          <span className={styles.highlight}>24 hours</span> with a detailed proposal, timeline, and a per-project quote.
         </p>
 
         <div className={styles.grid}>
@@ -70,7 +70,7 @@ export default function StartAProjectPage() {
                   <div className={styles.processNumber}>2</div>
                   <div className={styles.processContent}>
                     <h4>You Receive a Proposal</h4>
-                    <p>A detailed proposal with fixed price and timeline — within 24 hours.</p>
+                    <p>A detailed proposal with per-project pricing and timeline — within 24 hours.</p>
                   </div>
                 </li>
                 <li className={styles.processItem}>
@@ -94,7 +94,7 @@ export default function StartAProjectPage() {
               <ul className={styles.contactList}>
                 <li className={styles.contactItem}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Fixed price — no hidden costs</span>
+                  <span>Per-project pricing — no hidden costs</span>
                 </li>
                 <li className={styles.contactItem}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>

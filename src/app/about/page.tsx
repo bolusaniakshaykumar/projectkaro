@@ -154,7 +154,7 @@ export default function AboutPage() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                Fixed pricing, zero hidden fees
+                Per-project pricing, zero hidden fees
               </div>
               <div className={styles.heroHighlight}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -199,7 +199,7 @@ export default function AboutPage() {
 
       <CTA
         title="Ready to start your project?"
-        description="Tell us what you need and we will get back to you within 24 hours with a proposal, timeline, and fixed quote."
+        description="Tell us what you need and we will get back to you within 24 hours with a proposal, timeline, and a detailed quote."
       />
     </>
   );

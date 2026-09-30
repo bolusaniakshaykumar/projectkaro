@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   alternateName: 'Project Karo',
   alternateNames: ['Project Karo', 'Project Karo India', 'project karo'] as const,
   description:
-    'ProjectKaro — also known as Project Karo — is a professional web development and student project studio in India. We build websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects with fixed pricing and on-time delivery.',
+    'ProjectKaro — also known as Project Karo — is a professional web development and student project studio in India. We build websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects with per-project pricing and on-time delivery.',
   url: 'https://projectkaro.com',
   ogImage: '/opengraph-image',
   locale: 'en_IN',

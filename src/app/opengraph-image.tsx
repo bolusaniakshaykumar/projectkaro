@@ -54,7 +54,7 @@ export default function OpenGraphImage() {
             maxWidth: 820,
           }}
         >
-          Websites, full-stack apps, major projects, research work — fixed pricing, on-time delivery.
+          Websites, full-stack apps, major projects, research work — per-project pricing, on-time delivery.
         </div>
       </div>
     ),

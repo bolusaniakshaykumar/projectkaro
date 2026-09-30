@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "How It Works",
   description:
-    "ProjectKaro (Project Karo) four-step process: submit your requirements, receive a fixed quote within 24 hours, approve the proposal, and get your project delivered with full documentation and support.",
+    "ProjectKaro (Project Karo) four-step process: submit your requirements, receive a detailed quote within 24 hours, approve the proposal, and get your project delivered with full documentation and support.",
   path: "/how-it-works",
 });
 
@@ -27,7 +27,7 @@ const STEPS = [
   {
     number: 2,
     title: "Receive a Detailed Proposal",
-    description: "Our team reviews your submission and responds within 24 hours with a structured proposal — including a fixed price, defined scope, and milestone-based timeline. Everything in writing, no ambiguity.",
+    description: "Our team reviews your submission and responds within 24 hours with a structured proposal — including a detailed quote, defined scope, and milestone-based timeline. Everything in writing, no ambiguity.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -37,7 +37,7 @@ const STEPS = [
         <polyline points="10 9 9 9 8 9" />
       </svg>
     ),
-    note: "Fixed price. No hidden costs.",
+    note: "Priced per project. No hidden costs.",
   },
   {
     number: 3,
@@ -75,7 +75,7 @@ export default function HowItWorksPage() {
             path: "/how-it-works",
             title: pageTitle,
             description:
-              "A four-step process to submit requirements, receive a fixed quote, build your project, and get full delivery with documentation.",
+              "A four-step process to submit requirements, receive a detailed quote, build your project, and get full delivery with documentation.",
           }),
           howToSchema(
             STEPS.map((step) => ({
@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
 
       <CTA
         title="Ready to get started?"
-        description="Submit your project requirements and receive a detailed proposal within 24 hours — fixed price, defined timeline, no surprises."
+        description="Submit your project requirements and receive a detailed proposal within 24 hours — a detailed quote, defined timeline, no surprises."
       />
     </>
   );
