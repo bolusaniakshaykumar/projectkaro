@@ -137,7 +137,7 @@ export default function HowItWorksPage() {
 
       <CTA
         title="Ready to get started?"
-        description="Submit your project requirements and receive a detailed proposal within 24 hours — a detailed quote, defined timeline, no surprises."
+        description="Submit your project requirements and receive a detailed proposal within 24 hours — scope, quote, and timeline, no surprises."
       />
     </>
   );
