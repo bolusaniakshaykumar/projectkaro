@@ -1,0 +1,321 @@
+/* ══════════════════════════════════════════════════════════
+   /services: services listing
+   ══════════════════════════════════════════════════════════ */
+
+/* ── HERO ───────────────────────────────────────────── */
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+/* Wide editorial photo under the hero */
+.heroPhoto {
+  margin: 2.5rem 0 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -36px rgba(13, 21, 38, 0.35);
+}
+
+.heroPhoto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  max-width: 56rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  background: var(--brand-tint);
+  border: 1px solid var(--line);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  margin: 0 0 1.5rem;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
+  color: var(--ink);
+  margin: 0 0 1.25rem;
+  text-wrap: balance;
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--brand-deep);
+}
+
+.heroLede {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 1.75rem;
+  max-width: 34rem;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.heroMeta span {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding-left: 1rem;
+  border-left: 2px solid var(--brand);
+}
+
+/* ── STATEMENT BAND (ink) ───────────────────────────── */
+.statement {
+  background: var(--ink);
+  padding: 4.5rem 0;
+}
+
+.statementEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 1.25rem;
+}
+
+.statementText {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0;
+  max-width: 56rem;
+  text-wrap: balance;
+}
+
+/* ── SERVICES: chapters ─────────────────────────────── */
+.services {
+  padding: 5.5rem 0 4rem;
+  background: var(--paper-soft);
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+}
+
+.sectionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  margin: 0 0 0.75rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.sectionSub {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+  max-width: 40rem;
+}
+
+.chapter {
+  margin-top: 3.5rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+
+.chapterHead {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 0.5rem;
+}
+
+.chapterTitle {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+}
+
+.chapterDesc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Service cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.serviceCard {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px -28px rgba(30, 86, 232, 0.35);
+  border-color: var(--brand);
+}
+
+.cardArt {
+  height: 168px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.cardArt svg {
+  width: 120px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
+}
+
+.tone0 { background: linear-gradient(135deg, #2f6bff 0%, #123fae 100%); }
+.tone1 { background: linear-gradient(135deg, #1e56e8 0%, #7aa5ff 100%); }
+.tone2 { background: linear-gradient(135deg, #123fae 0%, #0d1526 100%); }
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+  background: var(--paper);
+}
+
+.cardTitle {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cardOutcome {
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+  flex: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--brand-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--brand);
+  padding-bottom: 0.15rem;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.cardLink:hover { gap: 0.85rem; color: var(--brand); }
+.cardLink:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.pricingNote {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brand);
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+}
+
+.pricingNote svg { color: var(--brand-deep); flex-shrink: 0; margin-top: 0.15rem; }
+
+.pricingNote p {
+  font-size: 0.975rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.pricingNote strong { color: var(--ink); }
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 960px) {
+  .cardGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 3rem 0 2.5rem; }
+  .services { padding: 3.5rem 0 2.5rem; }
+  .chapter { padding: 1.5rem; margin-top: 2.5rem; }
+  .cardGrid { grid-template-columns: 1fr; }
+  .statement { padding: 3rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard, .cardLink { transition: none; }
+}

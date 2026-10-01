@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import FloatingCTA from "@/components/FloatingCTA/FloatingCTA";
@@ -11,23 +11,24 @@ import { SEO_KEYWORDS, SITE_CONFIG } from "@/lib/constants";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
 });
 
-const sora = Sora({
+const display = Fraunces({
   subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-sora",
+  weight: ["600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "ProjectKaro | Web Development & Student Project Solutions",
+    default: "Web Development & Student Project Solutions | ProjectKaro",
     template: "%s | ProjectKaro",
   },
   description: SITE_CONFIG.description,
@@ -48,20 +49,20 @@ export const metadata: Metadata = {
     locale: SITE_CONFIG.locale,
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
-    title: "ProjectKaro | Web Development & Student Project Solutions",
+    title: "Web Development & Student Project Solutions | ProjectKaro",
     description: SITE_CONFIG.description,
     images: [
       {
         url: SITE_CONFIG.ogImage,
         width: 1200,
         height: 630,
-        alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) — Web Development & Student Project Solutions`,
+        alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) , Web Development & Student Project Solutions`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProjectKaro | Web Development & Student Project Solutions",
+    title: "Web Development & Student Project Solutions | ProjectKaro",
     description: SITE_CONFIG.description,
     creator: SITE_CONFIG.twitterHandle,
     images: [SITE_CONFIG.ogImage],
@@ -99,7 +100,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#080c14",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -111,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en-IN" className={`${sans.variable} ${display.variable}`}>
       <head>
         <link rel="llms-txt" href="/llms.txt" />
         <meta name="mobile-web-app-capable" content="yes" />
