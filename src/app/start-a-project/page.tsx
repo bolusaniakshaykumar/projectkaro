@@ -36,7 +36,7 @@ const NEXT_STEPS = [
 
 const COMMITMENTS = [
   "Per-project pricing, no hidden costs",
-  "On-time delivery, every time",
+  "Clear timelines. Reliable delivery",
   "Complete documentation included",
   "Revisions within scope at no charge",
 ];

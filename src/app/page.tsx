@@ -28,17 +28,20 @@ export const metadata = createPageMetadata({
 });
 
 /* ── Services data: 10 cards, each with a crafted SVG visual ── */
-const SERVICES = [
-  { variant: "dev", name: "Website Development", outcome: "Custom, responsive, fast. Production-ready from day one.", href: "/websites-for-businesses", audience: "For businesses" },
-  { variant: "business", name: "Business Websites", outcome: "Sites with SEO, forms, and lead generation built in.", href: "/websites-for-businesses", audience: "For businesses" },
-  { variant: "portfolio", name: "Personal Portfolios", outcome: "Portfolios that make employers and recruiters stop scrolling.", href: "/services", audience: "For individuals" },
-  { variant: "fullstack", name: "Full Stack Applications", outcome: "End-to-end apps: frontend, backend, and database.", href: "/services", audience: "For businesses" },
-  { variant: "mvp", name: "Startup MVPs", outcome: "A fast MVP to validate your idea and reach the market sooner.", href: "/services", audience: "For startups" },
-  { variant: "ai", name: "AI Solutions", outcome: "Machine learning, automation, and AI features that ship.", href: "/services", audience: "For businesses" },
-  { variant: "consulting", name: "Technical Consulting", outcome: "Honest guidance on architecture, stack, and strategy.", href: "/services", audience: "For businesses" },
-  { variant: "major", name: "Major Projects", outcome: "Your complete final-year project, from code to documentation.", href: "/academic-projects", audience: "For students" },
-  { variant: "minor", name: "Minor Projects", outcome: "Semester and lab submissions with clean code, in 2 to 5 days.", href: "/academic-projects", audience: "For students" },
-  { variant: "research", name: "Research Projects", outcome: "Structured research with methodology, analysis, and docs.", href: "/academic-projects", audience: "For students" },
+const BUSINESS_SERVICES = [
+  { variant: "dev", name: "Websites", outcome: "Custom websites that load fast, rank well, and turn visitors into enquiries.", href: "/websites-for-businesses" },
+  { variant: "fullstack", name: "Web Applications", outcome: "End-to-end apps: frontend, backend, and database.", href: "/services" },
+  { variant: "ai", name: "AI Solutions", outcome: "Machine learning, automation, and AI features that ship.", href: "/services" },
+  { variant: "mvp", name: "Startup MVPs", outcome: "A fast MVP to validate your idea and reach the market sooner.", href: "/services" },
+];
+const ACADEMIC_SERVICES = [
+  { variant: "major", name: "Major Projects", outcome: "Technical development and project support for your final-year project.", href: "/academic-projects" },
+  { variant: "minor", name: "Minor Projects", outcome: "Implementation and documentation guidance for semester and lab work.", href: "/academic-projects" },
+  { variant: "research", name: "Research & Technical Support", outcome: "Methodology, analysis, and IEEE-format documentation support.", href: "/academic-projects" },
+];
+const SERVICE_GROUPS = [
+  { label: "For businesses", services: BUSINESS_SERVICES },
+  { label: "For students & researchers", services: ACADEMIC_SERVICES },
 ];
 
 const STAKES = [
@@ -481,13 +484,14 @@ export default function HomePage() {
               </h1>
 
               <p id="hero-summary" className={`${styles.heroValue} ${styles.heroAnim} ${styles.heroDelay3}`}>
-                Professional websites, full-stack applications, and complete academic
-                projects. Designed with intent, delivered on time, priced per project.
+                Websites, apps, and AI solutions for businesses, plus technical
+                project support for students and researchers. Designed with intent,
+                delivered on time, priced per project.
               </p>
 
               <div className={`${styles.heroCtas} ${styles.heroAnim} ${styles.heroDelay4}`}>
                 <Link href="/start-a-project" className={styles.ctaPrimary}>
-                  Get my detailed quote
+                  Get a Free Quote
                   <span className={styles.linkArrow} aria-hidden="true">{ARROW_ICON}</span>
                 </Link>
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={styles.ctaWhatsApp}>
@@ -588,39 +592,46 @@ export default function HomePage() {
         <div className="container">
           <Reveal>
             <p className={styles.eyebrow}>Services</p>
-            <h2 id="services-h" className={styles.servicesTitle}>Ten services, one standard.</h2>
+            <h2 id="services-h" className={styles.servicesTitle}>Two tracks, one standard.</h2>
             <p className={styles.servicesSub}>
-              Websites that win customers for businesses, applications that ship
-              for startups, and complete academic projects for students. Whatever
-              the engagement, it ends the same way: delivered, documented, on time.
+              Websites, apps, and AI solutions for businesses. Technical
+              development and project support for students and researchers.
+              Whatever the engagement, it ends the same way: delivered,
+              documented, on time.
             </p>
           </Reveal>
-          <ul className={styles.svcGrid}>
-            {SERVICES.map((s, i) => (
-              <li key={s.name} className={styles.svcCard}>
-                <Reveal delay={Math.min(i * 60, 240)} className={styles.svcReveal}>
-                  <Link
-                    href={s.href}
-                    className={styles.svcLink}
-                    aria-label={`${s.name}: ${s.outcome}`}
-                  >
-                    <span className={styles.svcArt} aria-hidden="true">
-                      <ServiceArt variant={s.variant} />
-                    </span>
-                    <span className={styles.svcBody}>
-                      <span className={styles.svcTag}>{s.audience}</span>
-                      <span className={styles.svcName}>{s.name}</span>
-                      <span className={styles.svcDesc}>{s.outcome}</span>
-                      <span className={styles.svcMore}>
-                        Explore
-                        <span className={styles.linkArrow} aria-hidden="true">{ARROW_ICON}</span>
-                      </span>
-                    </span>
-                  </Link>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+          {SERVICE_GROUPS.map((group) => (
+            <div key={group.label} className={styles.svcGroup}>
+              <Reveal>
+                <h3 className={styles.svcGroupTitle}>{group.label}</h3>
+              </Reveal>
+              <ul className={styles.svcGrid}>
+                {group.services.map((s, i) => (
+                  <li key={s.name} className={styles.svcCard}>
+                    <Reveal delay={Math.min(i * 60, 240)} className={styles.svcReveal}>
+                      <Link
+                        href={s.href}
+                        className={styles.svcLink}
+                        aria-label={`${s.name}: ${s.outcome}`}
+                      >
+                        <span className={styles.svcArt} aria-hidden="true">
+                          <ServiceArt variant={s.variant} />
+                        </span>
+                        <span className={styles.svcBody}>
+                          <span className={styles.svcName}>{s.name}</span>
+                          <span className={styles.svcDesc}>{s.outcome}</span>
+                          <span className={styles.svcMore}>
+                            Explore
+                            <span className={styles.linkArrow} aria-hidden="true">{ARROW_ICON}</span>
+                          </span>
+                        </span>
+                      </Link>
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 

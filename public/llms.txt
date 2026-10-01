@@ -1,6 +1,6 @@
 # ProjectKaro
 
-> ProjectKaro (also commonly searched as **Project Karo**) is a professional web development and student project studio based in Hyderabad, India. We build business websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects with per-project pricing and on-time delivery.
+> ProjectKaro (also commonly searched as **Project Karo**) is a professional web development studio based in Hyderabad, India. We build business websites, web applications, AI solutions, startup MVPs, and portfolio sites, plus technical project support for academic work, with per-project pricing and on-time delivery.
 
 ## Brand Names & Search Terms
 

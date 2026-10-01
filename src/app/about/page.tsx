@@ -18,7 +18,7 @@ const VALUES = [
   },
   {
     title: "Technical Excellence",
-    text: "Every line of code is clean, maintainable, and documented. We use modern frameworks and industry best practices, built to be functional today and scalable for the future.",
+    text: "We follow clean, maintainable, and documented development practices, using modern frameworks and industry best practices, built to be functional today and scalable for the future.",
   },
   {
     title: "Client-Centric Approach",
@@ -220,7 +220,7 @@ export default function AboutPage() {
             <div className={styles.storyProse}>
               <p>
                 <span className={styles.dropCap}>P</span>rojectKaro started in Hyderabad in 2024 with a simple observation.
-                Students needed complete, submission-ready projects. Small businesses needed websites that brought in real
+                Students needed technical development and project support for their academic work. Small businesses needed websites that brought in real
                 enquiries. Underneath, both needed the same thing: someone reliable on the other side of the brief.
               </p>
               <p>

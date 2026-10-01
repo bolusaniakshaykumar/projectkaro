@@ -252,8 +252,9 @@ export default function AcademicProjectsPage() {
               Your major project, <em>delivered before your deadline.</em>
             </h1>
             <p className={styles.heroSub}>
-              Complete major, minor, and research projects with full documentation and viva preparation.
-              Tell us your deadline first, we plan everything backwards from it.
+              Technical development and project support for academic work: implementation,
+              documentation guidance, testing, and viva preparation. Tell us your
+              deadline first, we plan everything backwards from it.
             </p>
             <div className={styles.heroCtas}>
               <a href="#quote" className={styles.ctaPrimary}>

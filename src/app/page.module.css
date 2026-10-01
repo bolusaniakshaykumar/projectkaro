@@ -812,9 +812,22 @@ a:focus-visible .linkArrow svg {
   margin: 1.125rem 0 0;
 }
 
+.svcGroup {
+  margin-top: 3rem;
+}
+
+.svcGroupTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+  margin: 0;
+}
+
 .svcGrid {
   list-style: none;
-  margin: 3.25rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;

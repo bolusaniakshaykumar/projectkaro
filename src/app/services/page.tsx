@@ -81,12 +81,12 @@ const SERVICE_CATEGORIES = [
   },
   {
     category: "Student Projects",
-    description: "Complete academic and research project delivery, from concept to submission-ready.",
+    description: "Technical development and project support for academic work: implementation, documentation guidance, testing, and viva preparation.",
     services: [
       {
         title: "Student Major Projects",
-        description: "End-to-end execution of final-year and capstone projects. We handle implementation, testing, and documentation in alignment with your institution's requirements.",
-        outcome: "A complete capstone project, ready for submission and viva.",
+        description: "Technical development and project support for final-year and capstone projects: implementation, testing, and documentation guidance in alignment with your institution's requirements.",
+        outcome: "Implementation, documentation guidance, and viva preparation support.",
         deliverables: ["Complete source code", "Project report", "Presentation slides", "Viva preparation support"],
         icon: (
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -97,8 +97,8 @@ const SERVICE_CATEGORIES = [
       },
       {
         title: "Student Minor Projects",
-        description: "Semester submissions, lab projects, and mini assignments completed with proper code structure and basic documentation in a short turnaround.",
-        outcome: "Small projects delivered working and on time.",
+        description: "Technical support for semester submissions, lab projects, and mini assignments: proper code structure and documentation guidance in a short turnaround.",
+        outcome: "Working code and documentation guidance, delivered in 2 to 5 days.",
         deliverables: ["Working source code", "Setup guide", "Basic documentation", "Fast delivery (2–5 days)"],
         icon: (
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -110,7 +110,7 @@ const SERVICE_CATEGORIES = [
         title: "Research Projects",
         description: "Structured research project support including literature survey, methodology design, data collection, analysis, and formatted academic documentation.",
         outcome: "Structured research support with clean academic documentation.",
-        deliverables: ["Research report", "Data analysis", "Literature review", "IEEE/formatted paper (on request)"],
+        deliverables: ["Research report", "Data analysis", "Literature review", "IEEE-format technical documentation support (on request)"],
         icon: (
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8" />

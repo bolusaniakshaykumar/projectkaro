@@ -7,7 +7,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "What is ProjectKaro?",
     answer:
-      "ProjectKaro is a professional web development and student project studio in India. We build business websites, full-stack applications, portfolio sites, startup MVPs, and complete academic projects including major projects, minor projects, and research work, with per-project pricing and on-time delivery.",
+      "ProjectKaro is a professional web development studio in India. We build business websites, web applications, AI solutions, startup MVPs, and portfolio sites, plus technical project support for academic work including major projects, minor projects, and research work, with per-project pricing and on-time delivery.",
   },
   {
     question: "What types of projects do you take on?",
