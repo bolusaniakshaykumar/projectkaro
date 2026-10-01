@@ -1,137 +1,167 @@
-.section {
-  padding: 6rem 0;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-}
+/* ══════════════════════════════════════════════════════════
+   CTA — contained pattern box. Confident editorial close.
+   ══════════════════════════════════════════════════════════ */
 
-.card {
-  position: relative;
-  background: var(--color-bg-section);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 4rem 2.5rem;
-  overflow: hidden;
-  isolation: isolate;
+.section {
+  padding: 4.5rem 0;
+  background: var(--paper);
 }
 
 @media (min-width: 768px) {
-  .card {
-    padding: 5rem 4rem;
+  .section {
+    padding: 6rem 0;
   }
 }
 
-/* Subtle top accent line */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(79, 142, 247, 0.5), transparent);
-}
-
-.glow {
-  position: absolute;
-  top: -30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(79, 142, 247, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.gridPattern {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 28px 28px;
-  z-index: 0;
-}
-
+/* The box: deep brand gradient + subtle dot-grid pattern + glow */
 .content {
   position: relative;
-  max-width: 640px;
+  overflow: hidden;
+  max-width: 72rem;
   margin: 0 auto;
-  z-index: 1;
+  border-radius: 1.75rem;
+  padding: 3.5rem 1.75rem;
   text-align: center;
+  background:
+    radial-gradient(42rem 22rem at 85% -10%, rgba(255, 255, 255, 0.16), transparent 60%),
+    radial-gradient(36rem 20rem at 8% 115%, rgba(140, 180, 255, 0.28), transparent 60%),
+    linear-gradient(135deg, #123fae 0%, #1e56e8 58%, #2f6bf0 100%);
+  box-shadow: 0 32px 64px -32px rgba(18, 63, 174, 0.55);
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 4.5rem 3rem;
+  }
+}
+
+/* Dot-grid pattern overlay */
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='2' cy='2' r='1.4' fill='%23ffffff' fill-opacity='0.10'/%3E%3C/svg%3E");
+  mask-image: radial-gradient(48rem 26rem at 50% 0%, black 30%, transparent 78%);
+  -webkit-mask-image: radial-gradient(48rem 26rem at 50% 0%, black 30%, transparent 78%);
+}
+
+/* Diagonal sheen */
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 55%, rgba(255, 255, 255, 0.08) 72%, transparent 88%);
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #bcd0ff;
+  margin: 0 0 1.25rem;
 }
 
 .title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
-  color: var(--color-text);
-  margin-bottom: 1rem;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 auto 1rem;
+  max-width: 36rem;
+  letter-spacing: -0.025em;
+  line-height: 1.14;
+  text-wrap: balance;
 }
 
 .description {
+  position: relative;
+  z-index: 1;
   font-size: 1.0625rem;
-  color: var(--color-text-muted);
-  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 auto 2.5rem;
+  max-width: 38rem;
   line-height: 1.7;
 }
 
 .actions {
+  position: relative;
+  z-index: 1;
   display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
-}
-
-@media (min-width: 480px) {
-  .actions {
-    flex-direction: row;
-    gap: 1rem;
-  }
+  flex-wrap: wrap;
 }
 
 .primaryBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: var(--color-accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius);
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  background: #ffffff;
+  color: var(--brand-deep);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
   text-decoration: none;
-  transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
-  box-shadow: var(--shadow-button);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primaryBtn svg {
+  transition: transform 0.25s ease;
 }
 
 .primaryBtn:hover {
-  background: var(--color-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -16px rgba(0, 0, 0, 0.45);
   text-decoration: none;
-  color: #fff;
+  color: var(--brand-deep);
+}
+
+.primaryBtn:hover svg {
+  transform: translateX(4px);
+}
+
+.primaryBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 .secondaryBtn {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  min-height: 52px;
   background: transparent;
-  color: var(--color-text-muted);
-  font-weight: 500;
-  font-size: 0.9375rem;
-  padding: 0.875rem 1.75rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border-light);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 0.5rem;
   text-decoration: none;
-  transition: color var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+  transition: border-color 0.25s ease, gap 0.25s ease;
 }
 
 .secondaryBtn:hover {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--color-text);
-  border-color: rgba(255, 255, 255, 0.15);
-  text-decoration: none;
+  border-color: #ffffff;
+  color: #ffffff;
+  gap: 0.8rem;
+}
+
+.secondaryBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn, .primaryBtn svg, .secondaryBtn { transition: none; }
 }

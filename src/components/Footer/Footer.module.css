@@ -1,28 +1,35 @@
 .footer {
-  background-color: var(--color-bg-section);
-  color: var(--color-text-muted);
-  padding: 4rem 0 2rem;
-  border-top: 1px solid var(--color-border);
+  background-color: #0b1220;
+  color: #c3cde1;
+  padding: 3rem 0 1.5rem;
+  border-top: 3px solid var(--brand);
 }
 
 @media (min-width: 768px) {
   .footer {
-    padding: 5rem 0 2.5rem;
+    padding: 3.5rem 0 1.75rem;
   }
 }
 
 .inner {
   display: grid;
-  gap: 3rem;
-  margin-bottom: 3rem;
+  gap: 2.25rem;
+  margin-bottom: 2rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .inner {
-    grid-template-columns: 1.5fr 1fr auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.35fr 0.85fr 1fr 1.1fr;
     align-items: start;
-    gap: 4rem;
-    margin-bottom: 3.5rem;
+    gap: 2.5rem;
+    margin-bottom: 2.25rem;
   }
 }
 
@@ -34,12 +41,6 @@
   text-decoration: none;
   display: inline-block;
   margin-bottom: 1rem;
-  opacity: 0.9;
-  transition: opacity var(--transition-fast);
-}
-
-.logo:hover {
-  opacity: 1;
 }
 
 .logoImage {
@@ -51,14 +52,41 @@
 .tagline {
   margin: 0;
   font-size: 0.9375rem;
-  color: var(--color-text-muted);
+  color: #8fa0bf;
   line-height: 1.65;
 }
 
-.navList {
+.columnLabel {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fa0bf;
+  position: relative;
+}
+
+.columnLabel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brand);
+}
+
+.navList,
+.contactList,
+.trustList {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.navList {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -67,72 +95,74 @@
 .navLink {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-text-soft);
+  color: #c3cde1;
   text-decoration: none;
   transition: color var(--transition-fast);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .navLink:hover {
-  color: var(--color-text);
+  color: #ffffff;
   text-decoration: none;
 }
 
-.contact {
+.contactList {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-
-.contactGroup {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   gap: 0.5rem;
+  margin-bottom: 1.75rem;
 }
 
-.contactLabel {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-text-soft);
-}
-
-.email {
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-text-muted);
+  color: #c3cde1;
   text-decoration: none;
+  transition: color var(--transition-fast);
+  min-height: 44px;
+}
+
+.contactLink svg {
+  flex-shrink: 0;
+  color: #8fa0bf;
   transition: color var(--transition-fast);
 }
 
-.email:hover {
-  color: var(--color-text);
+.contactLink:hover {
+  color: #ffffff;
   text-decoration: none;
 }
 
-.socialLinks {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
+.contactLink:hover svg {
+  color: #ffffff;
 }
 
-.socialLink {
+.trustList {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-text-soft);
-  transition: color var(--transition-fast);
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.socialLink:hover {
-  color: var(--color-text-muted);
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  color: #8fa0bf;
+}
+
+.trustItem svg {
+  flex-shrink: 0;
 }
 
 .bottom {
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -143,5 +173,27 @@
 .copyright {
   margin: 0;
   font-size: 0.8125rem;
-  color: var(--color-text-soft);
+  color: #8fa0bf;
+}
+
+.legalNav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legalLink {
+  font-size: 0.8125rem;
+  color: #8fa0bf;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #ffffff;
+}
+
+.legalDot {
+  color: #5b6b8c;
+  font-size: 0.8125rem;
 }

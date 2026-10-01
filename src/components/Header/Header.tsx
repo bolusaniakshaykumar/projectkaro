@@ -8,9 +8,11 @@ import styles from "./Header.module.css";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Services" },
-  { href: "/how-it-works", label: "How It Works" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/websites-for-businesses", label: "Websites for Businesses" },
+  { href: "/academic-projects", label: "Academic Projects" },
+  { href: "/how-it-works", label: "How It Works" },
   { href: "/start-a-project", label: "Get a Quote" },
 ];
 
@@ -22,7 +24,7 @@ export default function Header() {
     <header className={styles.header} role="banner">
       <div className="container">
         <div className={styles.inner}>
-          <Link href="/" className={styles.logo} aria-label="ProjectKaro home — also known as Project Karo">
+          <Link href="/" className={styles.logo} aria-label="ProjectKaro home, also known as Project Karo">
             <Image
               src="/logo.png"
               alt="ProjectKaro (Project Karo) academic project platform logo"

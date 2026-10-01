@@ -1,38 +1,62 @@
 .shimmer {
   position: relative;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(13, 21, 38, 0.06);
   border-radius: var(--radius);
+  animation: shimmerPulse 1.4s ease-in-out infinite;
 }
 
-.shimmer::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  animation: shimmerMove 1.2s infinite;
-}
-
-@keyframes shimmerMove {
-  0% {
-    left: -150%;
+@keyframes shimmerPulse {
+  0%, 100% {
+    background-color: rgba(13, 21, 38, 0.05);
   }
 
-  60% {
-    left: 150%;
-  }
-
-  100% {
-    left: 150%;
+  50% {
+    background-color: rgba(13, 21, 38, 0.1);
   }
 }
 
 .line {
   height: 14px;
   margin: 8px 0;
+}
+
+/* White shimmer for dark surfaces (e.g. ink statement bands) */
+.shimmerOnDark {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius);
+  animation: shimmerPulseLight 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmerPulseLight {
+  0%, 100% {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  50% {
+    background-color: rgba(255, 255, 255, 0.13);
+  }
+}
+
+/* Brand-blue shimmer for accent areas (e.g. card art bands) */
+.shimmerBlue {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(30, 86, 232, 0.07);
+  border-radius: var(--radius);
+  animation: shimmerPulseBlue 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmerPulseBlue {
+  0%, 100% {
+    background-color: rgba(30, 86, 232, 0.06);
+  }
+
+  50% {
+    background-color: rgba(30, 86, 232, 0.14);
+  }
 }
 
 .title {
@@ -46,7 +70,7 @@
 
 .heroSkeleton {
   padding: 6rem 0;
-  background: var(--color-bg);
+  background: var(--paper);
 }
 
 .btnSkeleton {
@@ -71,9 +95,8 @@
 }
 
 .cardSkeleton {
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   padding: 2.5rem 2rem;
   display: flex;
@@ -110,14 +133,44 @@
 
 .faqItem {
   padding: 12px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(18, 18, 32, 0.6);
+  background: var(--paper-soft);
 }
 
 .formGrid {
   display: grid;
   gap: 12px;
+}
+
+/* Blue accent shimmer: for eyebrow bars and tinted placeholders. Placed after
+   .shimmer so its pulse animation wins on elements that carry both classes. */
+.accent {
+  background-color: rgba(30, 86, 232, 0.08);
+  animation: shimmerAccent 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmerAccent {
+  0%, 100% {
+    background-color: rgba(30, 86, 232, 0.07);
+  }
+
+  50% {
+    background-color: rgba(30, 86, 232, 0.15);
+  }
+}
+
+/* Mirror of the CTA closing band (CTA.module.css .section). */
+.ctaBand {
+  padding: 5.5rem 0;
+  background: var(--paper);
+  border-top: 1px solid var(--line-soft);
+}
+
+.ctaBandInner {
+  max-width: 44rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .small {
@@ -130,4 +183,115 @@
 
 .large {
   height: 18px;
+}
+
+/* ── Homepage skeletons: mirror the homepage layout ──
+   Light theme, static blue eyebrow accent, shimmer elsewhere. */
+
+.eyebrowSk {
+  width: 96px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(30, 86, 232, 0.22);
+  margin: 0 0 1.25rem;
+}
+
+.homeHero {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.homeHeroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  padding: 3.5rem 0 4.5rem;
+}
+
+@media (min-width: 1024px) {
+  .homeHeroGrid {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4.5rem 0 6rem;
+  }
+}
+
+.homeSection {
+  padding: 5.5rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.homeSectionAlt {
+  padding: 5.5rem 0;
+  background: var(--paper-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.stakesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1000px) {
+  .stakesGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 4.5rem;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .servicesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.svcCardSk {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proofSk {
+  padding: 2.75rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.statementSk {
+  padding: 8rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.definitionSk {
+  padding: 4rem 0;
+  background: var(--paper-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ctaSk {
+  padding: 5rem 0;
+  background: var(--paper);
 }

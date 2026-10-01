@@ -3,10 +3,17 @@ import { BRAND_KEYWORDS, CONTACT_INFO, SERVICE_TYPES, SITE_CONFIG } from "./cons
 import type { FaqItem } from "./faq-data";
 
 const OG_IMAGE = {
-  url: "/opengraph-image",
+  url: "/og-image.png",
   width: 1200,
   height: 630,
-  alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) — Web Development & Student Project Solutions`,
+  alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) , Web Development & Student Project Solutions`,
+};
+
+const TWITTER_IMAGE = {
+  url: "/twitter-image.png",
+  width: 1200,
+  height: 600,
+  alt: `${SITE_CONFIG.name} (${SITE_CONFIG.alternateName}) , Web Development & Student Project Solutions`,
 };
 
 export function absoluteUrl(path = ""): string {
@@ -56,10 +63,11 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
+      site: "@projectkaro",
       title,
       description,
       creator: "@projectkaro",
-      images: [OG_IMAGE.url],
+      images: [TWITTER_IMAGE.url],
     },
     ...(noIndex
       ? {
@@ -83,9 +91,15 @@ export function organizationSchema() {
     disambiguatingDescription: `${SITE_CONFIG.name} and ${SITE_CONFIG.alternateName} refer to the same web development and student project studio at ${SITE_CONFIG.url}.`,
     url: SITE_CONFIG.url,
     logo: absoluteUrl("/logo.png"),
-    image: absoluteUrl("/opengraph-image"),
+    image: absoluteUrl("/og-image.png"),
     description: SITE_CONFIG.description,
     email: CONTACT_INFO.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hyderabad",
+      addressRegion: "Telangana",
+      addressCountry: "IN",
+    },
     areaServed: {
       "@type": "Country",
       name: "India",
@@ -130,7 +144,7 @@ export function websiteSchema() {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${SITE_CONFIG.url}/projects?q={search_term_string}`,
+        urlTemplate: `${SITE_CONFIG.url}/services?q={search_term_string}`,
       },
       "query-input": "required name=search_term_string",
     },
@@ -174,6 +188,15 @@ export function webPageSchema({
   };
 }
 
+/**
+ * Speakable content declaration for voice assistants and answer engines.
+ *
+ * Usage: pass the result through the `JsonLd` component on a page, with
+ * cssSelectors pointing at the page's key answer blocks, e.g.
+ * `speakableSchema({ path: "/about", cssSelectors: [".faq-answer", ".key-facts"] })`.
+ * Keep selectors stable: if a page's class names change, update the call site.
+ * Combine with `webPageSchema` for the same path in a single JSON-LD array.
+ */
 export function speakableSchema({
   path,
   cssSelectors,

@@ -3,14 +3,6 @@
 import { useState, FormEvent, useRef, useEffect } from "react";
 import styles from "./StartProjectForm.module.css";
 
-const ALLOWED_TYPES = [
-  "application/pdf",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-];
-const ALLOWED_EXTENSIONS = [".pdf", ".doc", ".docx"];
-const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB
-
 const COUNTRY_CODES = [
   { code: "+91", country: "India", flag: "🇮🇳" },
   { code: "+1", country: "USA", flag: "🇺🇸" },
@@ -60,24 +52,25 @@ interface FormErrors {
   fullName?: string;
   email?: string;
   phone?: string;
-  projectTitle?: string;
   projectType?: string;
-  message?: string;
-  abstract?: string;
 }
 
-export default function StartProjectForm() {
+interface StartProjectFormProps {
+  initialProjectType?: string;
+}
+
+export default function StartProjectForm({ initialProjectType }: StartProjectFormProps) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
   const [phone, setPhone] = useState("");
   const [projectTitle, setProjectTitle] = useState("");
-  const [projectType, setProjectType] = useState("");
+  const [projectType, setProjectType] = useState(
+    initialProjectType && PROJECT_TYPES.includes(initialProjectType)
+      ? initialProjectType
+      : ""
+  );
   const [message, setMessage] = useState("");
-  const [abstractFile, setAbstractFile] = useState<File | null>(null);
-
-  // File upload state
-  const [isDragging, setIsDragging] = useState(false);
 
   // Custom Country Dropdown State
   const [isCountryOpen, setIsCountryOpen] = useState(false);
@@ -87,7 +80,6 @@ export default function StartProjectForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -99,20 +91,6 @@ export default function StartProjectForm() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  function validateFile(file: File): string | null {
-    const ext = "." + file.name.split(".").pop()?.toLowerCase();
-    if (!ALLOWED_EXTENSIONS.includes(ext)) {
-      return "Only PDF, DOC, and DOCX files are allowed.";
-    }
-    if (!ALLOWED_TYPES.includes(file.type) && ext !== ".doc" && ext !== ".docx") {
-      return "Invalid file type. Please upload PDF, DOC, or DOCX.";
-    }
-    if (file.size > MAX_FILE_SIZE) {
-      return "File size must be 2 MB or less.";
-    }
-    return null;
-  }
 
   function validate(): boolean {
     const newErrors: FormErrors = {};
@@ -127,13 +105,7 @@ export default function StartProjectForm() {
     } else if (!/^\d{4,15}$/.test(phone.replace(/\D/g, ''))) {
       newErrors.phone = "Enter a valid phone number.";
     }
-    if (!projectTitle.trim()) newErrors.projectTitle = "Project title is required.";
     if (!projectType) newErrors.projectType = "Please select a project type.";
-    if (!message.trim()) newErrors.message = "Project description is required.";
-    if (abstractFile) {
-      const fileError = validateFile(abstractFile);
-      if (fileError) newErrors.abstract = fileError;
-    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -153,7 +125,6 @@ export default function StartProjectForm() {
     formData.append("projectTitle", projectTitle.trim());
     formData.append("projectType", projectType);
     formData.append("message", message.trim());
-    if (abstractFile) formData.append("abstract", abstractFile);
 
     try {
       const res = await fetch("/api/submit-project", {
@@ -175,8 +146,6 @@ export default function StartProjectForm() {
       setProjectTitle("");
       setProjectType("");
       setMessage("");
-      setAbstractFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = "";
     } catch {
       setStatus("error");
       setErrorMessage("Network error. Please check your connection and try again.");
@@ -194,6 +163,11 @@ export default function StartProjectForm() {
   if (status === "success") {
     return (
       <div className={styles.success} role="status" aria-live="polite">
+        <span className={styles.successCheck} aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </span>
         <h2 className={styles.successTitle}>Thank you for submitting your project</h2>
         <p className={styles.successText}>
           Our team will review your details and respond within 24 hours at the email address you provided. If you have any questions in the meantime, contact us at{" "}
@@ -216,6 +190,7 @@ export default function StartProjectForm() {
           type="text"
           id="fullName"
           name="fullName"
+          autoComplete="name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           required
@@ -232,6 +207,7 @@ export default function StartProjectForm() {
           type="email"
           id="email"
           name="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -303,6 +279,8 @@ export default function StartProjectForm() {
             type="tel"
             id="phone"
             name="phone"
+            autoComplete="tel"
+            inputMode="numeric"
             value={phone}
             onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 15))}
             required
@@ -316,18 +294,15 @@ export default function StartProjectForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="projectTitle">Project Title *</label>
+        <label htmlFor="projectTitle">Project Title (optional)</label>
         <input
           type="text"
           id="projectTitle"
           name="projectTitle"
           value={projectTitle}
           onChange={(e) => setProjectTitle(e.target.value)}
-          required
           disabled={status === "submitting"}
-          aria-invalid={!!errors.projectTitle}
         />
-        {errors.projectTitle && <p className="form-error">{errors.projectTitle}</p>}
       </div>
 
       <div className="form-group">
@@ -350,113 +325,45 @@ export default function StartProjectForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="message">Message / Project Description *</label>
+        <label htmlFor="message">Project Description (optional)</label>
         <textarea
           id="message"
           name="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
-          required
           disabled={status === "submitting"}
-          aria-invalid={!!errors.message}
         />
-        {errors.message && <p className="form-error">{errors.message}</p>}
       </div>
 
-      <div className="form-group">
-        <label htmlFor="abstract">Project Abstract (Optional)</label>
-        <div
-          className={`${styles.dropzone} ${isDragging ? styles.dropzoneDragging : ""}`}
-          role="button"
-          tabIndex={0}
-          onClick={() => fileInputRef.current?.click()}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              fileInputRef.current?.click();
-            }
-          }}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setIsDragging(true);
-          }}
-          onDragLeave={() => setIsDragging(false)}
-          onDrop={(e) => {
-            e.preventDefault();
-            setIsDragging(false);
-            const file = e.dataTransfer.files?.[0] || null;
-            if (file) {
-              const fileError = validateFile(file);
-              if (fileError) {
-                setErrors((prev) => ({ ...prev, abstract: fileError }));
-                setAbstractFile(null);
-              } else {
-                setAbstractFile(file);
-                setErrors((prev) => ({ ...prev, abstract: undefined }));
-              }
-            }
-          }}
-        >
-          <svg className={styles.uploadIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7a3 3 0 0 1 3-3h7l6 6v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7z" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M14 4v5a2 2 0 0 0 2 2h5" stroke="currentColor" strokeWidth="1.5" />
-            <path d="M12 16v-4m0 0-2 2m2-2 2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          </svg>
-          <div className={styles.uploadTextWrap}>
-            <p className={styles.uploadTitle}>Drag & drop your abstract (Optional)</p>
-            <p id="abstract-hint" className={styles.uploadHint}>or click to browse • PDF/DOC • max 2 MB</p>
-          </div>
-        </div>
-        <input
-          ref={fileInputRef}
-          type="file"
-          id="abstract"
-          name="abstract"
-          className={styles.hiddenInput}
-          accept=".pdf,.doc,.docx"
-          onChange={(e) => {
-            const file = e.target.files?.[0] || null;
-            if (file) {
-              const fileError = validateFile(file);
-              if (!fileError) {
-                setAbstractFile(file);
-                setErrors((prev) => ({ ...prev, abstract: undefined }));
-              } else {
-                setErrors((prev) => ({ ...prev, abstract: fileError }));
-              }
-            } else {
-              setAbstractFile(null);
-            }
-          }}
-          disabled={status === "submitting"}
-          aria-hidden
-        />
-        {abstractFile && (
-          <div className={styles.uploadMeta}>
-            <span className={styles.fileName}>Selected: {abstractFile.name}</span>
-            <button
-              type="button"
-              className={styles.removeFile}
-              onClick={() => {
-                setAbstractFile(null);
-                if (fileInputRef.current) fileInputRef.current.value = "";
-              }}
-            >
-              Remove
-            </button>
-          </div>
-        )}
-        {errors.abstract && <p className="form-error">{errors.abstract}</p>}
-      </div>
+
 
       {status === "error" && (
         <div className={styles.apiError} role="alert">{errorMessage}</div>
       )}
 
-      <button type="submit" className="btn btn--primary" disabled={status === "submitting"}>
-        {status === "submitting" ? "Submitting…" : "Submit Project"}
+      <button type="submit" className={`btn btn--primary ${styles.submitBtn}`} disabled={status === "submitting"}>
+        {status === "submitting" ? (
+          <>
+            <span className={styles.spinner} aria-hidden="true" />
+            Submitting…
+          </>
+        ) : (
+          <>
+            Get my detailed quote
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </>
+        )}
       </button>
+      <p className={styles.consentNote}>
+        By submitting this form, you agree to our{" "}
+        <a href="/privacy-policy">Privacy Policy</a> and{" "}
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>. We only use
+        your details to prepare and discuss your quote.
+      </p>
     </form>
   );
 }

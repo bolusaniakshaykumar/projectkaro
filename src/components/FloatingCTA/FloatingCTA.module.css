@@ -1,76 +1,51 @@
 .floatingBtn {
-    position: fixed;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.38);
+  transform: translateY(100px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floatingBtn:hover {
+  background-color: #1fb857;
+  color: #ffffff;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.visible:hover {
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .floatingBtn {
     bottom: 2rem;
     right: 2rem;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.25rem;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-deep));
-    color: #ffffff;
-    border-radius: var(--radius-full);
-    box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
-.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.floatingBtn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.6);
-    text-decoration: none;
-    color: #ffffff;
-}
-
-.iconWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.label {
-    white-space: nowrap;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .floatingBtn {
-        bottom: 1.5rem;
-        right: 1.5rem;
-        padding: 0.75rem 1rem;
-        padding-right: 1.25rem;
-    }
-}
-
-/* Pulse animation for attention */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(96, 165, 250, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
-    }
-}
-
-.visible {
-    animation: pulse 2s infinite;
-}
-
-.floatingBtn:hover {
-    animation: none;
+@media (prefers-reduced-motion: reduce) {
+  .floatingBtn {
+    transition: none;
+  }
 }

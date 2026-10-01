@@ -1,0 +1,64 @@
+/* Branded skeleton accents for the /about loading state.
+   Blue-tinted shimmer variants that sit alongside the neutral
+   Skeleton primitives, mirroring the about page layout. */
+
+@keyframes aboutBlueShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.accentBase {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    100deg,
+    var(--brand-tint) 35%,
+    #d9e5fd 50%,
+    var(--brand-tint) 65%
+  );
+  background-size: 200% 100%;
+  animation: aboutBlueShimmer 1.6s linear infinite;
+}
+
+/* Studio-card brand mark placeholder */
+.markShimmer {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Hero eyebrow pill placeholder */
+.pillShimmer {
+  height: 34px;
+  width: 190px;
+  border-radius: 999px;
+}
+
+/* Hero meta tag placeholders */
+.metaPillShimmer {
+  height: 22px;
+  width: 110px;
+  border-radius: 999px;
+}
+
+/* Value-card icon placeholder (mirrors .valueIcon sizing) */
+.iconShimmer {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  margin-bottom: 1.15rem;
+}
+
+/* Fine-print check placeholder */
+.checkShimmer {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accentBase { animation: none; }
+}

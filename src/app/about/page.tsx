@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Image from "next/image";
 import CTA from "@/components/CTA/CTA";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
@@ -13,70 +13,106 @@ export const metadata = createPageMetadata({
 
 const VALUES = [
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        <path d="M2 12h20" />
-      </svg>
-    ),
     title: "Our Mission",
     text: "We help students, individuals, and businesses bring their ideas to life through professional development and structured project execution. Quality, reliability, and clear communication from brief to delivery.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
     title: "Technical Excellence",
-    text: "Every line of code is clean, maintainable, and documented. We use modern frameworks and industry best practices — built to be functional today and scalable for the future.",
+    text: "Every line of code is clean, maintainable, and documented. We use modern frameworks and industry best practices, built to be functional today and scalable for the future.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
     title: "Client-Centric Approach",
-    text: "We treat every project as a partnership. Transparent timelines, regular progress updates, and responsive communication. Your requirements drive every decision — not templates or assumptions.",
+    text: "We treat every project as a partnership. Transparent timelines, regular progress updates, and responsive communication. Your requirements drive every decision, never templates or assumptions.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
     title: "Results-Driven Execution",
-    text: "We focus on outcomes, not just output. Whether you need a website live by a deadline, a student project submitted on time, or an MVP in the hands of investors — we structure our work around the result.",
+    text: "We focus on outcomes, not just output. Whether you need a website live by a deadline, a student project submitted on time, or an MVP in the hands of investors, we structure our work around the result.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-      </svg>
-    ),
     title: "Full Documentation",
-    text: "Every delivery includes relevant documentation — setup guides, code comments, academic reports, and presentation support. For students, we stay available until submission is complete.",
+    text: "Every delivery includes relevant documentation: setup guides, code comments, academic reports, and presentation support. For students, we stay available until submission is complete.",
   },
   {
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
     title: "On-Time Delivery",
-    text: "Defined milestones and realistic timelines agreed upfront. We commit to deadlines — and we meet them. No surprises, no extensions without communication.",
+    text: "Defined milestones and realistic timelines agreed upfront. We commit to deadlines and we meet them. No surprises, no extensions without communication.",
   },
 ];
+
+/* Line-art icons for the values cards (stroke style, aria-hidden) */
+const iconProps = {
+  width: 26,
+  height: 26,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.8,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
+
+const VALUE_ICONS = [
+  /* Our Mission - compass */
+  <svg {...iconProps} key="mission">
+    <circle cx="12" cy="12" r="9" />
+    <polygon points="15.5 8.5 13.2 13.2 8.5 15.5 10.8 10.8" />
+    <circle cx="12" cy="12" r="0.6" fill="currentColor" />
+  </svg>,
+  /* Technical Excellence - code brackets */
+  <svg {...iconProps} key="code">
+    <polyline points="8.5 6 3.5 12 8.5 18" />
+    <polyline points="15.5 6 20.5 12 15.5 18" />
+    <line x1="13" y1="4.5" x2="11" y2="19.5" />
+  </svg>,
+  /* Client-Centric Approach - two linked rings */
+  <svg {...iconProps} key="partnership">
+    <circle cx="9" cy="12" r="5.5" />
+    <circle cx="15" cy="12" r="5.5" />
+  </svg>,
+  /* Results-Driven Execution - upward trend */
+  <svg {...iconProps} key="results">
+    <polyline points="3.5 17.5 9.5 11.5 13.5 14.5 20.5 7" />
+    <polyline points="15.5 7 20.5 7 20.5 12" />
+  </svg>,
+  /* Full Documentation - page with lines */
+  <svg {...iconProps} key="docs">
+    <path d="M6 3.5h8l4.5 4.5v12.5H6z" />
+    <polyline points="14 3.5 14 8 18.5 8" />
+    <line x1="9" y1="12" x2="15.5" y2="12" />
+    <line x1="9" y1="15.5" x2="15.5" y2="15.5" />
+    <line x1="9" y1="19" x2="13.5" y2="19" />
+  </svg>,
+  /* On-Time Delivery - clock */
+  <svg {...iconProps} key="clock">
+    <circle cx="12" cy="12" r="8.5" />
+    <polyline points="12 7.5 12 12 15.5 13.8" />
+  </svg>,
+];
+
+const STATS = [
+  { value: "100+", label: "Projects delivered" },
+  { value: "300+", label: "Clients served" },
+  { value: "10", label: "Services offered" },
+  { value: "24h", label: "Detailed quote turnaround" },
+];
+
+const FINE_PRINT = [
+  { title: "Registered MSME (Udyam)", text: "A registered Indian micro-enterprise. You are dealing with a real, accountable business." },
+  { title: "Hyderabad, India", text: "Based in Hyderabad, working with clients across India and beyond." },
+  { title: "Per-project pricing", text: "Every quote is priced for your project alone. No packages, no hidden fees." },
+  { title: "Quote within 24 hours", text: "Send your requirements and get a detailed proposal back the next day." },
+];
+
+/* Brand mark: cropped from the real ProjectKaro logo, upscaled */
+const SEAL_ART = (
+  <Image
+    src="/logo-mark.png"
+    alt="ProjectKaro logo mark"
+    width={336}
+    height={336}
+    className="artSvg"
+    priority={false}
+  />
+);
 
 export default function AboutPage() {
   const pageTitle = "About Us";
@@ -98,102 +134,151 @@ export default function AboutPage() {
         ]}
       />
 
-      {/* ── HERO ───────────────────────────────────────── */}
+      {/* ── HERO: editorial + studio card ──────────────── */}
       <section className={styles.hero} aria-labelledby="about-heading">
-        <div className={styles.heroBg} aria-hidden="true">
-          <div className={styles.heroOrb1} />
-          <div className={styles.heroOrb2} />
-        </div>
         <div className="container">
-          <div className={styles.heroInner}>
-            <div className={styles.heroContent}>
-              <p className={styles.heroLabel}>About ProjectKaro</p>
-              <h1 id="about-heading" className={styles.heroTitle}>
-                We build what you need,{" "}
-                <span className={styles.heroAccent}>on time — every time</span>
-              </h1>
-              <p className={styles.heroSubtitle}>
-                ProjectKaro — also known as Project Karo — is a professional development studio built around two core offerings: websites and web applications for businesses and individuals, and complete project delivery for students. We pair technical depth with a structured, transparent process so every engagement ends with a result you can be proud of.
+          <div className={styles.heroGrid}>
+            <div className={styles.heroCopy}>
+              <p className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                About ProjectKaro
               </p>
-              <div className={styles.heroActions}>
-                <Link href="/start-a-project" className={styles.heroCta}>
-                  Start a Project
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </Link>
-                <Link href="/projects" className={styles.heroGhost}>
-                  View Services
-                </Link>
+              <h1 id="about-heading" className={styles.heroTitle}>
+                Small studio. <em>Serious standard.</em>
+              </h1>
+              <p className={styles.heroLede}>
+                ProjectKaro is a registered MSME development studio in Hyderabad, India. Since 2024 we have
+                delivered 100+ projects, from business websites to final-year academic work, each scoped in
+                writing, priced per project, and delivered on the agreed date.
+              </p>
+              <div className={styles.heroMeta}>
+                <span>Registered MSME (Udyam)</span>
+                <span>Hyderabad, India</span>
+                <span>Since 2024</span>
               </div>
             </div>
+            <aside className={styles.studioCard} aria-label="ProjectKaro studio facts">
+              <div className={styles.sealWrap} aria-hidden="true">{SEAL_ART}</div>
+              <dl className={styles.studioFacts}>
+                <div>
+                  <dt>Studio</dt>
+                  <dd>ProjectKaro</dd>
+                </div>
+                <div>
+                  <dt>Founded</dt>
+                  <dd>2024, Hyderabad</dd>
+                </div>
+                <div>
+                  <dt>Registered</dt>
+                  <dd>MSME (Udyam), India</dd>
+                </div>
+                <div>
+                  <dt>Deliveries</dt>
+                  <dd>100+ projects</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+          <figure className={styles.heroPhoto}>
+            <Image
+              src="/images/studio-work.jpg"
+              alt="The ProjectKaro studio at work, designing and building client projects"
+              width={1400}
+              height={933}
+              loading="lazy"
+              sizes="100vw"
+            />
+          </figure>
+        </div>
+      </section>
 
-            {/* Stats column */}
-            <div className={styles.heroStats}>
-              <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>60+</span>
-                <span className={styles.heroStatLabel}>College Projects Delivered</span>
-              </div>
-              <div className={styles.heroStatDivider} aria-hidden="true" />
-              <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>300+</span>
-                <span className={styles.heroStatLabel}>Clients Served</span>
-              </div>
-              <div className={styles.heroStatDivider} aria-hidden="true" />
-              <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>10</span>
-                <span className={styles.heroStatLabel}>Services Offered</span>
-              </div>
-              <div className={styles.heroStatDivider} aria-hidden="true" />
-              <div className={styles.heroStat}>
-                <span className={styles.heroStatNum}>24h</span>
-                <span className={styles.heroStatLabel}>Response Guarantee</span>
-              </div>
+      {/* ── STATS ROW ─────────────────────────────────── */}
+      <section className={styles.statsBand} aria-labelledby="about-stats-h">
+        <div className="container">
+          <h2 id="about-stats-h" className={styles.visuallyHidden}>
+            ProjectKaro in numbers
+          </h2>
+          <ul className={styles.statsList} role="list">
+            {STATS.map((stat) => (
+              <li key={stat.label} className={styles.statItem}>
+                <span className={styles.statValue}>{stat.value}</span>
+                <span className={styles.statLabel}>{stat.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-              <div className={styles.heroHighlight}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                Per-project pricing, zero hidden fees
-              </div>
-              <div className={styles.heroHighlight}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                Full documentation included
-              </div>
-              <div className={styles.heroHighlight}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                Viva preparation support for students
-              </div>
+      {/* ── THE STORY ─────────────────────────────────── */}
+      <section className={styles.story} aria-labelledby="story-h">
+        <div className="container">
+          <div className={styles.storyInner}>
+            <p className={styles.storyEyebrow}>The short version</p>
+            <h2 id="story-h" className={styles.storyHeading}>
+              Why ProjectKaro exists
+            </h2>
+            <div className={styles.storyProse}>
+              <p>
+                <span className={styles.dropCap}>P</span>rojectKaro started in Hyderabad in 2024 with a simple observation.
+                Students needed complete, submission-ready projects. Small businesses needed websites that brought in real
+                enquiries. Underneath, both needed the same thing: someone reliable on the other side of the brief.
+              </p>
+              <p>
+                So the studio runs on a fixed standard. Scope and price in writing before we start. A detailed quote within
+                24 hours. Delivery on the agreed date, with full documentation. Per-project pricing, never hidden fees.
+                It is not a complicated model. It is just one that holds up, across 100+ deliveries and counting.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── VALUES GRID ────────────────────────────────── */}
+      {/* ── VALUES: ledger rows ───────────────────────── */}
       <section className={styles.values} aria-labelledby="values-heading">
         <div className="container">
           <div className={styles.valuesHeader}>
-            <p className={styles.eyebrow}>What We Stand For</p>
+            <p className={styles.eyebrow}>What we stand for</p>
             <h2 id="values-heading" className={styles.valuesTitle}>
               How we work
             </h2>
           </div>
 
-          <div className={styles.valuesGrid}>
-            {VALUES.map((v) => (
-              <div key={v.title} className={styles.valueCard}>
-                <div className={styles.valueIcon} aria-hidden="true">
-                  {v.icon}
-                </div>
-                <h3 className={styles.valueTitle}>{v.title}</h3>
-                <p className={styles.valueText}>{v.text}</p>
-              </div>
+          <ul className={styles.valuesGrid} role="list">
+            {VALUES.map((v, i) => (
+              <li key={v.title} className={styles.valueCard}>
+                <span className={styles.valueIcon} aria-hidden="true">
+                  {VALUE_ICONS[i]}
+                </span>
+                <h3 className={styles.valueCardTitle}>{v.title}</h3>
+                <p className={styles.valueCardText}>{v.text}</p>
+              </li>
             ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── FINE PRINT ────────────────────────────────── */}
+      <section className={styles.finePrint} aria-labelledby="fine-print-h">
+        <div className="container">
+          <div className={styles.finePrintHeader}>
+            <p className={styles.eyebrow}>Trust, itemised</p>
+            <h2 id="fine-print-h" className={styles.finePrintTitle}>
+              The fine print, upfront
+            </h2>
           </div>
+          <ul className={styles.finePrintList} role="list">
+            {FINE_PRINT.map((item) => (
+              <li key={item.title} className={styles.finePrintItem}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <div>
+                  <h3 className={styles.finePrintItemTitle}>{item.title}</h3>
+                  <p className={styles.finePrintItemText}>{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

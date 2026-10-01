@@ -1,10 +1,11 @@
+import CountUp from "@/components/effects/CountUp";
 import styles from "./Stats.module.css";
 
 const STATS = [
-  { value: "150+", label: "Projects Delivered", icon: "projects" },
-  { value: "50+", label: "Websites Launched", icon: "websites" },
-  { value: "500+", label: "Clients Served", icon: "clients" },
-  { value: "10", label: "Services Offered", icon: "services" },
+  { end: 100, suffix: "+", label: "Projects Delivered", icon: "projects" },
+  { end: 300, suffix: "+", label: "Happy Clients", icon: "clients" },
+  { end: 10, suffix: "", label: "Services Offered", icon: "services" },
+  { end: 24, suffix: "h", label: "Response Time", icon: "response" },
 ];
 
 export default function Stats() {
@@ -15,7 +16,7 @@ export default function Stats() {
           Our impact in numbers
         </h2>
         <ul className={styles.list} role="list">
-          {STATS.map(({ value, label, icon }) => (
+          {STATS.map(({ end, suffix, label, icon }) => (
             <li key={label} className={styles.item}>
               <div className={styles.icon}>
                 {icon === 'projects' && (
@@ -43,8 +44,16 @@ export default function Stats() {
                     <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 )}
+                {icon === 'response' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <polyline points="12 6 12 12 16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
               </div>
-              <span className={styles.value}>{value}</span>
+              <span className={styles.value}>
+                <CountUp end={end} suffix={suffix} />
+              </span>
               <span className={styles.label}>{label}</span>
             </li>
           ))}

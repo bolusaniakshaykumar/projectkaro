@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
+  compress: true,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -9,16 +12,39 @@ const nextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        // Long-lived immutable cache for versioned/static site assets
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:path*.png",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400",
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {
-        source: "/services",
-        destination: "/projects",
+        source: "/projects",
+        destination: "/services",
         permanent: true,
       },
       {
-        source: "/services/:path*",
-        destination: "/projects/:path*",
+        source: "/projects/:path*",
+        destination: "/services/:path*",
         permanent: true,
       },
     ];

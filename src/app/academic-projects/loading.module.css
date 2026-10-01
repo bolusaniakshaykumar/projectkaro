@@ -1,0 +1,226 @@
+/* /academic-projects/loading — branded skeleton mirroring the page layout
+   Light theme, blue accent shimmer, sized to match real sections. */
+
+@keyframes accentPulse {
+  0%, 100% { background-color: rgba(30, 86, 232, 0.10); }
+  50% { background-color: rgba(30, 86, 232, 0.22); }
+}
+
+@keyframes darkPulse {
+  0%, 100% { background-color: rgba(255, 255, 255, 0.10); }
+  50% { background-color: rgba(255, 255, 255, 0.22); }
+}
+
+/* Blue-tinted shimmer piece (no neutral shimmer mixed in) */
+.blueBlock {
+  position: relative;
+  overflow: hidden;
+  animation: accentPulse 1.4s ease-in-out infinite;
+  border-radius: var(--radius);
+}
+
+/* Light-on-dark shimmer pieces for the ink band */
+.darkLine {
+  height: 14px;
+  margin: 8px 0;
+  border-radius: var(--radius);
+  animation: darkPulse 1.4s ease-in-out infinite;
+}
+
+.darkTitle {
+  height: 24px;
+  margin: 12px 0;
+  border-radius: var(--radius);
+  animation: darkPulse 1.4s ease-in-out infinite;
+}
+
+.darkCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: darkPulse 1.4s ease-in-out infinite;
+}
+
+/* ── HERO (mirrors .hero: centered copy + art block) ── */
+.hero {
+  padding: 4.5rem 0 3.5rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.heroCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 52rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.pill {
+  width: 140px;
+  height: 34px;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.factsRow {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fact {
+  width: 150px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.heroArt {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+/* ── ANGLES (mirrors .angles: eyebrow + heading + 4 cards) ── */
+.angles {
+  padding: 5rem 0;
+  background: var(--paper);
+}
+
+/* ── DELIVERABLES band (mirrors the dark ink band) ── */
+.band {
+  background: var(--ink);
+  padding: 4.5rem 0;
+}
+
+.bandGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.bandList {
+  display: flex;
+  flex-direction: column;
+}
+
+.bandRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.bandRow:first-child { border-top: 1px solid rgba(255, 255, 255, 0.14); }
+
+/* ── STEPS (mirrors .miniProcess: stepper + side panel) ── */
+.steps {
+  padding: 5rem 0;
+  background: var(--paper);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 3.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.sideCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sideCard {
+  border-radius: 20px;
+}
+
+.sideChat {
+  height: 96px;
+  border-radius: 18px;
+}
+
+/* ── FAQ (mirrors .faq) ── */
+.faq {
+  padding: 5rem 0;
+  background: var(--paper-soft);
+  border-top: 1px solid var(--line-soft);
+}
+
+.faqCenter {
+  text-align: center;
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.faqItem {
+  border-radius: 14px;
+}
+
+/* ── QUOTE (mirrors .quote: copy + form band) ── */
+.quote {
+  padding: 5rem 0;
+  background: var(--paper);
+}
+
+.quoteBand {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 3rem;
+  align-items: start;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 3rem;
+}
+
+.formWrap {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .bandGrid, .stepsGrid, .quoteBand { grid-template-columns: 1fr; gap: 2.5rem; }
+  .quoteBand { padding: 2rem; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 3rem 0 2.5rem; }
+  .angles, .band, .steps, .faq, .quote { padding: 3.5rem 0; }
+  .quoteBand { padding: 1.5rem; }
+  .formWrap { padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueBlock, .darkLine, .darkTitle, .darkCircle { animation: none; }
+}

@@ -60,12 +60,8 @@ export async function POST(request: Request) {
     if (!phone) {
       return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
     }
-    if (!projectTitle) {
-      return NextResponse.json({ error: "Project title is required." }, { status: 400 });
-    }
-    if (!message) {
-      return NextResponse.json({ error: "Project description is required." }, { status: 400 });
-    }
+    // projectTitle and message are OPTIONAL on the client form (only fullName, email,
+    // phone, and projectType are required), so the API must not reject empty values.
     let buffer: Buffer | null = null;
     let fileName = "";
 
@@ -122,17 +118,17 @@ export async function POST(request: Request) {
       from: `"ProjectKaro" <${fromEmail}>`,
       to: toList,
       replyTo: email,
-      subject: `[ProjectKaro] New project submission: ${projectTitle}`,
+      subject: `[ProjectKaro] New project submission: ${projectTitle || "Untitled project"}`,
       text: [
         `New project submission from ProjectKaro website.`,
         `Full Name: ${fullName}`,
         `Email: ${email}`,
         `Phone: ${phone}`,
-        `Project Title: ${projectTitle}`,
+        `Project Title: ${projectTitle || "Not specified"}`,
         `Project Type: ${projectType || "Not specified"}`,
         ``,
         `Message / Project Description:`,
-        message,
+        message || "Not provided",
       ].join("\n"),
       html: [
         `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#0b0b12;padding:24px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:#eaeaf0;">`,
@@ -148,13 +144,13 @@ export async function POST(request: Request) {
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Full Name:</strong> <span style="color:#eaeaf0">${fullName}</span></p>`,
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Email:</strong> <span style="color:#eaeaf0">${email}</span></p>`,
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Phone:</strong> <span style="color:#eaeaf0">${phone}</span></p>`,
-        `<p style="margin:0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle}</span></p>`,
+        `<p style="margin:0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle || "Not specified"}</span></p>`,
 `<p style="margin:0;color:#9fa1b6"><strong>Project Type:</strong> <span style="color:#eaeaf0">${projectType || "Not specified"}</span></p>`,
         `</div>`,
         `</td></tr>`,
         `<tr><td style="padding:0 24px 16px">`,
         `<p style="margin:0;color:#d5d6e6;font-size:15px">Message / Description:</p>`,
-        `<pre style="white-space:pre-wrap;background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:12px;color:#eaeaf0;font-size:14px;line-height:1.5;margin:8px 0 0">${message.replace(/</g, "&lt;")}</pre>`,
+        `<pre style="white-space:pre-wrap;background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:12px;color:#eaeaf0;font-size:14px;line-height:1.5;margin:8px 0 0">${(message || "Not provided").replace(/</g, "&lt;")}</pre>`,
         `</td></tr>`,
         buffer ? `<tr><td style="padding:0 24px 24px">
         <p style="margin:0;color:#9fa1b6;font-size:13px">Attachment: ${fileName}</p>
@@ -189,13 +185,13 @@ export async function POST(request: Request) {
       `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Full Name:</strong> <span style="color:#eaeaf0">${fullName}</span></p>`,
       `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Email:</strong> <span style="color:#eaeaf0">${email}</span></p>`,
       `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Phone:</strong> <span style="color:#eaeaf0">${phone}</span></p>`,
-      `<p style="margin:0 8px 0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle}</span></p>`,
+      `<p style="margin:0 8px 0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle || "Not specified"}</span></p>`,
 `<p style="margin:8px 0 0;color:#9fa1b6"><strong>Project Type:</strong> <span style="color:#eaeaf0">${projectType || "Not specified"}</span></p>`,
       `</div>`,
       `</td></tr>`,
       `<tr><td style="padding:0 24px 16px">`,
       `<p style="margin:0;color:#d5d6e6;font-size:15px">Message / Description:</p>`,
-      `<pre style="white-space:pre-wrap;background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:12px;color:#eaeaf0;font-size:14px;line-height:1.5;margin:8px 0 0">${message.replace(/</g, "&lt;")}</pre>`,
+      `<pre style="white-space:pre-wrap;background:#181828;border:1px solid #2a2a3b;border-radius:8px;padding:12px;color:#eaeaf0;font-size:14px;line-height:1.5;margin:8px 0 0">${(message || "Not provided").replace(/</g, "&lt;")}</pre>`,
       `</td></tr>`,
       `<tr><td style="padding:0 24px 24px">`,
       `<p style="margin:0;color:#9fa1b6;font-size:14px">If you need to add more details, simply reply to this email or contact us at <a href="mailto:contact@projectkaro.com" style="color:#8d93ff">contact@projectkaro.com</a>.</p>`,
@@ -208,7 +204,7 @@ export async function POST(request: Request) {
     const userMailOptions = {
       from: `"ProjectKaro" <${fromEmail}>`,
       to: email,
-      subject: `Thanks for reaching out — ProjectKaro`,
+      subject: `Thanks for reaching out, from ProjectKaro`,
       html: userHtml,
     };
 
