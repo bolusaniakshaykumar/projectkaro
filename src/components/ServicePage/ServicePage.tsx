@@ -527,10 +527,18 @@ function ShowcasePage({ content }: { content: ServicePageContent }) {
   const [showBar, setShowBar] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowBar(window.scrollY > 600);
+    const onScroll = () => {
+      const visibleNow = window.scrollY > 600;
+      setShowBar(visibleNow);
+      // Signal the site-wide WhatsApp float to lift above this bar.
+      document.body.dataset.stickyCta = visibleNow ? "on" : "";
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      delete document.body.dataset.stickyCta;
+    };
   }, []);
 
   const isCustomQuote = content.priceBand === "Custom Quote";

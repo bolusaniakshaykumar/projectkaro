@@ -90,10 +90,18 @@ export function StickyMiniCta({
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 560);
+    const onScroll = () => {
+      const visibleNow = window.scrollY > 560;
+      setShow(visibleNow);
+      // Signal the site-wide WhatsApp float to lift above this bar.
+      document.body.dataset.stickyCta = visibleNow ? "on" : "";
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      delete document.body.dataset.stickyCta;
+    };
   }, []);
 
   return (

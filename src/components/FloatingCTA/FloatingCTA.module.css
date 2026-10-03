@@ -44,6 +44,15 @@
   }
 }
 
+/* When a sticky "Get a quote" bar is visible, lift the WhatsApp float above
+   it on narrow viewports, where the bar spans the full width and would
+   otherwise sit underneath the button. */
+@media (max-width: 48rem) {
+  body[data-sticky-cta="on"] .floatingBtn {
+    bottom: 5.75rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .floatingBtn {
     transition: none;
