@@ -383,7 +383,7 @@ export default function CoachingDemo() {
           </div>
         </section>
 
-        <section id="admissions" className={`${styles.section} ${styles.sectionAlt}`}>
+        <section id="admissions" className={`${styles.section} ${styles.admissionsBand}`}>
           <div className={styles.container}>
             <div className={styles.sectionHead}>
               <p className={styles.eyebrow}>Join us</p>

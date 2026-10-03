@@ -239,7 +239,7 @@ export default function ConsultantDemoPage() {
           </div>
         </section>
 
-        <section className={styles.section} id="contact">
+        <section className={`${styles.section} ${styles.contactBand}`} id="contact">
           <div className={styles.sectionInner}>
             <p className={styles.eyebrow}>Contact</p>
             <h2>Start with a conversation.</h2>

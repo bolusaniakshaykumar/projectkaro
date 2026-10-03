@@ -843,18 +843,16 @@ export default function IndustryPage({ content }: { content: IndustryPageContent
       {/* 5. Problem */}
       <section className={styles.section} aria-labelledby="problem-heading">
         <div className="container">
-          <div className={styles.split}>
-            <div className={styles.splitHead}>
-              <Reveal>
-                <p className={styles.sectionKicker}>The problem</p>
-                <h2 id="problem-heading" className={styles.sectionTitle}>
-                  {content.problemHeading}
-                </h2>
-                {content.problemIntro && <p className={styles.sectionIntro}>{content.problemIntro}</p>}
-              </Reveal>
-            </div>
-            <div>
-              {content.problemStyle === "quotes" ? (
+          <div className={styles.problemsHead}>
+            <Reveal>
+              <p className={styles.sectionKicker}>The problem</p>
+              <h2 id="problem-heading" className={styles.sectionTitle}>
+                {content.problemHeading}
+              </h2>
+              {content.problemIntro && <p className={styles.sectionIntro}>{content.problemIntro}</p>}
+            </Reveal>
+          </div>
+          {content.problemStyle === "quotes" ? (
                 <ul className={styles.quoteCards} role="list">
                   {content.problems.map((p, i) => (
                     <li key={i}>
@@ -886,8 +884,6 @@ export default function IndustryPage({ content }: { content: IndustryPageContent
                   ))}
                 </ul>
               )}
-            </div>
-          </div>
         </div>
       </section>
 

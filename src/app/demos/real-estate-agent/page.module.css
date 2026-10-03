@@ -152,8 +152,11 @@
 .testimonialCard footer { color: var(--gold-light); font-size: 0.82rem; font-weight: 600; }
 
 /* Contact */
-.contactSection { background: var(--ivory); }
-.contactSub { color: var(--ink); max-width: 600px; }
+/* Contact: deep navy conversion band */
+.contactSection { background: var(--navy-deep); color: var(--ivory); }
+.contactSection h2 { color: #ffffff; }
+.contactSection .eyebrowDark { color: var(--gold-light); }
+.contactSub { color: #c9d4e3; max-width: 600px; }
 .contactGrid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: 1.5rem; }
 .form { display: grid; gap: 1rem; grid-template-columns: 1fr; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; }
 .form label { display: flex; flex-direction: column; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; color: var(--navy-deep); }

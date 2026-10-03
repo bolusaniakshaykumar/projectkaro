@@ -419,3 +419,19 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ---------- Quote: deep steel conversion band ---------- */
+.quoteBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(31, 78, 121, 0.55) 0%, transparent 60%),
+    var(--steel-ink);
+  color: #eaf0f7;
+}
+
+.quoteBand h2 {
+  color: #ffffff;
+}
+
+.quoteBand .eyebrow {
+  color: #ffc89e;
+}

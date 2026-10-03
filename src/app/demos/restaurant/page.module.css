@@ -127,10 +127,10 @@
 .reviewCard footer span { color: #a8a29e; font-size: 0.8rem; }
 .sampleNote { color: #a8a29e; font-size: 0.82rem; margin-top: 1.25rem; }
 
-/* Reservation */
-.reserveSection { background: var(--cream); color: var(--charcoal); }
-.reserveSection h2 { font-size: 1.9rem; }
-.reserveSub { color: var(--ink); max-width: 560px; }
+/* Reservation: charcoal conversion band */
+.reserveSection { background: var(--charcoal); color: var(--cream); }
+.reserveSection h2 { font-size: 1.9rem; color: var(--cream); }
+.reserveSub { color: #d6cfc4; max-width: 560px; }
 .form { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.5rem; background: #fff; border: 1px solid var(--cream2); border-radius: 16px; padding: 1.5rem; }
 .form label { display: flex; flex-direction: column; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; }
 .form input, .form select {

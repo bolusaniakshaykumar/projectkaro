@@ -420,3 +420,19 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ---------- Contact: deep green conversion band ---------- */
+.contactBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(22, 101, 52, 0.55) 0%, transparent 60%),
+    var(--green-deep);
+  color: var(--cream);
+}
+
+.contactBand h2 {
+  color: var(--cream);
+}
+
+.contactBand .eyebrow {
+  color: #d9efc2;
+}

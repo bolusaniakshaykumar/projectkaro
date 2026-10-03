@@ -365,7 +365,7 @@ export default function CaFirmDemo() {
           </div>
         </section>
 
-        <section id="contact" className={styles.section}>
+        <section id="contact" className={`${styles.section} ${styles.contactBand}`}>
           <div className={styles.container}>
             <div className={styles.sectionHead}>
               <p className={styles.eyebrow}>Get in touch</p>

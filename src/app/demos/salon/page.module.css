@@ -134,9 +134,11 @@
 .testimonialCard p { color: var(--black); font-size: 0.95rem; font-style: italic; }
 .testimonialCard footer { color: var(--rose-deep); font-size: 0.82rem; font-weight: 600; }
 
-/* Booking */
-.bookSection { background: var(--blush-deep); }
-.bookSub { color: var(--ink); max-width: 560px; }
+/* Booking: deep plum conversion band */
+.bookSection { background: #2b1219; color: var(--blush); }
+.bookSection h2 { color: #ffffff; }
+.bookSection .eyebrow { color: var(--blush-deep); }
+.bookSub { color: #e9cdd9; max-width: 560px; }
 .form { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.5rem; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; }
 .form label { display: flex; flex-direction: column; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; color: var(--black); }
 .form input, .form select {

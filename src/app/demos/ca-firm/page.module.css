@@ -656,3 +656,23 @@
     align-items: start;
   }
 }
+
+/* ---------- Contact: deep navy conversion band ---------- */
+.contactBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(30, 64, 175, 0.35) 0%, transparent 60%),
+    var(--slate-900);
+  color: #f1f5f9;
+}
+
+.contactBand .eyebrow {
+  color: var(--blue-100);
+}
+
+.contactBand .sectionTitle {
+  color: #ffffff;
+}
+
+.contactBand .sectionSub {
+  color: #cbd5e1;
+}

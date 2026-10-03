@@ -331,7 +331,7 @@ export default function DentalClinicDemo() {
           </div>
         </section>
 
-        <section className={styles.section} id="appointment">
+        <section className={`${styles.section} ${styles.appointmentBand}`} id="appointment">
           <div className={styles.container}>
             <div className={styles.appointmentWrap}>
               <div className={styles.appointmentCopy}>

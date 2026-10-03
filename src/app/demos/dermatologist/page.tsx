@@ -336,7 +336,7 @@ export default function DermatologistDemo() {
           </div>
         </section>
 
-        <section className={styles.section} id="booking">
+        <section className={`${styles.section} ${styles.bookingBand}`} id="booking">
           <div className={styles.container}>
             <div className={styles.appointmentWrap}>
               <div className={styles.appointmentCopy}>

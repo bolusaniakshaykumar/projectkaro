@@ -851,14 +851,13 @@
 }
 
 /* ---------- Problem: editorial split, sticky heading ---------- */
-.split {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  align-items: start;
+/* ---------- Problem cards ---------- */
+.problemsHead {
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
 }
 
-.splitHead .sectionIntro {
+.problemsHead .sectionIntro {
   margin-bottom: 0;
 }
 
@@ -868,6 +867,12 @@
   padding: 0;
   display: grid;
   gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .painRows {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .painRow {
@@ -933,6 +938,12 @@
   padding: 0;
   display: grid;
   gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .quoteCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .quoteCard {
@@ -1950,16 +1961,6 @@
 }
 
 @media (min-width: 900px) {
-  .split {
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 3.5rem;
-  }
-
-  .splitHead {
-    position: sticky;
-    top: 6rem;
-  }
-
   .bento {
     grid-template-columns: 1fr 1fr;
   }

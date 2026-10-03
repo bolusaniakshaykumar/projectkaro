@@ -183,6 +183,71 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── FOUNDER: dark editorial band ────────────────── */}
+      <section className={styles.founder} aria-labelledby="founder-heading">
+        <div className="container">
+          <div className={styles.founderGrid}>
+            <figure className={styles.founderFigure}>
+              <div className={styles.portraitFrame}>
+                <Image
+                  src="/images/founder-akshay-v3.jpg"
+                  alt="Akshay Kumar Bolusani, Founder and CEO of ProjectKaro"
+                  width={800}
+                  height={800}
+                  loading="lazy"
+                  sizes="(min-width: 961px) 400px, 100vw"
+                />
+                <span className={styles.portraitGlaze} aria-hidden="true" />
+                <span className={styles.portraitGrain} aria-hidden="true" />
+              </div>
+              <figcaption className={styles.founderCaption}>
+                Akshay Kumar Bolusani, Founder &amp; CEO, ProjectKaro
+              </figcaption>
+            </figure>
+            <div className={styles.founderCopy}>
+              <p className={styles.founderEyebrow}>
+                <span className={styles.founderEyebrowDot} aria-hidden="true" />
+                The person behind the studio
+              </p>
+              <h2 id="founder-heading" className={styles.founderHeadline}>
+                Built on systems, <em>not on one person.</em>
+              </h2>
+              <blockquote className={styles.founderQuote}>
+                <p>
+                  “I started ProjectKaro as an engineer with no business
+                  background. So I built the studio the way an engineer would:
+                  every scope in writing, every quote priced per project, every
+                  delivery on an agreed date.”
+                </p>
+                <footer>
+                  <cite>Akshay Kumar Bolusani</cite>, Founder &amp; CEO, ProjectKaro
+                </footer>
+              </blockquote>
+              <p className={styles.founderBio}>
+                Akshay started ProjectKaro in Hyderabad in 2024 with tech
+                knowledge and no playbook for running a business, so he made the
+                process the playbook: documented scopes, milestone updates, and
+                delivery checklists that hold up whether he is in the room or
+                not. He is currently preparing for a Master&apos;s in Cyber
+                Security, which is exactly why the studio runs on systems. A
+                company that only works while its founder watches is not a
+                company. It is a job.
+              </p>
+              <ul className={styles.founderChips} role="list" aria-label="Founder credentials">
+                <li className={styles.chip}>Founder &amp; CEO</li>
+                <li className={styles.chip}>
+                  <strong>100+</strong> projects delivered
+                </li>
+                <li className={styles.chip}>
+                  <strong>20+</strong> team members
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* ── STATS ROW ─────────────────────────────────── */}
       <section className={styles.statsBand} aria-labelledby="about-stats-h">
         <div className="container">
@@ -272,70 +337,6 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* ── FOUNDER: dark editorial band ────────────────── */}
-      <section className={styles.founder} aria-labelledby="founder-heading">
-        <div className="container">
-          <div className={styles.founderGrid}>
-            <figure className={styles.founderFigure}>
-              <div className={styles.portraitFrame}>
-                <Image
-                  src="/images/founder-akshay-v2.jpg"
-                  alt="Akshay Kumar Bolusani, Founder and CEO of ProjectKaro"
-                  width={800}
-                  height={800}
-                  loading="lazy"
-                  sizes="(min-width: 961px) 400px, 100vw"
-                />
-                <span className={styles.portraitGlaze} aria-hidden="true" />
-                <span className={styles.portraitGrain} aria-hidden="true" />
-              </div>
-              <figcaption className={styles.founderCaption}>
-                Akshay Kumar Bolusani, Founder &amp; CEO, ProjectKaro
-              </figcaption>
-            </figure>
-            <div className={styles.founderCopy}>
-              <p className={styles.founderEyebrow}>
-                <span className={styles.founderEyebrowDot} aria-hidden="true" />
-                The person behind the studio
-              </p>
-              <h2 id="founder-heading" className={styles.founderHeadline}>
-                Built on systems, <em>not on one person.</em>
-              </h2>
-              <blockquote className={styles.founderQuote}>
-                <p>
-                  “I started ProjectKaro as an engineer with no business
-                  background. So I built the studio the way an engineer would:
-                  every scope in writing, every quote priced per project, every
-                  delivery on an agreed date.”
-                </p>
-                <footer>
-                  <cite>Akshay Kumar Bolusani</cite>, Founder &amp; CEO, ProjectKaro
-                </footer>
-              </blockquote>
-              <p className={styles.founderBio}>
-                Akshay started ProjectKaro in Hyderabad in 2024 with tech
-                knowledge and no playbook for running a business, so he made the
-                process the playbook: documented scopes, milestone updates, and
-                delivery checklists that hold up whether he is in the room or
-                not. He is currently preparing for a Master&apos;s in Cyber
-                Security, which is exactly why the studio runs on systems. A
-                company that only works while its founder watches is not a
-                company. It is a job.
-              </p>
-              <ul className={styles.founderChips} role="list" aria-label="Founder credentials">
-                <li className={styles.chip}>Founder &amp; CEO</li>
-                <li className={styles.chip}>
-                  <strong>100+</strong> projects delivered
-                </li>
-                <li className={styles.chip}>
-                  <strong>20+</strong> team members
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 

@@ -175,7 +175,7 @@ export default function ManufacturerDemoPage() {
           </div>
         </section>
 
-        <section className={styles.sectionAlt} id="quote">
+        <section className={`${styles.sectionAlt} ${styles.quoteBand}`} id="quote">
           <div className={styles.sectionInner}>
             <p className={styles.eyebrow}>Get Pricing</p>
             <h2>Request a quote in two minutes.</h2>

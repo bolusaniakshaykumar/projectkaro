@@ -796,3 +796,25 @@
     align-items: start;
   }
 }
+
+/* ---------- Admissions: deep indigo conversion band ---------- */
+.admissionsBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(79, 70, 229, 0.4) 0%, transparent 60%),
+    #1e1b4b;
+  color: #eef2ff;
+}
+
+.admissionsBand .eyebrow {
+  color: #fdba74;
+  background: rgba(234, 88, 12, 0.16);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+.admissionsBand .sectionTitle {
+  color: #ffffff;
+}
+
+.admissionsBand .sectionSub {
+  color: #c7d2fe;
+}

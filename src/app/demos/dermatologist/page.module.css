@@ -912,3 +912,31 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ---------- Booking: dark plum conversion band ---------- */
+.bookingBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(207, 91, 120, 0.22) 0%, transparent 60%),
+    var(--footer-bg);
+  color: #ffffff;
+}
+
+.bookingBand .sectionEyebrow {
+  color: var(--brand-soft);
+}
+
+.bookingBand .sectionTitle {
+  color: #ffffff;
+}
+
+.bookingBand .sectionSub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.bookingBand .appointmentPoints li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.bookingBand .checkIcon {
+  color: var(--brand-soft);
+}

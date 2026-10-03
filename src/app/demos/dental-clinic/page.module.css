@@ -639,6 +639,34 @@
   font-family: inherit;
 }
 
+/* ---------- Appointment: dark teal conversion band ---------- */
+.appointmentBand {
+  background:
+    radial-gradient(32rem 16rem at 85% 0%, rgba(13, 148, 136, 0.22) 0%, transparent 60%),
+    var(--footer-bg);
+  color: #ffffff;
+}
+
+.appointmentBand .sectionEyebrow {
+  color: var(--brand-soft);
+}
+
+.appointmentBand .sectionTitle {
+  color: #ffffff;
+}
+
+.appointmentBand .sectionSub {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.appointmentBand .appointmentPoints li {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.appointmentBand .checkIcon {
+  color: var(--brand-soft);
+}
+
 .formButton:hover {
   background: var(--brand-dark);
 }

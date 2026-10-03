@@ -51,15 +51,16 @@ const NAV_GROUPS: NavGroup[] = [
       { href: "/academic-projects/minor-projects", label: "Minor Projects" },
     ],
   },
-  {
-    label: "Company",
-    children: [
-      { href: "/about", label: "About" },
-      { href: "/how-it-works", label: "How It Works" },
-    ],
-  },
 ];
 
+/* Top-level links: Home and About lead, then the groups, then How It Works
+   and Blogs, with the Get a Quote button last. */
+const TOP_LINKS: NavChild[] = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+];
+
+const HOW_IT_WORKS_HREF = "/how-it-works";
 const BLOGS_HREF = "/blogs";
 const CTA_HREF = "/start-a-project";
 
@@ -194,6 +195,7 @@ export default function Header() {
   };
 
   const isBlogsActive = matches(BLOGS_HREF, pathname);
+  const isHowItWorksActive = matches(HOW_IT_WORKS_HREF, pathname);
   const isCtaActive = pathname === CTA_HREF;
 
   return (
@@ -232,6 +234,21 @@ export default function Header() {
             onKeyDown={onNavKeyDown}
           >
             <ul className={styles.navList} onMouseLeave={hoverClose}>
+              {TOP_LINKS.map((link) => {
+                const isActive = matches(link.href, pathname);
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`${styles.navLink} ${isActive ? styles.navLinkActive : ""}`}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
               {NAV_GROUPS.map((group) => {
                 const activeChild = activeChildFor(group, pathname);
                 const isOpen = openGroup === group.label;
@@ -303,6 +320,16 @@ export default function Header() {
                   </li>
                 );
               })}
+              <li>
+                <Link
+                  href={HOW_IT_WORKS_HREF}
+                  className={`${styles.navLink} ${isHowItWorksActive ? styles.navLinkActive : ""}`}
+                  aria-current={isHowItWorksActive ? "page" : undefined}
+                  onClick={closeMenu}
+                >
+                  How It Works
+                </Link>
+              </li>
               <li>
                 <Link
                   href={BLOGS_HREF}
