@@ -610,36 +610,37 @@ function ShowcasePage({ content }: { content: ServicePageContent }) {
       {/* 4. Problems */}
       <section className={styles.section} aria-labelledby="pains-heading">
         <div className="container">
-          <div className={styles.split}>
-            <div className={styles.splitHead}>
-              <Reveal>
-                <p className={styles.sectionKicker}>The problem</p>
-                <h2 id="pains-heading" className={styles.sectionTitle}>
-                  {content.painsHeading}
-                </h2>
-                {content.painsIntro && (
-                  <p className={styles.sectionIntro}>{content.painsIntro}</p>
-                )}
-              </Reveal>
-            </div>
-            <ul className={styles.painRows}>
-              {content.pains.map((p, i) => (
-                <li key={i}>
-                  <Reveal delay={i * 90}>
-                    <article className={styles.painRow}>
+          <div className={styles.problemsHead}>
+            <Reveal>
+              <p className={styles.sectionKicker}>The problem</p>
+              <h2 id="pains-heading" className={styles.sectionTitle}>
+                {content.painsHeading}
+              </h2>
+              {content.painsIntro && (
+                <p className={styles.sectionIntro}>{content.painsIntro}</p>
+              )}
+            </Reveal>
+          </div>
+          <ul className={styles.painGrid}>
+            {content.pains.map((p, i) => (
+              <li key={i}>
+                <Reveal delay={i * 90} className={styles.painReveal}>
+                  <article className={styles.painCard}>
+                    <div className={styles.painTop}>
+                      <span className={styles.painIcon} aria-hidden="true">
+                        {p.icon}
+                      </span>
                       <span className={styles.painNum} aria-hidden="true">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <div>
-                        <h3 className={styles.painTitle}>{p.title}</h3>
-                        <p className={styles.painText}>{p.text}</p>
-                      </div>
-                    </article>
-                  </Reveal>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    </div>
+                    <h3 className={styles.painTitle}>{p.title}</h3>
+                    <p className={styles.painText}>{p.text}</p>
+                  </article>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

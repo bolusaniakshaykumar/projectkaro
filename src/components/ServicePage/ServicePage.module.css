@@ -740,64 +740,87 @@
   font-size: 0.98rem;
 }
 
-/* ---------- Split problems ---------- */
-.split {
-  display: grid;
-  gap: 2.5rem;
+/* ---------- Problem cards ---------- */
+.problemsHead {
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
 }
 
-@media (min-width: 960px) {
-  .split {
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .splitHead {
-    position: sticky;
-    top: 6rem;
-  }
-}
-
-.splitHead .sectionIntro {
+.problemsHead .sectionIntro {
   margin-bottom: 0;
 }
 
-.painRows {
+.painGrid {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .painGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.painReveal {
+  height: 100%;
+}
+
+.painCard {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-}
-
-.painRow {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.25rem;
-  padding: 1.5rem 1.25rem;
+  gap: 0.9rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  border-left: 3px solid transparent;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.painRow:hover {
-  background: var(--paper-soft);
-  border-left-color: var(--brand);
+.painCard:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.painTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.painIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-lg);
+  background: var(--brand-tint);
+  color: var(--brand-deep);
+  flex-shrink: 0;
+}
+
+.painIcon svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .painNum {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--brand);
-  padding-top: 0.2rem;
+  color: var(--ink-muted);
 }
 
 .painTitle {
   font-size: 1.08rem;
-  margin: 0 0 0.5rem;
+  line-height: 1.4;
+  margin: 0;
   color: var(--ink);
 }
 
@@ -805,7 +828,13 @@
   margin: 0;
   color: var(--ink-soft);
   line-height: 1.65;
-  font-size: 0.98rem;
+  font-size: 0.96rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .painCard:hover {
+    transform: none;
+  }
 }
 
 /* ---------- Outcomes bento ---------- */
@@ -814,13 +843,15 @@
   gap: 1.25rem;
 }
 
-@media (min-width: 720px) {
+/* Lead spans the full row; the remaining three sit in one row beneath it.
+   No orphan cards: 1 + 3 reads as one composed unit, never 1 + 2 + 1. */
+@media (min-width: 1024px) {
   .bento {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .bentoLead {
-    grid-column: span 2;
+    grid-column: span 3;
   }
 }
 
