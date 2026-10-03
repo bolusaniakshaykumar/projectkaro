@@ -1,6 +1,6 @@
 .footer {
   background-color: #0b1220;
-  color: #c3cde1;
+  color: var(--ink-invert);
   padding: 3rem 0 1.5rem;
   border-top: 3px solid var(--brand);
 }
@@ -26,7 +26,7 @@
 
 @media (min-width: 1024px) {
   .inner {
-    grid-template-columns: 1.35fr 0.85fr 1fr 1.1fr;
+    grid-template-columns: 1.2fr 1.3fr 0.75fr 0.85fr;
     align-items: start;
     gap: 2.5rem;
     margin-bottom: 2.25rem;
@@ -52,8 +52,30 @@
 .tagline {
   margin: 0;
   font-size: 0.9375rem;
-  color: #8fa0bf;
+  color: var(--ink-invert-muted);
   line-height: 1.65;
+}
+
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.125rem;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--brand);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.whatsappButton:hover {
+  background-color: var(--brand-deep);
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .columnLabel {
@@ -63,7 +85,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #8fa0bf;
+  color: var(--ink-invert-muted);
   position: relative;
 }
 
@@ -78,9 +100,7 @@
   background: var(--brand);
 }
 
-.navList,
-.contactList,
-.trustList {
+.navList {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -95,7 +115,7 @@
 .navLink {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #c3cde1;
+  color: var(--ink-invert);
   text-decoration: none;
   transition: color var(--transition-fast);
   min-height: 44px;
@@ -108,56 +128,39 @@
   text-decoration: none;
 }
 
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.75rem;
+.navLink:focus-visible,
+.whatsappButton:focus-visible,
+.legalLink:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
-.contactLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: #c3cde1;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-  min-height: 44px;
+/* Industry subgroup inside the Websites column */
+.subGroup {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.contactLink svg {
-  flex-shrink: 0;
-  color: #8fa0bf;
-  transition: color var(--transition-fast);
+.subLabel {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-invert-muted);
 }
 
-.contactLink:hover {
-  color: #ffffff;
-  text-decoration: none;
+.industryList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 1rem;
 }
 
-.contactLink:hover svg {
-  color: #ffffff;
-}
-
-.trustList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.trustItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  font-size: 0.875rem;
-  color: #8fa0bf;
-}
-
-.trustItem svg {
-  flex-shrink: 0;
+@media (max-width: 639px) {
+  .industryList {
+    grid-template-columns: 1fr;
+  }
 }
 
 .bottom {
@@ -173,7 +176,7 @@
 .copyright {
   margin: 0;
   font-size: 0.8125rem;
-  color: #8fa0bf;
+  color: var(--ink-invert-muted);
 }
 
 .legalNav {
@@ -184,7 +187,7 @@
 
 .legalLink {
   font-size: 0.8125rem;
-  color: #8fa0bf;
+  color: var(--ink-invert-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -194,6 +197,6 @@
 }
 
 .legalDot {
-  color: #5b6b8c;
+  color: var(--ink-invert-muted);
   font-size: 0.8125rem;
 }

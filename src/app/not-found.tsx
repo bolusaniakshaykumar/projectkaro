@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createPageMetadata } from "@/lib/seo";
+import styles from "./not-found.module.css";
 
 export const metadata = createPageMetadata({
   title: "Page Not Found",
@@ -10,27 +11,17 @@ export const metadata = createPageMetadata({
 
 export default function NotFound() {
   return (
-    <section className="section" aria-labelledby="not-found-heading">
-      <div className="container" style={{ textAlign: "center", maxWidth: "640px" }}>
-        <p
-          style={{
-            fontSize: "0.6875rem",
-            fontWeight: 700,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "var(--color-accent)",
-            marginBottom: "1rem",
-          }}
-        >
-          404
-        </p>
-        <h1 id="not-found-heading" style={{ marginBottom: "1rem" }}>
-          Page not found
+    <section className={styles.page} aria-labelledby="not-found-heading">
+      <div className={`container ${styles.inner}`}>
+        <p className={styles.code}>Error 404</p>
+        <h1 id="not-found-heading" className={styles.title}>
+          This page went missing.
         </h1>
-        <p style={{ color: "var(--color-text-muted)", lineHeight: 1.7, marginBottom: "2rem" }}>
-          The page you requested does not exist. Explore our services or get a free quote to start your project.
+        <p className={styles.text}>
+          The page you requested does not exist or was moved. The good news:
+          everything we build is easier to find than this page.
         </p>
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+        <div className={styles.actions}>
           <Link href="/" className="btn btn-primary">
             Go to Home
           </Link>

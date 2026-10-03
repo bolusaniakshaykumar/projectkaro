@@ -1,0 +1,128 @@
+/* PageKit styles. Global design tokens only, mobile-first.
+   Light theme. Reduced-motion respected. */
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.revealVisible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Sticky mini-CTA ---------- */
+.stickyBar {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 42rem;
+  margin: 0 auto;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--ink);
+  color: var(--ledger-text);
+  border-radius: var(--radius-xl);
+  padding: 0.75rem 0.75rem 0.75rem 1.25rem;
+  box-shadow: 0 12px 32px rgba(13, 21, 38, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.stickyBar[data-show="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.stickyText {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stickyBtn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: var(--brand);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.stickyBtn:hover {
+  background: var(--brand-deep);
+}
+
+.stickyBar[data-show="false"] .stickyBtn {
+  pointer-events: none;
+}
+
+/* ---------- Back to top ---------- */
+.backTop {
+  position: fixed;
+  bottom: 5.75rem;
+  right: 1.25rem;
+  z-index: 60;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s,
+    border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.backTop[data-show="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.backTop:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.backTop:focus-visible,
+.stickyBtn:focus-visible {
+  outline: 2px solid var(--brand-vivid);
+  outline-offset: 3px;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .stickyBar,
+  .backTop {
+    transition: opacity 0.01s linear, visibility 0.01s linear;
+  }
+}

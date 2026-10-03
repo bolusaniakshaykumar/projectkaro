@@ -1,0 +1,798 @@
+/* Demo 2: Aspire Academy
+   Palette: energetic indigo #4f46e5 + orange #f97316. */
+
+.root {
+  --indigo-700: #4338ca;
+  --indigo-600: #4f46e5;
+  --indigo-100: #e0e7ff;
+  --indigo-50: #eef2ff;
+  --orange-600: #ea580c;
+  --orange-500: #f97316;
+  --orange-100: #ffedd5;
+  --orange-50: #fff7ed;
+  --ink: #1e1b4b;
+  --slate-700: #3f3f4e;
+  --slate-500: #6b7280;
+  --slate-200: #e5e7eb;
+  --slate-100: #f3f4f6;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- In-demo sticky header ---------- */
+.header {
+  position: sticky;
+  top: 2.12rem; /* clears the DemoShell badge bar */
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 3px solid var(--orange-500);
+}
+
+.headerInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.7rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(135deg, var(--indigo-600), var(--indigo-700));
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: none;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--slate-700);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.nav a:hover {
+  color: var(--indigo-600);
+}
+
+.headerCtas {
+  display: flex;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
+.btnCall,
+.btnWhats {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btnCall {
+  border: 2px solid var(--indigo-600);
+  color: var(--indigo-600);
+  background: #ffffff;
+}
+
+.btnCall:hover {
+  background: var(--indigo-50);
+}
+
+.btnWhats {
+  background: var(--orange-500);
+  color: #ffffff;
+}
+
+.btnWhats:hover {
+  background: var(--orange-600);
+  transform: translateY(-1px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(40rem 20rem at 85% -5%, var(--orange-100) 0%, transparent 60%),
+    radial-gradient(50rem 24rem at 10% 0%, var(--indigo-100) 0%, transparent 65%),
+    #ffffff;
+  padding: 3.5rem 0;
+}
+
+.heroGrid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-600);
+  background: var(--orange-50);
+  border: 1px solid var(--orange-100);
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.heroTitle {
+  font-size: 2.15rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+}
+
+.heroTitle::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 0.35rem;
+  border-radius: 9999px;
+  background: var(--orange-500);
+  margin-top: 0.9rem;
+}
+
+.heroSub {
+  font-size: 1.08rem;
+  color: var(--slate-700);
+  margin: 0 0 1.6rem;
+  max-width: 34rem;
+}
+
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: var(--orange-500);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 9999px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 12px 24px -10px rgba(249, 115, 22, 0.55);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btnPrimary:hover {
+  background: var(--orange-600);
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--indigo-100);
+  color: var(--indigo-700);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  background: #ffffff;
+}
+
+.btnGhost:hover {
+  border-color: var(--indigo-600);
+}
+
+.heroNote {
+  margin: 0;
+  color: var(--slate-500);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.heroCard {
+  width: 100%;
+  max-width: 22rem;
+  background: var(--ink);
+  color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.6rem;
+  box-shadow: 0 24px 50px -20px rgba(30, 27, 75, 0.5);
+  transform: rotate(1.5deg);
+}
+
+.heroCardTag {
+  margin: 0 0 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange-500);
+}
+
+.heroCardTitle {
+  margin: 0 0 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.heroCardStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.heroCardStats strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--orange-500);
+}
+
+.heroCardStats span {
+  font-size: 0.75rem;
+  color: #c7d2fe;
+}
+
+.heroCardBar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #c7d2fe;
+  margin-bottom: 0.4rem;
+}
+
+.heroCardProgress {
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.heroCardProgress i {
+  display: block;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--indigo-600), var(--orange-500));
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 3.5rem 0;
+}
+
+.sectionAlt {
+  background: var(--indigo-50);
+}
+
+.sectionHead {
+  max-width: 44rem;
+  margin: 0 0 2.2rem;
+}
+
+.sectionTitle {
+  font-size: 1.7rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+.sectionSub {
+  color: var(--slate-500);
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+.sampleTag {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--orange-100);
+  color: var(--orange-600);
+  border-radius: 9999px;
+  padding: 0.25rem 0.7rem;
+  margin-left: 0.4rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--slate-200);
+  border-radius: 1.1rem;
+  padding: 1.6rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px -18px rgba(79, 70, 229, 0.4);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.18rem;
+  letter-spacing: -0.01em;
+}
+
+.card p {
+  margin: 0;
+  color: var(--slate-500);
+  font-size: 0.95rem;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.9rem;
+  background: var(--indigo-600);
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.courseTag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange-600);
+  background: var(--orange-50);
+  border-radius: 9999px;
+  padding: 0.25rem 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.coursesGrid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+.courseMeta {
+  margin: 1.1rem 0 1.3rem;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+  background: var(--indigo-50);
+  border-radius: 0.8rem;
+  padding: 1rem 1.1rem;
+}
+
+.courseMeta div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.courseMeta dt {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate-500);
+}
+
+.courseMeta dd {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.cardCta {
+  display: inline-block;
+  font-weight: 800;
+  color: var(--orange-600);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.cardCta:hover {
+  text-decoration: underline;
+}
+
+.facultyGrid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--indigo-600), var(--orange-500));
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Results strip ---------- */
+.resultsStrip {
+  background: linear-gradient(120deg, var(--indigo-700), var(--indigo-600));
+  color: #ffffff;
+  padding: 3rem 0;
+}
+
+.resultsLabel {
+  margin: 0 0 1.4rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c7d2fe;
+}
+
+.resultsStrip .sampleTag {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.resultsGrid {
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.result strong {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--orange-500);
+}
+
+.result span {
+  font-size: 0.88rem;
+  color: #e0e7ff;
+}
+
+/* ---------- Testimonials ---------- */
+.testiGrid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+.testiGrid blockquote {
+  margin: 0 0 1.1rem;
+  font-size: 1.02rem;
+  color: var(--slate-700);
+  font-style: italic;
+}
+
+.testiGrid figcaption strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.testiGrid figcaption span {
+  color: var(--slate-500);
+  font-size: 0.85rem;
+}
+
+/* ---------- Batches ---------- */
+.batchTable {
+  border: 1px solid var(--slate-200);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.batchHead,
+.batchRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+}
+
+.batchHead {
+  display: none;
+}
+
+.batchRow {
+  border-top: 1px solid var(--slate-200);
+  background: #ffffff;
+}
+
+.batchRow:nth-child(odd) {
+  background: var(--indigo-50);
+}
+
+.batchRow:first-of-type {
+  border-top: none;
+}
+
+.batchName {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 800;
+  color: var(--indigo-700);
+}
+
+.batchName svg {
+  color: var(--orange-500);
+  flex-shrink: 0;
+}
+
+.batchRow span[role="cell"] {
+  font-size: 0.93rem;
+  color: var(--slate-700);
+}
+
+/* ---------- Admissions / contact ---------- */
+.contactGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.form {
+  background: #ffffff;
+  border: 1px solid var(--slate-200);
+  border-radius: 1.1rem;
+  padding: 1.6rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.fieldRow {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.98rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--indigo-600);
+  box-shadow: 0 0 0 3px var(--indigo-100);
+}
+
+.formNote {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--slate-500);
+}
+
+.infoCard {
+  background: var(--ink);
+  color: #e0e7ff;
+  border-radius: 1.1rem;
+  padding: 1.8rem;
+}
+
+.infoCard h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.infoCard p {
+  margin: 0 0 0.9rem;
+  font-size: 0.96rem;
+}
+
+.infoCard strong {
+  color: #ffffff;
+}
+
+.officeCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.infoCard .btnCall {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+.infoCard .btnCall:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ink);
+  color: #a5b4fc;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.footerGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.footerBrand {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.footerText {
+  margin: 0;
+  font-size: 0.92rem;
+  max-width: 26rem;
+}
+
+.footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.footer nav a {
+  color: #c7d2fe;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.footer nav a:hover {
+  color: #ffffff;
+}
+
+.footerFine {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.2rem;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 640px) {
+  .coursesGrid,
+  .facultyGrid,
+  .testiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .resultsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .fieldRow {
+    grid-template-columns: 1fr 1fr;
+  }
+  .batchHead,
+  .batchRow {
+    grid-template-columns: 1.2fr 1fr 0.8fr 0.8fr;
+    align-items: center;
+    gap: 1rem;
+  }
+  .batchHead {
+    display: grid;
+    background: var(--indigo-600);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .batchRow {
+    border-top: 1px solid var(--slate-200);
+  }
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+  .headerCtas {
+    margin-left: 0;
+  }
+  .hero {
+    padding: 5rem 0;
+  }
+  .heroGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .heroTitle {
+    font-size: 2.9rem;
+  }
+  .section {
+    padding: 4.5rem 0;
+  }
+  .coursesGrid,
+  .facultyGrid,
+  .testiGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contactGrid {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+  .footerGrid {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}

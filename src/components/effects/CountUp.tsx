@@ -15,7 +15,7 @@ type CountUpProps = {
 };
 
 /**
- * CountUp — animated number counter (React Bits style, hand-rolled).
+ * CountUp - animated number counter (React Bits style, hand-rolled).
  * Counts from 0 to `end` with an ease-out-expo curve when scrolled into view.
  *
  * Progressive enhancement: the final value renders in the HTML, so no-JS
@@ -46,7 +46,7 @@ export default function CountUp({
       const t0 = performance.now();
       const tick = (now: number) => {
         const p = Math.min((now - t0) / duration, 1);
-        // easeOutExpo: fast start, long smooth settle — very visible.
+        // easeOutExpo: fast start, long smooth settle - very visible.
         const eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
         setDisplay(Math.round(eased * end));
         if (p < 1) {

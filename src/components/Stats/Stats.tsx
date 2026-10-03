@@ -3,7 +3,7 @@ import styles from "./Stats.module.css";
 
 const STATS = [
   { end: 100, suffix: "+", label: "Projects Delivered", icon: "projects" },
-  { end: 300, suffix: "+", label: "Happy Clients", icon: "clients" },
+  { end: 20, suffix: "+", label: "Team Members", icon: "clients" },
   { end: 10, suffix: "", label: "Services Offered", icon: "services" },
   { end: 24, suffix: "h", label: "Response Time", icon: "response" },
 ];

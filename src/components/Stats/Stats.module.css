@@ -81,7 +81,7 @@
   }
 }
 
-/* hide icon — numbers speak for themselves */
+/* hide icon - numbers speak for themselves */
 .icon {
   display: none;
 }
@@ -104,6 +104,6 @@
 .label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   line-height: 1.4;
 }

@@ -67,6 +67,10 @@
   background-color: var(--paper-soft);
 }
 
+.navLink:active {
+  color: var(--brand-deep);
+}
+
 /* Editorial underline sweep on desktop nav links */
 @media (min-width: 768px) {
   .navLink {
@@ -105,6 +109,138 @@
 .navLinkActive {
   color: var(--brand-deep);
   font-weight: 600;
+}
+
+/* Grouped dropdown menus */
+.navItem {
+  position: relative;
+}
+
+.groupButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  gap: 0.375rem;
+}
+
+.caret {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  border-radius: 1px;
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.navItemOpen .caret {
+  transform: rotate(225deg) translateY(-1px);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 280px;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 60;
+}
+
+/* Invisible bridge so the panel stays open while moving the pointer down */
+.dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 8px;
+}
+
+/* Visibility is driven only by React state (openGroup): at most one
+   submenu can be open at any time, whether it was opened by click,
+   hover, or keyboard. */
+.navItemOpen > .dropdown {
+  display: block;
+}
+
+.dropdownLink {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-radius: var(--radius);
+  letter-spacing: -0.005em;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.dropdownLink:hover {
+  color: var(--ink);
+  background-color: var(--paper-soft);
+  text-decoration: none;
+}
+
+.dropdownLinkActive {
+  color: var(--brand-deep);
+  font-weight: 600;
+  background-color: var(--brand-tint);
+}
+
+/* Grouped dropdown: Overview + By industry sections */
+.dropdownGrouped {
+  min-width: 600px;
+  max-width: calc(100vw - 2rem);
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.dropSection + .dropSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.dropSectionLabel {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.dropList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.industryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.125rem 0.5rem;
+}
+
+/* Visible keyboard focus across the nav */
+.navLink:focus-visible,
+.groupButton:focus-visible,
+.dropdownLink:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .navLinkCta {
@@ -199,6 +335,16 @@
     gap: 0.25rem;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .navOpen {
+      animation: none;
+    }
+
+    .navLink::after {
+      transition: none;
+    }
+  }
+
   .navLink {
     justify-content: flex-start;
     width: 100%;
@@ -208,6 +354,44 @@
     margin-left: 0;
     margin-top: 0.5rem;
     justify-content: center;
+  }
+
+  /* Dropdowns become an accordion on mobile */
+  .navItem {
+    position: static;
+  }
+
+  .groupButton {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dropdown {
+    position: static;
+    min-width: 0;
+    max-width: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 0 0.25rem 1rem;
+  }
+
+  .dropdownGrouped {
+    padding: 0 0 0.25rem 1rem;
+  }
+
+  .dropSection + .dropSection {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .industryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dropdown::before {
+    display: none;
   }
 
   .overlay {

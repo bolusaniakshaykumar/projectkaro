@@ -137,8 +137,20 @@ const OUTCOMES = [
   },
 ];
 
-const MINI_STEPS = [
-  {
+const INDUSTRIES = [
+  { href: "/websites-for-dental-clinics", name: "Dental Clinics", blurb: "Appointment-ready websites for dental practices." },
+  { href: "/websites-for-doctors", name: "Doctors", blurb: "Trust-building websites for doctors and clinics." },
+  { href: "/websites-for-restaurants", name: "Restaurants", blurb: "Menu-first websites that bring diners in." },
+  { href: "/websites-for-salons", name: "Salons", blurb: "Booking-focused websites for salons." },
+  { href: "/websites-for-real-estate", name: "Real Estate", blurb: "Listing-led websites for property businesses." },
+  { href: "/websites-for-startups", name: "Startups", blurb: "Launch-ready websites for startups." },
+  { href: "/websites-for-cas", name: "CAs and Accountants", blurb: "Credible websites for CA and accounting firms." },
+  { href: "/websites-for-coaching-centres", name: "Coaching Centres", blurb: "Enrolment-focused websites for coaching institutes." },
+  { href: "/websites-for-consultants", name: "Consultants", blurb: "Authority-building websites for consultants." },
+  { href: "/websites-for-small-businesses", name: "Small Businesses", blurb: "Affordable websites for small businesses." },
+];
+
+const MINI_STEPS = [  {
     num: "01",
     title: "Tell us about your business",
     text: "Fill the form or message us on WhatsApp. Share your business, your services, and what a good enquiry looks like for you.",
@@ -349,6 +361,7 @@ export default function WebsitesForBusinessesPage() {
                 </span>
               </a>
               <div className={styles.outcomeLinks}>
+                <Link href="/services/website-development">Website development service {ARROW_ICON}</Link>
                 <Link href="/services">See all services {ARROW_ICON}</Link>
                 <Link href="/how-it-works">How it works {ARROW_ICON}</Link>
               </div>
@@ -363,6 +376,30 @@ export default function WebsitesForBusinessesPage() {
               ))}
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRIES ─────────────────────────────── */}
+      <section className={styles.industries} aria-labelledby="industries-h">
+        <div className="container">
+          <p className={styles.sectionEyebrow}>Built for your line of work</p>
+          <h2 id="industries-h" className={styles.sectionHeading}>
+            Websites for your industry
+          </h2>
+          <p className={styles.sectionSub}>
+            Every industry has its own customers, its own questions, and its own way of booking. Explore website concepts built for yours.
+          </p>
+          <ul className={styles.industryGrid} role="list">
+            {INDUSTRIES.map((industry) => (
+              <li key={industry.href}>
+                <Link href={industry.href} className={styles.industryCard}>
+                  <span className={styles.industryName}>{industry.name}</span>
+                  <span className={styles.industryBlurb}>{industry.blurb}</span>
+                  <span className={styles.industryArrow} aria-hidden="true">{ARROW_ICON}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

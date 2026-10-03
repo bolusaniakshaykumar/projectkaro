@@ -210,6 +210,18 @@ a:focus-visible .linkArrow svg {
   transform: translateY(-2px);
 }
 
+.ctaPrimary:active {
+  background: var(--brand-deep);
+  color: #ffffff;
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(18, 63, 174, 0.3);
+}
+
+.ctaPrimary:focus-visible {
+  outline: 3px solid var(--brand-deep);
+  outline-offset: 3px;
+}
+
 .ctaWhatsApp {
   display: inline-flex;
   align-items: center;
@@ -240,6 +252,16 @@ a:focus-visible .linkArrow svg {
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(13, 21, 38, 0.1);
   transform: translateY(-2px);
+}
+
+.ctaWhatsApp:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.ctaWhatsApp:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
 }
 
 .heroTrust {
@@ -327,7 +349,7 @@ a:focus-visible .linkArrow svg {
   margin-left: 0.5rem;
   font-size: 0.72rem;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   background: var(--paper);
   border: 1px solid var(--line-soft);
   padding: 0.25rem 0.9rem;
@@ -367,7 +389,7 @@ a:focus-visible .linkArrow svg {
   margin-left: 1rem;
   font-size: 0.68rem;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
 }
 
 @media (min-width: 560px) {
@@ -511,7 +533,7 @@ a:focus-visible .linkArrow svg {
 .mockStripDesc {
   display: block;
   font-size: 0.68rem;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
 }
 
 .mockFoot {
@@ -523,7 +545,7 @@ a:focus-visible .linkArrow svg {
   padding-top: 1rem;
   font-size: 0.68rem;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
 }
 
 /* ============================================================
@@ -532,8 +554,8 @@ a:focus-visible .linkArrow svg {
    more designed than the old icon-card grid.
    ============================================================ */
 .stakes {
-  background: #0d1526;
-  color: #eef2fb;
+  background: var(--ledger-bg);
+  color: var(--ledger-text);
   padding: 6.5rem 0;
   background-image: radial-gradient(circle, rgba(157, 185, 255, 0.07) 1px, transparent 1.3px);
   background-size: 26px 26px;
@@ -564,7 +586,7 @@ a:focus-visible .linkArrow svg {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #9db9ff;
+  color: var(--ledger-accent);
   margin: 0 0 1.5rem;
 }
 
@@ -583,7 +605,7 @@ a:focus-visible .linkArrow svg {
 .stakesIntro {
   font-size: 1.0625rem;
   line-height: 1.7;
-  color: #b9c5dd;
+  color: var(--ledger-muted);
   max-width: 30rem;
   margin: 0;
 }
@@ -619,7 +641,7 @@ a:focus-visible .linkArrow svg {
   height: 2.9rem;
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 10px;
-  color: #9db9ff;
+  color: var(--ledger-accent);
   flex-shrink: 0;
   margin-top: 0.15rem;
   transition: background-color 0.25s ease, border-color 0.25s ease;
@@ -627,7 +649,7 @@ a:focus-visible .linkArrow svg {
 
 .stakeRow:hover .stakeSignal {
   background: rgba(157, 185, 255, 0.12);
-  border-color: #9db9ff;
+  border-color: var(--ledger-accent);
 }
 
 .stakeRowBody {
@@ -647,7 +669,7 @@ a:focus-visible .linkArrow svg {
 .stakeRowDesc {
   font-size: 0.975rem;
   line-height: 1.7;
-  color: #b9c5dd;
+  color: var(--ledger-muted);
   margin: 0;
   max-width: 32rem;
 }
@@ -679,7 +701,7 @@ a:focus-visible .linkArrow svg {
 }
 
 .stakesCta a:focus-visible {
-  outline: 2px solid #9db9ff;
+  outline: 2px solid var(--ledger-accent);
   outline-offset: 3px;
 }
 
@@ -718,7 +740,7 @@ a:focus-visible .linkArrow svg {
   margin: 1.25rem 0 0;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   text-align: center;
 }
 
@@ -840,6 +862,33 @@ a:focus-visible .linkArrow svg {
   }
 }
 
+/* Desktop: 3-up. Tighter rhythm (padding, gaps, type) keeps the
+   smaller cards balanced, not cramped. Card design itself untouched. */
+@media (min-width: 1100px) {
+  .svcGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .svcBody {
+    padding: 1.25rem 1.35rem 1.4rem;
+    gap: 0.45rem;
+  }
+
+  .svcName {
+    font-size: 1.25rem;
+  }
+
+  .svcDesc {
+    font-size: 0.9125rem;
+  }
+
+  .svcMore {
+    padding-top: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
 .svcCard {
   display: flex;
   min-width: 0;
@@ -953,13 +1002,32 @@ a:focus-visible .linkArrow svg {
   color: var(--brand-deep);
 }
 
+.svcExtra {
+  margin-top: 1.5rem;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.svcExtraLink {
+  color: var(--brand-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-underline-offset: 3px;
+}
+
+.svcExtraLink:hover {
+  color: var(--brand);
+}
+
 /* ============================================================
    06 - PROCESS
    Dashed blueprint track with node markers.
    ============================================================ */
 .process {
   padding: 7rem 0;
-  background: var(--paper-soft);
+  background: var(--paper);
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -1095,7 +1163,7 @@ a:focus-visible .linkArrow svg {
 
 .statementSub {
   font-size: 1rem;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   margin: 0;
 }
 

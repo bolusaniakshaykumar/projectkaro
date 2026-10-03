@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════
-   CTA — contained pattern box. Confident editorial close.
+   CTA - contained pattern box. Confident editorial close.
    ══════════════════════════════════════════════════════════ */
 
 .section {
@@ -25,7 +25,7 @@
   background:
     radial-gradient(42rem 22rem at 85% -10%, rgba(255, 255, 255, 0.16), transparent 60%),
     radial-gradient(36rem 20rem at 8% 115%, rgba(140, 180, 255, 0.28), transparent 60%),
-    linear-gradient(135deg, #123fae 0%, #1e56e8 58%, #2f6bf0 100%);
+    linear-gradient(135deg, var(--brand-deep) 0%, var(--brand) 58%, var(--brand-vivid) 100%);
   box-shadow: 0 32px 64px -32px rgba(18, 63, 174, 0.55);
 }
 
@@ -62,7 +62,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #bcd0ff;
+  color: #dbe6ff;
   margin: 0 0 1.25rem;
 }
 
@@ -84,7 +84,7 @@
   position: relative;
   z-index: 1;
   font-size: 1.0625rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.88);
   margin: 0 auto 2.5rem;
   max-width: 38rem;
   line-height: 1.7;
@@ -106,7 +106,7 @@
   justify-content: center;
   gap: 0.6rem;
   min-height: 52px;
-  background: #ffffff;
+  background: var(--paper);
   color: var(--brand-deep);
   font-weight: 700;
   font-size: 1rem;

@@ -1,0 +1,270 @@
+/* Shared article typography for /blogs posts. Design tokens only. */
+
+.wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 0;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-muted-strong);
+  margin-bottom: 2.5rem;
+}
+
+.crumbLink {
+  color: var(--ink-muted-strong);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.crumbLink:hover {
+  color: var(--brand);
+}
+
+.crumbSep {
+  color: var(--line);
+}
+
+.crumbCurrent {
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 28rem;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.12;
+  color: var(--ink);
+  margin: 0 0 1.25rem;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted-strong);
+}
+
+.author {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.metaSep {
+  margin: 0 0.6rem;
+  color: var(--line);
+}
+
+.article {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  padding-bottom: 2rem;
+}
+
+.article > *:first-child {
+  margin-top: 0;
+}
+
+.article h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 2.75rem 0 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.article h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 2rem 0 0.75rem;
+}
+
+.article p {
+  margin: 0 0 1.25rem;
+}
+
+.article a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition-fast);
+}
+
+.article a:hover {
+  color: var(--brand-deep);
+}
+
+.article ul,
+.article ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.article li {
+  margin-bottom: 0.6rem;
+}
+
+.article li::marker {
+  color: var(--brand);
+}
+
+.article strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.article blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--brand-tint);
+  border-left: 4px solid var(--brand);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.article blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font-style: italic;
+}
+
+.article blockquote p + p {
+  margin-top: 0.75rem;
+}
+
+/* ---- Shared CTA band (rendered inside a post page) ---- */
+
+.ctaBandWrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.ctaBand {
+  margin: 1rem 0 0;
+  padding: 2.5rem 2rem;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.ctaBandEyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.ctaBandTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+}
+
+.ctaBandText {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.ctaBandActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.ctaBandPrimary,
+.ctaBandSecondary {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.ctaBandPrimary {
+  background: var(--brand);
+  color: #ffffff;
+  box-shadow: var(--shadow-button);
+}
+
+.ctaBandPrimary:hover {
+  background: var(--brand-deep);
+  color: #ffffff;
+  box-shadow: var(--shadow-button-hover);
+}
+
+.ctaBandSecondary {
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+}
+
+.ctaBandSecondary:hover {
+  background: var(--brand-tint);
+  color: var(--brand-deep);
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 2rem 1.25rem 0;
+  }
+
+  .breadcrumb {
+    margin-bottom: 1.75rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .article {
+    font-size: 1rem;
+  }
+
+  .ctaBand {
+    padding: 2rem 1.25rem;
+  }
+}

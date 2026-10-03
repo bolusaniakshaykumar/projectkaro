@@ -8,11 +8,11 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background-color: #25d366;
+  background-color: #1b9e4c;
   color: #ffffff;
   border-radius: 50%;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.38);
+  box-shadow: 0 10px 28px rgba(27, 158, 76, 0.38);
   transform: translateY(100px);
   opacity: 0;
   pointer-events: none;
@@ -27,7 +27,7 @@
 }
 
 .floatingBtn:hover {
-  background-color: #1fb857;
+  background-color: #159a45;
   color: #ffffff;
   text-decoration: none;
   transform: translateY(-2px);

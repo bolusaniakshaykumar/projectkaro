@@ -256,6 +256,33 @@ export function serviceListSchema(
   };
 }
 
+export function serviceSchema({
+  name,
+  description,
+  path,
+  areaServed = "Hyderabad, IN",
+}: {
+  name: string;
+  description: string;
+  path: string;
+  areaServed?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${absoluteUrl(path)}#service`,
+    name,
+    description,
+    url: absoluteUrl(path),
+    provider: { "@id": `${SITE_CONFIG.url}/#organization` },
+    areaServed,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `What's included in ${name}`,
+    },
+  };
+}
+
 export function breadcrumbSchema(
   items: Array<{ name: string; path: string }>
 ) {

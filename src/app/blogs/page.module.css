@@ -1,0 +1,342 @@
+/* ══════════════════════════════════════════════════════════
+   /blogs: editorial index: one featured guide + numbered ledger.
+   Judgment call: the reader's job is "which article answers MY question?"
+   so the page gives one clear starting point, then a scannable index.
+   ══════════════════════════════════════════════════════════ */
+
+.page {
+  padding: 4rem 0 5rem;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 1rem;
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0 0 3rem;
+  max-width: 44rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* ── Featured article ── */
+.featured {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0 0 3.5rem;
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+@media (min-width: 861px) {
+  .featured {
+    grid-template-columns: 300px 1fr;
+  }
+}
+
+.featuredArt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  background:
+    radial-gradient(24rem 14rem at 80% 20%, rgba(47, 107, 240, 0.18), transparent 65%),
+    var(--brand-tint);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+@media (min-width: 861px) {
+  .featuredArt {
+    min-height: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+  }
+}
+
+.featuredNum {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--brand);
+  opacity: 0.9;
+}
+
+.featuredBody {
+  padding: 2.25rem;
+}
+
+@media (min-width: 861px) {
+  .featuredBody {
+    padding: 2.75rem 3rem;
+  }
+}
+
+.featuredKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+}
+
+.featuredKickerDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.featuredTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 3vw, 2.125rem);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.featuredTitleLink {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.featuredTitleLink:hover {
+  color: var(--brand-deep);
+}
+
+.featuredTitleLink:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.featuredExcerpt {
+  margin: 0 0 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 42rem;
+}
+
+.featuredMeta {
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+  color: var(--ink-muted-strong);
+}
+
+.featuredCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.8rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--on-brand);
+  background: var(--brand);
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background-color var(--transition-base), transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.featuredCta:hover {
+  background: var(--brand-deep);
+  color: var(--on-brand);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -12px rgba(18, 63, 174, 0.5);
+}
+
+.featuredCta:active {
+  transform: translateY(0);
+}
+
+.featuredCta:focus-visible {
+  outline: 3px solid var(--brand-deep);
+  outline-offset: 3px;
+}
+
+/* ── Numbered index ledger ── */
+.index {
+  list-style: none;
+  margin: 0 0 3rem;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.indexRow {
+  border-bottom: 1px solid var(--line);
+}
+
+.indexLink {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.75rem 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background-color var(--transition-base);
+}
+
+.indexLink:hover {
+  background: var(--paper-soft);
+  color: inherit;
+}
+
+.indexLink:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.indexNum {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  min-width: 2.5rem;
+}
+
+.indexBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.indexMeta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-muted-strong);
+}
+
+.indexTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.indexLink:hover .indexTitle {
+  color: var(--brand-deep);
+}
+
+.indexExcerpt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.indexArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--brand);
+  background: var(--paper);
+  flex-shrink: 0;
+  transition: transform var(--transition-base), background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.indexLink:hover .indexArrow {
+  transform: translateX(4px);
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--on-brand);
+}
+
+.footnote {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .featured {
+    margin-bottom: 2.5rem;
+  }
+
+  .featuredBody {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .indexLink {
+    gap: 1rem;
+    padding: 1.5rem 0.25rem;
+  }
+
+  .indexNum {
+    font-size: 1.25rem;
+    min-width: 2rem;
+  }
+
+  .indexArrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featuredCta,
+  .indexLink,
+  .indexArrow {
+    transition: none;
+  }
+}

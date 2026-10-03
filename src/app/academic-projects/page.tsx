@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import { FormSkeleton } from "@/components/Skeleton/Skeleton";
+import { BackToTop, Reveal, StickyMiniCta } from "@/components/PageKit/PageKit";
 import { WHATSAPP_LINK } from "@/lib/site-config";
 import type { FaqItem } from "@/lib/faq-data";
 import {
@@ -18,11 +19,13 @@ const StartProjectForm = dynamic(() => import("@/components/StartProjectForm/Sta
 });
 
 export const metadata = createPageMetadata({
-  title: "Academic Projects",
+  title: "B.Tech Major Projects in Hyderabad | ProjectKaro",
   description:
-    "Complete major, minor, and research projects for students in India. Full documentation and viva prep, delivered before your deadline.",
+    "B.Tech major project development in Hyderabad for CSE, IT, ECE and other engineering branches. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
   path: "/academic-projects",
   keywords: [
+    "btech major projects hyderabad",
+    "final year project hyderabad",
     "student major project help",
     "final year project india",
     "academic project documentation",
@@ -130,6 +133,11 @@ const FAQS: FaqItem[] = [
       "Yes. Minor and semester projects are typically delivered in 2 to 5 days. If your deadline is tighter, mention it when you submit the form and we will tell you what is possible.",
   },
   {
+    question: "Do you work with students in Hyderabad?",
+    answer:
+      "Yes. ProjectKaro is based in Hyderabad and works directly with final-year engineering students here on major projects: implementation, documentation, testing, and viva preparation. You talk to us on WhatsApp or call, with no middlemen.",
+  },
+  {
     question: "How does the pricing work for student projects?",
     answer:
       "Pricing is per project, based on the complexity and your requirements. Submit your topic and deadline, and ProjectKaro will share a detailed quote within 24 hours. There are no fixed prices and no hidden charges.",
@@ -149,16 +157,9 @@ const ARROW_ICON = (
   </svg>
 );
 
-const CHAT_ICON = (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2-2V8z" />
-  </svg>
-);
-
 /* Custom line-art: the submission package (document, slides, checklist) */
 const PACKAGE_ART = (
   <svg viewBox="0 0 560 220" fill="none" aria-hidden="true" className="artSvg">
-    {/* document */}
     <g>
       <rect x="36" y="34" width="150" height="152" rx="8" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
       <path d="M150,34 L186,34 L186,70 Z" strokeWidth="2.5" strokeLinejoin="round" className="artFold" />
@@ -166,7 +167,6 @@ const PACKAGE_ART = (
       <rect x="58" y="118" width="106" height="10" rx="5" className="artBrandSoft" />
       <rect x="58" y="140" width="70" height="10" rx="5" className="artBrandSoft" />
     </g>
-    {/* slides */}
     <g>
       <rect x="216" y="60" width="150" height="126" rx="8" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
       <path d="M216,68 Q216,60 224,60 L358,60 Q366,60 366,68 L366,94 L216,94 Z" className="artBrandWash" />
@@ -174,7 +174,6 @@ const PACKAGE_ART = (
       <rect x="236" y="132" width="110" height="10" rx="5" className="artBrandSoft" />
       <rect x="236" y="152" width="84" height="10" rx="5" className="artBrandSoft" />
     </g>
-    {/* checklist card */}
     <g>
       <rect x="396" y="44" width="128" height="142" rx="8" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
       {[
@@ -186,7 +185,6 @@ const PACKAGE_ART = (
         </g>
       ))}
     </g>
-    {/* connecting dashes */}
     <line x1="192" y1="110" x2="210" y2="110" stroke="currentColor" strokeWidth="2.5" strokeDasharray="2 8" strokeLinecap="round" className="artBrandStroke" opacity="0.6" />
     <line x1="372" y1="110" x2="390" y2="110" stroke="currentColor" strokeWidth="2.5" strokeDasharray="2 8" strokeLinecap="round" className="artBrandStroke" opacity="0.6" />
   </svg>
@@ -195,13 +193,10 @@ const PACKAGE_ART = (
 /* Custom line-art: deadline-first calendar with a completion badge */
 const DEADLINE_ART = (
   <svg viewBox="0 0 240 176" fill="none" aria-hidden="true" className="artSvg">
-    {/* calendar */}
     <rect x="56" y="34" width="128" height="118" rx="12" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
     <path d="M56,46 Q56,34 68,34 L172,34 Q184,34 184,46 L184,62 L56,62 Z" className="artBrandWash" />
-    {/* binder tabs */}
     <rect x="84" y="20" width="12" height="26" rx="6" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
     <rect x="144" y="20" width="12" height="26" rx="6" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
-    {/* planned days */}
     {[0, 1, 2, 3].map((col) =>
       [0, 1, 2].map((row) => (
         <rect
@@ -215,7 +210,6 @@ const DEADLINE_ART = (
         />
       ))
     )}
-    {/* completion badge */}
     <circle cx="192" cy="142" r="24" fill="#ffffff" stroke="currentColor" strokeWidth="2.5" className="artInkStroke" />
     <polyline points="182,142 189,149 202,134" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="artBrandStroke" />
   </svg>
@@ -223,14 +217,14 @@ const DEADLINE_ART = (
 
 export default function AcademicProjectsPage() {
   return (
-    <>
+    <main className={styles.page}>
       <JsonLd
         data={[
           webPageSchema({
             path: "/academic-projects",
             title: pageTitle,
             description:
-              "Complete major, minor, and research projects for students in India. Full documentation and viva prep, delivered before your deadline.",
+              "B.Tech major project development in Hyderabad for CSE, IT, ECE and other engineering branches. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
           }),
           faqPageSchema(FAQS),
           breadcrumbSchema([
@@ -240,78 +234,155 @@ export default function AcademicProjectsPage() {
         ]}
       />
 
-      {/* ── HERO: centered ─────────────────────────── */}
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className={styles.crumbNav}>
+        <div className="container">
+          <ol className={styles.crumbs}>
+            <li className={styles.crumbItem}>
+              <Link href="/" className={styles.crumbLink}>
+                Home
+              </Link>
+              <span className={styles.crumbSep} aria-hidden="true">
+                /
+              </span>
+            </li>
+            <li className={styles.crumbItem}>
+              <span className={styles.crumbCurrent} aria-current="page">
+                {pageTitle}
+              </span>
+            </li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* Split hero: student voice left, the submission package right. */}
       <section className={styles.hero} aria-labelledby="acad-heading">
         <div className="container">
-          <div className={styles.heroCenter}>
-            <p className={styles.eyebrow}>
-              <span className={styles.eyebrowDot} aria-hidden="true" />
-              For students
-            </p>
-            <h1 id="acad-heading" className={styles.heroTitle}>
-              Your major project, <em>delivered before your deadline.</em>
-            </h1>
-            <p className={styles.heroSub}>
-              Technical development and project support for academic work: implementation,
-              documentation guidance, testing, and viva preparation. Tell us your
-              deadline first, we plan everything backwards from it.
-            </p>
-            <div className={styles.heroCtas}>
-              <a href="#quote" className={styles.ctaPrimary}>
-                Get a Free Quote {ARROW_ICON}
-              </a>
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={styles.ctaGhost}>
-                Chat on WhatsApp
-              </a>
-            </div>
-            <div className={styles.heroFacts}>
-              <span>Full documentation</span>
-              <span>Viva prep included</span>
-              <span>Deadline-first planning</span>
-            </div>
-          </div>
-          <div className={styles.heroArt} aria-hidden="true">
-            {PACKAGE_ART}
-            <div className={styles.heroPhoto}>
-              <Image
-                src="/images/students-collab.jpg"
-                alt=""
-                width={1400}
-                height={933}
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 736px"
-              />
-            </div>
+          <div className={styles.heroGrid}>
+            <Reveal className={styles.heroText}>
+              <p className={styles.eyebrow}>
+                <span className={styles.eyebrowDot} aria-hidden="true" />
+                For students
+              </p>
+              <h1 id="acad-heading" className={styles.heroTitle}>
+                Your major project, <em>delivered before your deadline.</em>
+              </h1>
+              <p className={styles.heroSub}>
+                ProjectKaro provides B.Tech major project development and technical support
+                in Hyderabad for final-year engineering students: implementation,
+                documentation guidance, testing, and viva preparation. Tell us your
+                deadline first, we plan everything backwards from it.
+              </p>
+              <div className={styles.heroCtas}>
+                <a href="#quote" className={styles.ctaPrimary}>
+                  Get a Free Quote {ARROW_ICON}
+                </a>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className={styles.ctaGhost}>
+                  Chat on WhatsApp
+                </a>
+              </div>
+              <ul className={styles.heroFacts}>
+                <li>60+ college projects delivered</li>
+                <li>Full documentation</li>
+                <li>Viva prep included</li>
+                <li>Deadline-first planning</li>
+              </ul>
+            </Reveal>
+            <Reveal className={styles.heroVisual} delay={120}>
+              <div className={styles.heroArt} aria-hidden="true">
+                {PACKAGE_ART}
+              </div>
+              <div className={styles.heroPhoto}>
+                <Image
+                  src="/images/students-collab.jpg"
+                  alt="Students collaborating on a project"
+                  width={1400}
+                  height={933}
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ── ANGLES: cards ──────────────────────────── */}
+      {/* Angles bento: the first card anchors the core promise. */}
       <section className={styles.angles} aria-labelledby="angles-h">
         <div className="container">
-          <p className={styles.sectionEyebrow}>Why students choose us</p>
-          <h2 id="angles-h" className={styles.sectionHeading}>
-            Built around your submission
-          </h2>
-          <div className={styles.angleGrid}>
-            {ANGLES.map((angle) => (
-              <div key={angle.title} className={styles.angleCard}>
+          <Reveal>
+            <p className={styles.sectionEyebrow}>Why students choose us</p>
+            <h2 id="angles-h" className={styles.sectionHeading}>
+              Built around your submission
+            </h2>
+          </Reveal>
+          <div className={styles.angleBento}>
+            {ANGLES.map((angle, i) => (
+              <Reveal
+                key={angle.title}
+                delay={(i % 2) * 90}
+                className={`${styles.angleCard} ${i === 0 ? styles.angleLead : ""}`}
+              >
                 <div className={styles.angleIcon} aria-hidden="true">
                   {angle.icon}
                 </div>
                 <h3 className={styles.angleTitle}>{angle.title}</h3>
                 <p className={styles.angleText}>{angle.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── WHAT YOU GET: ink band checklist ───────── */}
+      {/* Three paths: where to go next. */}
+      <section className={styles.paths} aria-labelledby="paths-h">
+        <div className="container">
+          <Reveal>
+            <p className={styles.sectionEyebrow}>Find your path</p>
+            <h2 id="paths-h" className={styles.sectionHeading}>
+              Three ways we help
+            </h2>
+          </Reveal>
+          <div className={styles.pathGrid}>
+            <Reveal delay={0}>
+              <Link href="/btech-major-projects-hyderabad" className={styles.pathCard}>
+                <p className={styles.pathKicker}>In Hyderabad</p>
+                <h3 className={styles.pathTitle}>B.Tech Major Projects in Hyderabad</h3>
+                <p className={styles.pathText}>
+                  Hyderabad-focused major project support for CSE, IT, ECE, and other branches.
+                </p>
+                <span className={styles.pathArrow} aria-hidden="true">{ARROW_ICON}</span>
+              </Link>
+            </Reveal>
+            <Reveal delay={90}>
+              <Link href="/academic-projects/major-projects" className={styles.pathCard}>
+                <p className={styles.pathKicker}>Across India</p>
+                <h3 className={styles.pathTitle}>Major Projects</h3>
+                <p className={styles.pathText}>
+                  Final-year major project delivery across India, planned backwards from your deadline.
+                </p>
+                <span className={styles.pathArrow} aria-hidden="true">{ARROW_ICON}</span>
+              </Link>
+            </Reveal>
+            <Reveal delay={180}>
+              <Link href="/academic-projects/minor-projects" className={styles.pathCard}>
+                <p className={styles.pathKicker}>2 to 5 days</p>
+                <h3 className={styles.pathTitle}>Minor Projects</h3>
+                <p className={styles.pathText}>
+                  Mini and semester projects delivered in 2 to 5 days, with documentation.
+                </p>
+                <span className={styles.pathArrow} aria-hidden="true">{ARROW_ICON}</span>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables: dark band. One delivery, complete. */}
       <section className={styles.deliverables} aria-labelledby="get-h">
         <div className="container">
           <div className={styles.deliverablesGrid}>
-            <div>
+            <Reveal>
               <p className={styles.deliverablesEyebrow}>The package</p>
               <h2 id="get-h" className={styles.deliverablesTitle}>
                 Everything your submission needs
@@ -322,95 +393,90 @@ export default function AcademicProjectsPage() {
               <Link href="/services" className={styles.deliverablesLink}>
                 See all services {ARROW_ICON}
               </Link>
-            </div>
-            <ul className={styles.deliverablesList}>
-              {WHAT_YOU_GET.map((item) => (
-                <li key={item} className={styles.deliverableItem}>
-                  <span className={styles.deliverableCheck} aria-hidden="true">{CHECK_ICON}</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            </Reveal>
+            <Reveal delay={120}>
+              <ul className={styles.deliverablesList}>
+                {WHAT_YOU_GET.map((item) => (
+                  <li key={item} className={styles.deliverableItem}>
+                    <span className={styles.deliverableCheck} aria-hidden="true">{CHECK_ICON}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ── MINI PROCESS: vertical stepper ─────────── */}
+      {/* Process: vertical stepper + sticky deadline reassurance card. */}
       <section className={styles.miniProcess} aria-labelledby="mini-h">
         <div className="container">
-          <p className={styles.sectionEyebrow}>Getting started</p>
-          <h2 id="mini-h" className={styles.sectionHeading}>
-            Three steps to submission day
-          </h2>
+          <Reveal>
+            <p className={styles.sectionEyebrow}>Getting started</p>
+            <h2 id="mini-h" className={styles.sectionHeading}>
+              Three steps to submission day
+            </h2>
+          </Reveal>
           <div className={styles.stepsGrid}>
             <ol className={styles.stepper}>
-              {MINI_STEPS.map((step) => (
-                <li key={step.num} className={styles.stepperItem}>
-                  <div className={styles.stepperRail} aria-hidden="true">
-                    <span className={styles.stepperNum}>{step.num}</span>
-                    <span className={styles.stepperLine} />
-                  </div>
-                  <div className={styles.stepperBody}>
-                    <h3 className={styles.stepperTitle}>{step.title}</h3>
-                    <p className={styles.stepperText}>{step.text}</p>
-                  </div>
-                </li>
+              {MINI_STEPS.map((step, i) => (
+                <Reveal key={step.num} delay={i * 80} className={styles.stepWrap}>
+                  <li className={styles.stepperItem}>
+                    <div className={styles.stepperRail} aria-hidden="true">
+                      <span className={styles.stepperNum}>{step.num}</span>
+                      <span className={styles.stepperLine} />
+                    </div>
+                    <div className={styles.stepperBody}>
+                      <h3 className={styles.stepperTitle}>{step.title}</h3>
+                      <p className={styles.stepperText}>{step.text}</p>
+                    </div>
+                  </li>
+                </Reveal>
               ))}
             </ol>
             <aside className={styles.stepsSide} aria-label="Why deadlines are safe with us">
-              <div className={styles.stepsCard}>
-                <div className={styles.stepsCardHead}>
-                  <div className={styles.stepsArt} aria-hidden="true">
-                    {DEADLINE_ART}
+              <Reveal delay={120}>
+                <div className={styles.stepsCard}>
+                  <div className={styles.stepsCardHead}>
+                    <div className={styles.stepsArt} aria-hidden="true">
+                      {DEADLINE_ART}
+                    </div>
+                    <h3 className={styles.stepsCardTitle}>Your deadline drives everything</h3>
                   </div>
-                  <h3 className={styles.stepsCardTitle}>Your deadline drives everything</h3>
+                  <p className={styles.stepsCardText}>
+                    Most students come to us with a date that cannot move. That is exactly
+                    what we plan around. Share your submission date and we tell you honestly
+                    what fits, then build backwards from it.
+                  </p>
+                  <ul className={styles.stepsReassure}>
+                    <li>
+                      <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
+                      <span><strong>Minor projects:</strong> typically 2 to 5 days</span>
+                    </li>
+                    <li>
+                      <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
+                      <span><strong>Major projects:</strong> typically 1 to 3 weeks</span>
+                    </li>
+                    <li>
+                      <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
+                      <span><strong>Detailed quote</strong> within 24 hours, no obligation</span>
+                    </li>
+                    <li>
+                      <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
+                      <span><strong>Revisions</strong> until your submission is complete</span>
+                    </li>
+                  </ul>
                 </div>
-                <p className={styles.stepsCardText}>
-                  Most students come to us with a date that cannot move. That is exactly
-                  what we plan around. Share your submission date and we tell you honestly
-                  what fits, then build backwards from it.
-                </p>
-                <ul className={styles.stepsReassure}>
-                  <li>
-                    <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
-                    <span><strong>Minor projects:</strong> typically 2 to 5 days</span>
-                  </li>
-                  <li>
-                    <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
-                    <span><strong>Major projects:</strong> typically 1 to 3 weeks</span>
-                  </li>
-                  <li>
-                    <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
-                    <span><strong>Detailed quote</strong> within 24 hours, no obligation</span>
-                  </li>
-                  <li>
-                    <span className={styles.stepsCheck} aria-hidden="true">{CHECK_ICON}</span>
-                    <span><strong>Revisions</strong> until your submission is complete</span>
-                  </li>
-                </ul>
-              </div>
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.stepsChatCard}
-              >
-                <span className={styles.stepsChatIcon} aria-hidden="true">{CHAT_ICON}</span>
-                <span className={styles.stepsChatText}>
-                  <strong>Chat on WhatsApp</strong>
-                  <span>Share your abstract and deadline, get a quick answer.</span>
-                </span>
-                <span className={styles.stepsChatArrow} aria-hidden="true">{ARROW_ICON}</span>
-              </a>
+              </Reveal>
             </aside>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ ────────────────────────────────────── */}
+      {/* FAQ */}
       <section className={styles.faq} aria-labelledby="acad-faq-h">
         <div className="container">
-          <div className={styles.faqCenter}>
+          <Reveal className={styles.faqCenter}>
             <p className={styles.sectionEyebrow}>Questions, answered</p>
             <h2 id="acad-faq-h" className={styles.sectionHeading}>
               Student project FAQs
@@ -420,28 +486,30 @@ export default function AcademicProjectsPage() {
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">WhatsApp</a>{" "}
               and ask directly.
             </p>
-          </div>
-          <div className={styles.faqList}>
-            {FAQS.map((faq) => (
-              <details key={faq.question} className={styles.faqItem}>
-                <summary className={styles.faqQuestion}>
-                  <span>{faq.question}</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </summary>
-                <p className={styles.faqAnswer}>{faq.answer}</p>
-              </details>
-            ))}
-          </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <div className={styles.faqList}>
+              {FAQS.map((faq) => (
+                <details key={faq.question} className={styles.faqItem}>
+                  <summary className={styles.faqQuestion}>
+                    <span>{faq.question}</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <p className={styles.faqAnswer}>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── QUOTE FORM ─────────────────────────────── */}
+      {/* Quote form: the conversion climax. */}
       <section id="quote" className={styles.quote} aria-labelledby="quote-h">
         <div className="container">
           <div className={styles.quoteBand}>
-            <div className={styles.quoteCopy}>
+            <Reveal className={styles.quoteCopy}>
               <p className={styles.quoteEyebrow}>Get started</p>
               <h2 id="quote-h" className={styles.quoteTitle}>
                 Get your detailed quote
@@ -455,13 +523,19 @@ export default function AcademicProjectsPage() {
                 <li>{CHECK_ICON} Documentation and viva prep included</li>
                 <li>{CHECK_ICON} Per-project pricing, no hidden costs</li>
               </ul>
-            </div>
-            <div className={styles.formWrap}>
+            </Reveal>
+            <Reveal delay={120} className={styles.formWrap}>
               <StartProjectForm initialProjectType="Student Major Project" />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
-    </>
+
+      <StickyMiniCta
+        label="Deadline approaching? Quote in 24h"
+        buttonText="Get a quote"
+      />
+      <BackToTop />
+    </main>
   );
 }

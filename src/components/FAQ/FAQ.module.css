@@ -1,5 +1,5 @@
 /* ============================================================
-   FAQ — sticky sidebar + single-column accordion
+   FAQ - sticky sidebar + single-column accordion
    Matches the websites-for-businesses FAQ design.
    ============================================================ */
 .faq {
@@ -117,12 +117,12 @@
 .whatsappText small {
   display: block;
   font-size: 0.8125rem;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   margin-top: 0.15rem;
 }
 
 .whatsappArrow {
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   flex-shrink: 0;
   transition: color 0.25s ease, transform 0.25s ease;
 }

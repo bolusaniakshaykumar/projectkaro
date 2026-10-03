@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CTA from "@/components/CTA/CTA";
+import CountUp from "@/components/effects/CountUp";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -89,10 +90,10 @@ const VALUE_ICONS = [
 ];
 
 const STATS = [
-  { value: "100+", label: "Projects delivered" },
-  { value: "300+", label: "Clients served" },
-  { value: "10", label: "Services offered" },
-  { value: "24h", label: "Detailed quote turnaround" },
+  { end: 100, suffix: "+", label: "Projects delivered" },
+  { end: 20, suffix: "+", label: "Team members" },
+  { end: 10, suffix: "", label: "Services offered" },
+  { end: 24, suffix: "h", label: "Detailed quote turnaround" },
 ];
 
 const FINE_PRINT = [
@@ -179,16 +180,6 @@ export default function AboutPage() {
               </dl>
             </aside>
           </div>
-          <figure className={styles.heroPhoto}>
-            <Image
-              src="/images/studio-work.jpg"
-              alt="The ProjectKaro studio at work, designing and building client projects"
-              width={1400}
-              height={933}
-              loading="lazy"
-              sizes="100vw"
-            />
-          </figure>
         </div>
       </section>
 
@@ -201,7 +192,9 @@ export default function AboutPage() {
           <ul className={styles.statsList} role="list">
             {STATS.map((stat) => (
               <li key={stat.label} className={styles.statItem}>
-                <span className={styles.statValue}>{stat.value}</span>
+                <span className={styles.statValue}>
+                  <CountUp end={stat.end} suffix={stat.suffix} />
+                </span>
                 <span className={styles.statLabel}>{stat.label}</span>
               </li>
             ))}
@@ -279,6 +272,70 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ── FOUNDER: dark editorial band ────────────────── */}
+      <section className={styles.founder} aria-labelledby="founder-heading">
+        <div className="container">
+          <div className={styles.founderGrid}>
+            <figure className={styles.founderFigure}>
+              <div className={styles.portraitFrame}>
+                <Image
+                  src="/images/founder-akshay-v2.jpg"
+                  alt="Akshay Kumar Bolusani, Founder and CEO of ProjectKaro"
+                  width={800}
+                  height={800}
+                  loading="lazy"
+                  sizes="(min-width: 961px) 400px, 100vw"
+                />
+                <span className={styles.portraitGlaze} aria-hidden="true" />
+                <span className={styles.portraitGrain} aria-hidden="true" />
+              </div>
+              <figcaption className={styles.founderCaption}>
+                Akshay Kumar Bolusani, Founder &amp; CEO, ProjectKaro
+              </figcaption>
+            </figure>
+            <div className={styles.founderCopy}>
+              <p className={styles.founderEyebrow}>
+                <span className={styles.founderEyebrowDot} aria-hidden="true" />
+                The person behind the studio
+              </p>
+              <h2 id="founder-heading" className={styles.founderHeadline}>
+                Built on systems, <em>not on one person.</em>
+              </h2>
+              <blockquote className={styles.founderQuote}>
+                <p>
+                  “I started ProjectKaro as an engineer with no business
+                  background. So I built the studio the way an engineer would:
+                  every scope in writing, every quote priced per project, every
+                  delivery on an agreed date.”
+                </p>
+                <footer>
+                  <cite>Akshay Kumar Bolusani</cite>, Founder &amp; CEO, ProjectKaro
+                </footer>
+              </blockquote>
+              <p className={styles.founderBio}>
+                Akshay started ProjectKaro in Hyderabad in 2024 with tech
+                knowledge and no playbook for running a business, so he made the
+                process the playbook: documented scopes, milestone updates, and
+                delivery checklists that hold up whether he is in the room or
+                not. He is currently preparing for a Master&apos;s in Cyber
+                Security, which is exactly why the studio runs on systems. A
+                company that only works while its founder watches is not a
+                company. It is a job.
+              </p>
+              <ul className={styles.founderChips} role="list" aria-label="Founder credentials">
+                <li className={styles.chip}>Founder &amp; CEO</li>
+                <li className={styles.chip}>
+                  <strong>100+</strong> projects delivered
+                </li>
+                <li className={styles.chip}>
+                  <strong>20+</strong> team members
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

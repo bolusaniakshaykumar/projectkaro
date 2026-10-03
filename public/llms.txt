@@ -14,7 +14,7 @@
 - Based in Hyderabad, Telangana, India. Serving clients across India.
 - Registered MSME (Udyam), registration UDYAM-TS-12-0052800, Micro enterprise, services: computer programming, web-page designing, software support and maintenance.
 - 60+ college projects delivered
-- 300+ clients served
+- 20+ team members
 - 10 services offered
 - 24-hour response guarantee (detailed quote within 24 hours)
 
@@ -41,11 +41,60 @@
 
 - Home: https://projectkaro.com/
 - Websites for Businesses: https://projectkaro.com/websites-for-businesses
+- Website Development: https://projectkaro.com/services/website-development
+- Website Development in Hyderabad: https://projectkaro.com/website-development-hyderabad
+- Startup MVP Development: https://projectkaro.com/services/startup-mvp-development
+- AI Solutions: https://projectkaro.com/services/ai-solutions
+- Full-Stack Development: https://projectkaro.com/services/full-stack-development
 - Academic Projects: https://projectkaro.com/academic-projects
+- Major Projects (final year): https://projectkaro.com/academic-projects/major-projects
+- Minor Projects: https://projectkaro.com/academic-projects/minor-projects
+- B.Tech Major Projects in Hyderabad: https://projectkaro.com/btech-major-projects-hyderabad
+- B.Tech Final Year Projects in Hyderabad: https://projectkaro.com/btech-final-year-projects-hyderabad
+- CSE Projects in Hyderabad: https://projectkaro.com/cse-projects-hyderabad
+- AI/ML Projects in Hyderabad: https://projectkaro.com/ai-ml-projects-hyderabad
+- IoT Projects in Hyderabad: https://projectkaro.com/iot-projects-hyderabad
+- IEEE Projects in Hyderabad: https://projectkaro.com/ieee-projects-hyderabad
+- Websites for Dental Clinics: https://projectkaro.com/websites-for-dental-clinics
+- Websites for Doctors: https://projectkaro.com/websites-for-doctors
+- Websites for Restaurants: https://projectkaro.com/websites-for-restaurants
+- Websites for Salons & Spas: https://projectkaro.com/websites-for-salons
+- Websites for Real Estate Professionals: https://projectkaro.com/websites-for-real-estate
+- Websites for Coaching Centres: https://projectkaro.com/websites-for-coaching-centres
+- Websites for Consultants: https://projectkaro.com/websites-for-consultants
+- Websites for CA Firms: https://projectkaro.com/websites-for-cas
+- Websites for Small Businesses: https://projectkaro.com/websites-for-small-businesses
+- Websites for Startups: https://projectkaro.com/websites-for-startups
+- Pricing: https://projectkaro.com/pricing
 - Services: https://projectkaro.com/services
 - How It Works: https://projectkaro.com/how-it-works
 - About: https://projectkaro.com/about
 - Start a Project (get a quote): https://projectkaro.com/start-a-project
+
+## Blogs
+
+- Blogs: https://projectkaro.com/blogs
+- How much does a website cost in Hyderabad in 2026?: https://projectkaro.com/blogs/website-cost-hyderabad-2026
+- Website vs Instagram for a Hyderabad business: https://projectkaro.com/blogs/website-vs-instagram-hyderabad
+- What should a dental clinic website contain?: https://projectkaro.com/blogs/dental-clinic-website-checklist
+- 7 things your business website should have before running Google Ads: https://projectkaro.com/blogs/website-before-google-ads
+- Why your Google Business Profile should link to your own website: https://projectkaro.com/blogs/google-business-profile-website-link
+- How much does an e-commerce website cost?: https://projectkaro.com/blogs/ecommerce-website-cost-india
+
+## Demo websites
+
+Sample websites crafted by ProjectKaro to show prospects what their own site could look like (fictional businesses, clearly labeled demo concepts):
+
+- SmileCare Dental Clinic: https://projectkaro.com/demos/dental-clinic
+- GlowSkin Clinic (dermatology): https://projectkaro.com/demos/dermatologist
+- Spice Route Kitchen (restaurant): https://projectkaro.com/demos/restaurant
+- Lumiere Salon & Spa: https://projectkaro.com/demos/salon
+- CityNest Properties (real estate): https://projectkaro.com/demos/real-estate-agent
+- Verma & Associates (CA firm, sample): https://projectkaro.com/demos/ca-firm
+- Aspire Academy (coaching): https://projectkaro.com/demos/coaching-centre
+- IronPulse Fitness Studio (gym): https://projectkaro.com/demos/gym
+- Business consultant (sample): https://projectkaro.com/demos/consultant
+- Deccan Precision Works (manufacturer, sample): https://projectkaro.com/demos/manufacturer
 
 ## Legal
 

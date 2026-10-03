@@ -1,5 +1,5 @@
 /* ============================================================
-   BlurText — word-level blur-in text reveal.
+   BlurText - word-level blur-in text reveal.
    Progressive enhancement: words are fully visible until JS adds
    .isInit, so no-JS / pre-hydration visitors always see the text.
    Motion touches opacity/filter only: no layout shift.

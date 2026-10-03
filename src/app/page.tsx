@@ -22,8 +22,9 @@ import BlurText from "@/components/effects/BlurText";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata({
-  title: "Web Development & Student Project Solutions | ProjectKaro",
-  description: SITE_CONFIG.description,
+  title: "ProjectKaro | Websites, AI Solutions & B.Tech Major Projects in Hyderabad",
+  description:
+    "ProjectKaro builds business websites, AI solutions, full-stack applications and B.Tech major projects in Hyderabad, with documentation and viva support.",
   path: "/",
 });
 
@@ -501,7 +502,7 @@ export default function HomePage() {
               </div>
 
               <ul className={`${styles.heroTrust} ${styles.heroAnim} ${styles.heroDelay5}`} aria-label="Why trust ProjectKaro">
-                <li>{CHECK_ICON}<span><strong>300+</strong> clients served</span></li>
+                <li>{CHECK_ICON}<span><strong>20+</strong> team members</span></li>
                 <li>{CHECK_ICON}<span>Registered <strong>MSME</strong> (Udyam)</span></li>
                 <li>{CHECK_ICON}<span>Detailed quote <strong>within 24 hours</strong></span></li>
               </ul>
@@ -630,6 +631,17 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+              {group.label === "For students & researchers" && (
+                <Reveal>
+                  <p className={styles.svcExtra}>
+                    Studying in Hyderabad? See{" "}
+                    <Link href="/btech-major-projects-hyderabad" className={styles.svcExtraLink}>
+                      B.Tech major projects in Hyderabad
+                    </Link>
+                    , built around your branch, deadline, and viva.
+                  </p>
+                </Reveal>
+              )}
             </div>
           ))}
         </div>

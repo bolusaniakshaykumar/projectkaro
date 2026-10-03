@@ -1,5 +1,5 @@
 /* ============================================================
-   START PROJECT FORM — light theme
+   START PROJECT FORM - light theme
    ============================================================ */
 .form {
   max-width: 560px;
@@ -136,7 +136,7 @@
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
 }
 
 .uploadTextWrap {
@@ -153,7 +153,7 @@
 .uploadHint {
   margin: 0.125rem 0 0;
   font-size: 0.8125rem;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
 }
 
 .apiError {
@@ -318,7 +318,7 @@
   margin: 0.9rem 0 0;
   font-size: 0.8rem;
   line-height: 1.55;
-  color: var(--ink-muted);
+  color: var(--ink-muted-strong);
   text-align: center;
 }
 
