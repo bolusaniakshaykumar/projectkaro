@@ -38,7 +38,7 @@
 /* ---------- Sticky in-demo header ---------- */
 .siteHeader {
   position: sticky;
-  top: 36px;
+  top: 0;
   z-index: 90;
   display: flex;
   align-items: center;
@@ -142,6 +142,31 @@
 .buttonIcon {
   width: 1.05rem;
   height: 1.05rem;
+}
+
+/* Visible keyboard focus on every interactive element (inputs keep their
+   designed ring via :focus above). */
+.page a:focus-visible,
+.page button:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.primaryButton:active,
+.secondaryButton:active,
+.callButton:active,
+.whatsappButton:active,
+.formButton:active,
+.cardLink:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps logo + one primary contact button so
+   nothing overflows at 390px; both CTAs remain in the hero. */
+@media (max-width: 639px) {
+  .headerActions .callButton {
+    display: none;
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -920,4 +945,9 @@
   .visitGrid {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.formButton:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

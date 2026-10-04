@@ -530,15 +530,17 @@ export default function BTechMajorProjectsHyderabadPage() {
           </Reveal>
           <ol className={styles.stepper}>
             {PROCESS.map((step, i) => (
-              <Reveal key={step.title} delay={i * 90} className={styles.stepWrap}>
-                <li className={styles.step}>
-                  <span className={styles.stepNum} aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepText}>{step.text}</p>
-                </li>
-              </Reveal>
+              <li key={step.title} className={styles.stepWrap}>
+                <Reveal delay={i * 90} className={styles.stepReveal}>
+                  <div className={styles.step}>
+                    <span className={styles.stepNum} aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                    <p className={styles.stepText}>{step.text}</p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>

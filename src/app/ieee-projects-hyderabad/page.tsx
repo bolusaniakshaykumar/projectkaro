@@ -210,12 +210,6 @@ const content: ServicePageContent = {
       text: "Report structured to IEEE conventions with correct citations, plus a walkthrough of the methodology, the results, and the questions examiners actually ask.",
     },
   ],
-  projects: [
-    { name: "MRI Epilepsy GNN", blurb: "multimodal MRI analysis", stack: "PyTorch, torch-geometric" },
-    { name: "Quantum Chest X-Ray", blurb: "quantum-enhanced medical imaging", stack: "PyTorch" },
-    { name: "Li-Ion Battery SOH", blurb: "battery health prediction", stack: "Python, TensorFlow" },
-    { name: "Hybrid Quantum GAN Drug Discovery", blurb: "molecule generation research", stack: "PennyLane, PyTorch" },
-  ],
   deliverablesHeading: "Every IEEE project includes",
   deliverables: [
     "Base paper selection guidance: implementable, scoped to your timeline",

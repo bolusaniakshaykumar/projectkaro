@@ -99,6 +99,20 @@
   background: var(--green);
 }
 
+/* Visible keyboard focus on every interactive element. */
+.page a:focus-visible,
+.page button:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+.primaryBtn:active,
+.ghostBtn:active,
+.callBtn:active,
+.waBtn:active {
+  transform: translateY(1px);
+}
+
 /* Hero */
 .hero {
   background: linear-gradient(160deg, var(--green-deep), var(--green));
@@ -435,4 +449,9 @@
 
 .contactBand .eyebrow {
   color: #d9efc2;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import BlogArticle from "@/components/BlogArticle/BlogArticle";
-import blogStyles from "@/components/BlogArticle/BlogArticle.module.css";
+import extras from "../post-extras.module.css";
 import JsonLd from "@/components/JsonLd";
 import {
   absoluteUrl,
@@ -39,11 +39,6 @@ const articleSchema = {
   datePublished: DATE_PUBLISHED,
   inLanguage: "en-IN",
 };
-
-const RELATED_LINKS = [
-  { href: "/websites-for-small-businesses", label: "Websites for small businesses" },
-  { href: "/blogs/google-business-profile-website-link", label: "Why your Google Business Profile should link to your own website" },
-];
 
 export default function WebsiteVsInstagramHyderabadPage() {
   return (
@@ -173,37 +168,45 @@ export default function WebsiteVsInstagramHyderabadPage() {
           small businesses</Link>.
         </p>
 
-        <aside aria-label="Related reading">
-          <h2>Related reading</h2>
-          <ul>
-            {RELATED_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
       </BlogArticle>
-      <div className={blogStyles.ctaBandWrap}>
-        <section className={blogStyles.ctaBand} aria-label="Get a quote">
-          <p className={blogStyles.ctaBandEyebrow}>Ready when you are</p>
-          <h2 className={blogStyles.ctaBandTitle}>
-            Turn your Instagram audience into real enquiries
-          </h2>
-          <p className={blogStyles.ctaBandText}>
-            A website that your bio link, Google listing, and customers can
-            trust. Get a detailed written quote within 24 hours.
-          </p>
-          <div className={blogStyles.ctaBandActions}>
-            <Link href="/start-a-project" className={blogStyles.ctaBandPrimary}>
-              Get a Free Quote
-            </Link>
-            <Link href="/pricing" className={blogStyles.ctaBandSecondary}>
-              View pricing bands
-            </Link>
+
+        <section className={extras.ctaBand} aria-label="Get started">
+          <div className={extras.ctaCard}>
+            <h2 className={extras.ctaTitle}>
+              Turn your Instagram audience into real enquiries
+            </h2>
+            <p className={extras.ctaText}>
+              A website that your bio link, Google listing, and customers can
+              trust. Get a detailed written quote within 24 hours.
+            </p>
+            <div className={extras.ctaButtons}>
+              <Link href="/start-a-project" className={extras.btnPrimary}>
+                Get a Free Quote
+              </Link>
+              <Link href="/pricing" className={extras.btnSecondary}>
+                View pricing bands
+              </Link>
+            </div>
           </div>
         </section>
-      </div>
-    </main>
+
+        <nav className={extras.related} aria-label="Related articles">
+          <h2 className={extras.relatedHeading}>Keep reading</h2>
+          <ul className={extras.relatedList}>
+            <li className={extras.relatedItem}>
+              <Link href="/websites-for-small-businesses" className={extras.relatedLink}>
+                Websites for Small Businesses
+                <small>How a professional website brings enquiries to local businesses.</small>
+              </Link>
+            </li>
+            <li className={extras.relatedItem}>
+              <Link href="/blogs/google-business-profile-website-link" className={extras.relatedLink}>
+                Why your Google Business Profile should link to your own website
+                <small>How linking them turns local searches into calls, bookings, and trust.</small>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </main>
   );
 }

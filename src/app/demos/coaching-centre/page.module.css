@@ -213,6 +213,30 @@
   transform: translateY(-2px);
 }
 
+/* Visible keyboard focus on every interactive element (inputs keep their
+   designed ring via :focus above). */
+.root a:focus-visible,
+.root button:focus-visible {
+  outline: 3px solid var(--orange-500);
+  outline-offset: 2px;
+}
+
+.btnPrimary:active,
+.btnGhost:active,
+.btnCall:active,
+.btnWhats:active,
+.cardCta:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps brand + one primary contact button so
+   nothing overflows at 390px; the call option remains in the admissions section. */
+@media (max-width: 639px) {
+  .headerCtas .btnCall {
+    display: none;
+  }
+}
+
 .btnGhost {
   display: inline-flex;
   align-items: center;
@@ -732,11 +756,6 @@
 
 /* ---------- Responsive ---------- */
 @media (min-width: 640px) {
-  .coursesGrid,
-  .facultyGrid,
-  .testiGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .resultsGrid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -817,4 +836,9 @@
 
 .admissionsBand .sectionSub {
   color: #c7d2fe;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

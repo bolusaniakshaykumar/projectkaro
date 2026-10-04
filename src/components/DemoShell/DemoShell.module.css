@@ -11,18 +11,17 @@
 }
 
 .badgeBar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 0.6rem;
   padding: 0.45rem 1rem;
   background: #0f172a;
   color: #e2e8f0;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .badge {
@@ -65,11 +64,23 @@
 }
 
 .creditLink {
-  color: #1e56e8;
+  color: #b45309;
   font-weight: 600;
   text-decoration: none;
 }
 
 .creditLink:hover {
   text-decoration: underline;
+}
+
+/* Reduced motion: demos use only subtle hover transitions, but honor the
+   user's preference across every demo at once (the shell wraps them all). */
+@media (prefers-reduced-motion: reduce) {
+  .shell *,
+  .shell *::before,
+  .shell *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

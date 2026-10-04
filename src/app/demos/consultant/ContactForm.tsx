@@ -9,11 +9,15 @@ export default function ConsultantContactForm() {
   const [email, setEmail] = useState("");
   const [topic, setTopic] = useState("Growth strategy");
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const text = `New enquiry (sample demo)\nName: ${name}\nEmail: ${email}\nTopic: ${topic}\nMessage: ${message}`;
     window.open(demoWhatsAppLink(text), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   };
 
   return (
@@ -58,8 +62,8 @@ export default function ConsultantContactForm() {
           placeholder="A few lines about your business and your biggest challenge"
         />
       </label>
-      <button type="submit" className={styles.primaryBtn}>
-        Send via WhatsApp
+      <button type="submit" className={styles.primaryBtn} disabled={sending}>
+        {sending ? "Opening WhatsApp…" : "Send via WhatsApp"}
       </button>
     </form>
   );

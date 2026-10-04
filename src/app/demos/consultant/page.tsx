@@ -71,7 +71,7 @@ export default function ConsultantDemoPage() {
                 <small>Business Consultant (Sample)</small>
               </span>
             </a>
-            <nav className={styles.nav}>
+            <nav className={styles.nav} aria-label="Primary">
               <a href="#services">Services</a>
               <a href="#about">About</a>
               <a href="#results">Results</a>
@@ -266,7 +266,7 @@ export default function ConsultantDemoPage() {
               <strong>A. Rao, Business Consultant (Sample)</strong>
               <p>A fictional sample profile built to demonstrate a consultant website.</p>
             </div>
-            <nav>
+            <nav aria-label="Footer">
               <a href="#services">Services</a>
               <a href="#about">About</a>
               <a href="#results">Results</a>

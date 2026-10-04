@@ -61,7 +61,7 @@ export default function ManufacturerDemoPage() {
                 <small>Precision Manufacturing (Sample)</small>
               </span>
             </a>
-            <nav className={styles.nav}>
+            <nav className={styles.nav} aria-label="Primary">
               <a href="#products">Products</a>
               <a href="#capabilities">Capabilities</a>
               <a href="#industries">Industries</a>
@@ -203,7 +203,7 @@ export default function ManufacturerDemoPage() {
               <strong>Deccan Precision Works (Sample)</strong>
               <p>A fictional sample business built to demonstrate a manufacturer website.</p>
             </div>
-            <nav>
+            <nav aria-label="Footer">
               <a href="#products">Products</a>
               <a href="#capabilities">Capabilities</a>
               <a href="#industries">Industries</a>

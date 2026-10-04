@@ -156,10 +156,10 @@
 
 .altContact a:hover { color: var(--brand); }
 
-/* Reassurance rail: stretches to match the dossier column, cards share the height */
+/* Reassurance rail: stretches to match the dossier column, cards share the height.
+   (position: sticky removed: with height: 100% the element fills its own grid
+   area, so sticky could never engage. Keep the rail simple and predictable.) */
 .rail {
-  position: sticky;
-  top: 6rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;

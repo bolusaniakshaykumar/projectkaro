@@ -218,6 +218,30 @@
   color: var(--lime);
 }
 
+/* Visible keyboard focus on every interactive element (inputs keep their
+   designed ring via :focus above). */
+.root a:focus-visible,
+.root button:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 2px;
+}
+
+.btnPrimary:active,
+.btnGhost:active,
+.btnCall:active,
+.btnWhats:active,
+.btnPlan:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps brand + one primary contact button so
+   nothing overflows at 390px; the call option remains in the trial section. */
+@media (max-width: 639px) {
+  .headerCtas .btnCall {
+    display: none;
+  }
+}
+
 .heroStats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -716,9 +740,7 @@
 
 /* ---------- Responsive ---------- */
 @media (min-width: 640px) {
-  .programsGrid,
-  .trainersGrid,
-  .testiGrid {
+  .programsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
   .plansGrid {
@@ -767,4 +789,9 @@
     grid-template-columns: 1fr auto;
     align-items: start;
   }
+}
+
+.btnPrimary:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

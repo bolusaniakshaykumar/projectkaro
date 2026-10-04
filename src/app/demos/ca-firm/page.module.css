@@ -193,6 +193,29 @@
   transform: translateY(-1px);
 }
 
+/* Visible keyboard focus on every interactive element (inputs keep their
+   designed ring via :focus above). */
+.root a:focus-visible,
+.root button:focus-visible {
+  outline: 3px solid var(--blue-800);
+  outline-offset: 2px;
+}
+
+.btnPrimary:active,
+.btnGhost:active,
+.btnCall:active,
+.btnWhats:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps brand + one primary contact button so
+   nothing overflows at 390px; the call option remains in the contact section. */
+@media (max-width: 639px) {
+  .headerCtas .btnCall {
+    display: none;
+  }
+}
+
 .btnGhost {
   display: inline-flex;
   align-items: center;
@@ -604,12 +627,11 @@
 /* ---------- Responsive ---------- */
 @media (min-width: 640px) {
   .servicesGrid,
-  .teamGrid,
-  .testiGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .stepsGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .servicesGrid > article:last-child {
+    grid-column: span 2;
   }
   .trustRow {
     flex-direction: row;
@@ -639,6 +661,9 @@
   }
   .servicesGrid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .servicesGrid > article:last-child {
+    grid-column: span 2;
   }
   .teamGrid,
   .testiGrid {
@@ -675,4 +700,9 @@
 
 .contactBand .sectionSub {
   color: #cbd5e1;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

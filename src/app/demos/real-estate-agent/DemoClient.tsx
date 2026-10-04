@@ -162,14 +162,18 @@ const TESTIMONIALS = [
 
 export default function DemoClient() {
   const [form, setForm] = useState({ name: "", phone: "", interest: "Buying", budget: "₹50 L to ₹1 Cr", message: "" });
+  const [sending, setSending] = useState(false);
 
   const update = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submitEnquiry = (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const msg = `Property Enquiry (Demo)\nName: ${form.name}\nPhone: ${form.phone}\nInterested in: ${form.interest}\nBudget: ${form.budget}\nMessage: ${form.message || "-"}`;
     window.open(demoWhatsAppLink(msg), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   };
 
   return (
@@ -208,9 +212,9 @@ export default function DemoClient() {
             <a href="#contact" className={styles.ghostBtn}>Talk to Me</a>
           </div>
           <div className={styles.heroStats}>
-            <div><strong>200+</strong><span>Homes matched</span></div>
-            <div><strong>8 yrs</strong><span>Hyderabad market experience</span></div>
-            <div><strong>100%</strong><span>Verified listings</span></div>
+            <div><strong>200+</strong><span>Homes matched (Sample)</span></div>
+            <div><strong>8 yrs</strong><span>Market experience (Sample)</span></div>
+            <div><strong>100%</strong><span>Verified listings (Sample)</span></div>
           </div>
         </div>
       </section>
@@ -348,8 +352,8 @@ export default function DemoClient() {
                 Your requirement
                 <textarea value={form.message} onChange={update("message")} rows={4} placeholder="e.g. Looking for a 3BHK near Gachibowli for a family of four." />
               </label>
-              <button type="submit" className={styles.submitBtn}>
-                <WhatsAppIcon /> Send Enquiry on WhatsApp
+              <button type="submit" className={styles.submitBtn} disabled={sending}>
+                <WhatsAppIcon /> {sending ? "Opening WhatsApp…" : "Send Enquiry on WhatsApp"}
               </button>
             </form>
             <div className={styles.contactInfo}>

@@ -392,15 +392,17 @@ export default function HyderabadPage() {
           </Reveal>
           <ol className={styles.journeySteps}>
             {JOURNEY.map((step, i) => (
-              <Reveal key={step.title} delay={i * 100} className={styles.journeyStepWrap}>
-                <li className={styles.journeyStep}>
-                  <span className={styles.journeyNum} aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className={styles.journeyTitle}>{step.title}</h3>
-                  <p className={styles.journeyText}>{step.text}</p>
-                </li>
-              </Reveal>
+              <li key={step.title} className={styles.journeyStepItem}>
+                <Reveal delay={i * 100} className={styles.journeyStepWrap}>
+                  <div className={styles.journeyStep}>
+                    <span className={styles.journeyNum} aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className={styles.journeyTitle}>{step.title}</h3>
+                    <p className={styles.journeyText}>{step.text}</p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>
@@ -534,15 +536,17 @@ export default function HyderabadPage() {
           </Reveal>
           <ol className={styles.stepper}>
             {PROCESS.map((step, i) => (
-              <Reveal key={step.title} delay={i * 90} className={styles.stepWrap}>
-                <li className={styles.step}>
-                  <span className={styles.stepNum} aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepText}>{step.text}</p>
-                </li>
-              </Reveal>
+              <li key={step.title} className={styles.stepItem}>
+                <Reveal delay={i * 90} className={styles.stepWrap}>
+                  <div className={styles.step}>
+                    <span className={styles.stepNum} aria-hidden="true">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                    <p className={styles.stepText}>{step.text}</p>
+                  </div>
+                </Reveal>
+              </li>
             ))}
           </ol>
         </div>

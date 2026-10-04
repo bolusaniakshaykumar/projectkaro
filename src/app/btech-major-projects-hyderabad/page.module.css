@@ -557,6 +557,12 @@
   min-width: 0;
 }
 
+/* Reveal wrapper inside each stepper item: fills the grid cell so the
+   bordered .step card keeps equal heights across the row. */
+.stepReveal {
+  height: 100%;
+}
+
 .step {
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -803,6 +809,12 @@
   }
 
   .outcomeLead {
+    grid-column: 1 / -1;
+  }
+
+  /* Four cards with the lead spanning: the last one becomes a full-width
+     bookend instead of a lone orphan in the final row. */
+  .outcomeBento > :last-child {
     grid-column: 1 / -1;
   }
 

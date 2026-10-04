@@ -752,7 +752,7 @@ export default function IndustryPage({ content }: { content: IndustryPageContent
   );
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} data-variant={content.variant}>
       {/* 1. Breadcrumb */}
       <nav aria-label="Breadcrumb" className={styles.crumbNav}>
         <div className="container">

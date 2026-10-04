@@ -50,6 +50,12 @@
   .industryGrid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Ten cards in three columns: the last one spans the final row
+     instead of sitting alone. */
+  .industryGrid > li:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 .industryCard {
@@ -487,6 +493,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
+}
+
+/* Five cards in two columns: the last one becomes a full-width bookend
+   instead of a lone orphan in the final row. */
+.outcomeGrid > li:last-child {
+  grid-column: 1 / -1;
 }
 
 .outcomeCard {

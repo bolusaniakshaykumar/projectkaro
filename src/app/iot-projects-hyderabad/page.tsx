@@ -207,11 +207,6 @@ const content: ServicePageContent = {
       text: "Projects aligned with electronics and electrical branch expectations, with a walkthrough so you can explain the circuit, the code, and the protocol.",
     },
   ],
-  projects: [
-    { name: "Flood Detection (AP/Telangana)", blurb: "sensor plus ML flood alerts", stack: "FastAPI, scikit-learn" },
-    { name: "Soil Contamination Detection", blurb: "XGBoost soil analysis", stack: "XGBoost, TensorFlow" },
-    { name: "Pothole Detection", blurb: "road defect detection with route reports", stack: "OpenCV, Streamlit" },
-  ],
   deliverablesHeading: "Every IoT project includes",
   deliverables: [
     "Hardware selection guidance: boards, sensors, and where to source them",

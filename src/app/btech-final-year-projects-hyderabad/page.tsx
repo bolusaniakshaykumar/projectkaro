@@ -207,12 +207,6 @@ const content: ServicePageContent = {
       text: "Presentation slides built from your actual work, and a viva walkthrough covering the questions examiners ask.",
     },
   ],
-  projects: [
-    { name: "SkinCare AI", blurb: "CNN skin analysis served as a web app", stack: "Python, PyTorch, FastAPI" },
-    { name: "Event Management System", blurb: "full-stack event platform", stack: "Node, Express, MongoDB" },
-    { name: "Anemia ML Pipeline", blurb: "explainable ML diagnostics", stack: "scikit-learn, SHAP" },
-    { name: "Pothole Detection", blurb: "road defect detection with route reports", stack: "OpenCV, Streamlit" },
-  ],
   deliverablesHeading: "What the final-year journey includes",
   deliverables: [
     "Topic selection guidance and synopsis or abstract drafting",

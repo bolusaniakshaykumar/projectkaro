@@ -44,6 +44,25 @@
 }
 .ctaBtn:hover, .ctaBtnLarge:hover { background: var(--amber-deep); color: #fff; }
 
+/* Visible keyboard focus on every interactive element (inputs keep their
+   designed 2px outline via :focus above). */
+.demo a:focus-visible,
+.demo button:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.ctaBtn:active, .ctaBtnLarge:active, .ghostBtn:active,
+.waBtn:active, .submitBtn:active, .enquireBtn:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps brand + the single primary CTA so
+   nothing overflows at 390px; WhatsApp stays one tap away in the hero. */
+@media (max-width: 767px) {
+  .headerCtas .waBtn { display: none; }
+}
+
 /* Hero */
 .hero {
   background:
@@ -176,4 +195,9 @@
   .form { grid-template-columns: 1fr 1fr; }
   .submitBtn { grid-column: 1 / -1; }
   .visitGrid { grid-template-columns: 1fr 1fr; }
+}
+
+.submitBtn:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

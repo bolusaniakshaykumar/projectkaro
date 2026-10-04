@@ -111,14 +111,18 @@ const REVIEWS = [
 
 export default function DemoClient() {
   const [form, setForm] = useState({ name: "", phone: "", date: "", guests: "2" });
+  const [sending, setSending] = useState(false);
 
   const update = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submitReservation = (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const msg = `Table Reservation Request (Demo)\nName: ${form.name}\nPhone: ${form.phone}\nDate: ${form.date}\nGuests: ${form.guests}`;
     window.open(demoWhatsAppLink(msg), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   };
 
   return (
@@ -159,8 +163,8 @@ export default function DemoClient() {
           </div>
           <div className={styles.heroStats}>
             <div><strong>4.8</strong><span>Sample rating</span></div>
-            <div><strong>120+</strong><span>Dishes on menu</span></div>
-            <div><strong>15 min</strong><span>Avg. wait time</span></div>
+            <div><strong>120+</strong><span>Dishes on menu (Sample)</span></div>
+            <div><strong>15 min</strong><span>Avg. wait time (Sample)</span></div>
           </div>
         </div>
       </section>
@@ -268,8 +272,8 @@ export default function DemoClient() {
                 ))}
               </select>
             </label>
-            <button type="submit" className={styles.submitBtn}>
-              <WhatsAppIcon /> Confirm on WhatsApp
+            <button type="submit" className={styles.submitBtn} disabled={sending}>
+              <WhatsAppIcon /> {sending ? "Opening WhatsApp…" : "Confirm on WhatsApp"}
             </button>
           </form>
         </div>

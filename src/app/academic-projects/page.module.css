@@ -489,7 +489,7 @@
   margin: 0.6rem 0;
 }
 
-.stepperItem:last-child .stepperLine {
+.stepWrap:last-child .stepperLine {
   display: none;
 }
 
@@ -497,7 +497,7 @@
   padding-bottom: 2.25rem;
 }
 
-.stepperItem:last-child .stepperBody {
+.stepWrap:last-child .stepperBody {
   padding-bottom: 0;
 }
 
@@ -755,6 +755,12 @@
   }
 
   .angleLead {
+    grid-column: 1 / -1;
+  }
+
+  /* Four cards with the lead spanning: the last one becomes a full-width
+     bookend instead of a lone orphan in the final row. */
+  .angleBento > :last-child {
     grid-column: 1 / -1;
   }
 

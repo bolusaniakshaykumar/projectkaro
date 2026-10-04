@@ -420,18 +420,20 @@ export default function AcademicProjectsPage() {
           <div className={styles.stepsGrid}>
             <ol className={styles.stepper}>
               {MINI_STEPS.map((step, i) => (
-                <Reveal key={step.num} delay={i * 80} className={styles.stepWrap}>
-                  <li className={styles.stepperItem}>
-                    <div className={styles.stepperRail} aria-hidden="true">
-                      <span className={styles.stepperNum}>{step.num}</span>
-                      <span className={styles.stepperLine} />
+                <li key={step.num} className={styles.stepWrap}>
+                  <Reveal delay={i * 80}>
+                    <div className={styles.stepperItem}>
+                      <div className={styles.stepperRail} aria-hidden="true">
+                        <span className={styles.stepperNum}>{step.num}</span>
+                        <span className={styles.stepperLine} />
+                      </div>
+                      <div className={styles.stepperBody}>
+                        <h3 className={styles.stepperTitle}>{step.title}</h3>
+                        <p className={styles.stepperText}>{step.text}</p>
+                      </div>
                     </div>
-                    <div className={styles.stepperBody}>
-                      <h3 className={styles.stepperTitle}>{step.title}</h3>
-                      <p className={styles.stepperText}>{step.text}</p>
-                    </div>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ol>
             <aside className={styles.stepsSide} aria-label="Why deadlines are safe with us">

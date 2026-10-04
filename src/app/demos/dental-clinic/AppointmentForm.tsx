@@ -17,9 +17,12 @@ export default function AppointmentForm() {
   const [phone, setPhone] = useState("");
   const [treatment, setTreatment] = useState(TREATMENT_OPTIONS[0]);
   const [date, setDate] = useState("");
+  const [sending, setSending] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const message = [
       "Hi SmileCare! I would like to book a dental appointment.",
       `Name: ${name}`,
@@ -28,6 +31,7 @@ export default function AppointmentForm() {
       `Preferred date: ${date || "Flexible"}`,
     ].join("\n");
     window.open(demoWhatsAppLink(message), "_blank", "noopener");
+    window.setTimeout(() => setSending(false), 1200);
   }
 
   return (
@@ -68,8 +72,8 @@ export default function AppointmentForm() {
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
         </label>
       </div>
-      <button type="submit" className={styles.formButton}>
-        Confirm on WhatsApp
+      <button type="submit" className={styles.formButton} disabled={sending}>
+        {sending ? "Opening WhatsApp…" : "Confirm on WhatsApp"}
       </button>
       <p className={styles.formNote}>
         This is a sample form. Submitting opens WhatsApp with your details, nothing is

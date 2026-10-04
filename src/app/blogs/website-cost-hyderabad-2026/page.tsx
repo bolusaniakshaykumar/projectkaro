@@ -1,6 +1,6 @@
 import Link from "next/link";
 import BlogArticle from "@/components/BlogArticle/BlogArticle";
-import blogStyles from "@/components/BlogArticle/BlogArticle.module.css";
+import extras from "../post-extras.module.css";
 import JsonLd from "@/components/JsonLd";
 import {
   absoluteUrl,
@@ -39,12 +39,6 @@ const articleSchema = {
   datePublished: DATE_PUBLISHED,
   inLanguage: "en-IN",
 };
-
-const RELATED_LINKS = [
-  { href: "/pricing", label: "View our pricing bands" },
-  { href: "/blogs/ecommerce-website-cost-india", label: "How much does an e-commerce website cost?" },
-  { href: "/websites-for-small-businesses", label: "Websites for small businesses" },
-];
 
 export default function WebsiteCostHyderabad2026Page() {
   return (
@@ -182,35 +176,50 @@ export default function WebsiteCostHyderabad2026Page() {
           where your project likely lands.
         </p>
 
-        <aside aria-label="Related reading">
-          <h2>Related reading</h2>
-          <ul>
-            {RELATED_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
       </BlogArticle>
-      <div className={blogStyles.ctaBandWrap}>
-      <section className={blogStyles.ctaBand} aria-label="Get a quote">
-        <p className={blogStyles.ctaBandEyebrow}>Ready when you are</p>
-        <h2 className={blogStyles.ctaBandTitle}>Know exactly what your website will cost</h2>
-        <p className={blogStyles.ctaBandText}>
-          Tell us what you need. ProjectKaro shares a detailed written quote
-          within 24 hours, with scope, timeline, and no hidden charges.
-        </p>
-        <div className={blogStyles.ctaBandActions}>
-          <Link href="/start-a-project" className={blogStyles.ctaBandPrimary}>
-            Get a Free Quote
-          </Link>
-          <Link href="/pricing" className={blogStyles.ctaBandSecondary}>
-            View pricing bands
-          </Link>
-        </div>
-      </section>
-      </div>
-    </main>
+
+        <section className={extras.ctaBand} aria-label="Get started">
+          <div className={extras.ctaCard}>
+            <h2 className={extras.ctaTitle}>Know exactly what your website will cost</h2>
+            <p className={extras.ctaText}>
+              Tell us what you need. ProjectKaro shares a detailed written
+              quote within 24 hours, with scope, timeline, and no hidden
+              charges.
+            </p>
+            <div className={extras.ctaButtons}>
+              <Link href="/start-a-project" className={extras.btnPrimary}>
+                Get a Free Quote
+              </Link>
+              <Link href="/pricing" className={extras.btnSecondary}>
+                View pricing bands
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <nav className={extras.related} aria-label="Related articles">
+          <h2 className={extras.relatedHeading}>Keep reading</h2>
+          <ul className={extras.relatedList}>
+            <li className={extras.relatedItem}>
+              <Link href="/pricing" className={extras.relatedLink}>
+                Pricing
+                <small>Transparent website pricing bands, quote within 24 hours.</small>
+              </Link>
+            </li>
+            <li className={extras.relatedItem}>
+              <Link href="/blogs/ecommerce-website-cost-india" className={extras.relatedLink}>
+                How much does an e-commerce website cost?
+                <small>What drives the cost of selling online in India, and the starting bands to plan your budget.</small>
+              </Link>
+            </li>
+            <li className={extras.relatedItem}>
+              <Link href="/websites-for-small-businesses" className={extras.relatedLink}>
+                Websites for Small Businesses
+                <small>How a professional website brings enquiries to local businesses.</small>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </main>
   );
 }

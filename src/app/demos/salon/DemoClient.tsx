@@ -125,14 +125,18 @@ const TESTIMONIALS = [
 
 export default function DemoClient() {
   const [form, setForm] = useState({ name: "", phone: "", service: SERVICE_GROUPS[0].title, date: "", time: "11:00 AM" });
+  const [sending, setSending] = useState(false);
 
   const update = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submitBooking = (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const msg = `Appointment Request (Demo)\nName: ${form.name}\nPhone: ${form.phone}\nService: ${form.service}\nDate: ${form.date}\nTime: ${form.time}`;
     window.open(demoWhatsAppLink(msg), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   };
 
   return (
@@ -287,8 +291,8 @@ export default function DemoClient() {
                 ))}
               </select>
             </label>
-            <button type="submit" className={styles.submitBtn}>
-              <WhatsAppIcon /> Confirm on WhatsApp
+            <button type="submit" className={styles.submitBtn} disabled={sending}>
+              <WhatsAppIcon /> {sending ? "Opening WhatsApp…" : "Confirm on WhatsApp"}
             </button>
           </form>
         </div>

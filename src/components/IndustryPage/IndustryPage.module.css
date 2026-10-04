@@ -6,6 +6,30 @@
   color: var(--ink);
 }
 
+/* ---------- Per-variant visual language ---------- */
+/* Same tokens everywhere; each audience gets its own voice. */
+
+/* Salons (showcase): editorial typography treatment. */
+.page[data-variant="showcase"] .title {
+  font-size: clamp(2.4rem, 5.2vw, 3.9rem);
+  letter-spacing: -0.02em;
+}
+
+.page[data-variant="showcase"] .titleAccent {
+  font-style: italic;
+}
+
+/* Consultants (editorial): authority-first large serif, restrained motion. */
+.page[data-variant="editorial"] .title {
+  font-size: clamp(2.5rem, 5.5vw, 4.1rem);
+  letter-spacing: -0.02em;
+  max-width: 20ch;
+}
+
+.page[data-variant="editorial"] .reveal {
+  transform: none;
+}
+
 /* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
@@ -148,6 +172,13 @@
   color: #fff;
 }
 
+.ctaPrimary:active,
+.ctaPrimaryLight:active {
+  background: var(--brand-deep);
+  transform: translateY(1px);
+  color: #fff;
+}
+
 .ctaSecondary,
 .ctaSecondaryLight {
   display: inline-flex;
@@ -168,6 +199,11 @@
 .ctaSecondaryLight:hover {
   border-color: var(--brand);
   transform: translateY(-1px);
+}
+
+.ctaSecondary:active,
+.ctaSecondaryLight:active {
+  transform: translateY(1px);
 }
 
 .heroNote {
@@ -471,6 +507,13 @@
   gap: 0.75rem;
 }
 
+/* Orphan guard: an odd last card spans the full row instead of
+   leaving an empty slot. */
+.mockCards > :last-child:nth-child(odd),
+.dashGrid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .mockCard {
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
@@ -729,6 +772,12 @@
   animation: tickerScroll 30s linear infinite;
 }
 
+/* Auto-scrolling content must be pausable (WCAG 2.2.2). */
+.ticker:hover .tickerTrack,
+.ticker:focus-within .tickerTrack {
+  animation-play-state: paused;
+}
+
 .tickerList {
   display: flex;
   list-style: none;
@@ -850,8 +899,7 @@
   font-size: 0.98rem;
 }
 
-/* ---------- Problem: editorial split, sticky heading ---------- */
-/* ---------- Problem cards ---------- */
+/* ---------- Problem: header + cards ---------- */
 .problemsHead {
   max-width: 46rem;
   margin-bottom: 2.5rem;
@@ -1805,6 +1853,11 @@
   transform: translateY(-2px);
 }
 
+.relatedCard:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
 .relatedName {
   font-weight: 700;
   font-size: 1.08rem;
@@ -1879,6 +1932,11 @@
   color: #fff;
 }
 
+.stickyBtn:active {
+  background: var(--brand-deep);
+  transform: translateY(1px);
+}
+
 .backTop {
   position: fixed;
   bottom: 5.75rem;
@@ -1911,6 +1969,18 @@
 .backTop:hover {
   border-color: var(--brand);
   color: var(--brand);
+}
+
+.backTop:active {
+  transform: translateY(2px);
+}
+
+.crumbLink:active {
+  color: var(--brand-deep);
+}
+
+.faqQuestion:active {
+  background: var(--paper-soft);
 }
 
 /* ---------- Focus visibility ---------- */
@@ -2031,5 +2101,29 @@
   .tickerTrack,
   .floatCard {
     animation: none;
+  }
+
+  /* Essential state changes stay (FAQ opens instantly); decorative
+     movement goes. Hover lifts become flat. */
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .bentoCard:hover,
+  .featCard:hover,
+  .painRow:hover,
+  .stepCard:hover,
+  .treeNode:hover,
+  .relatedCard:hover,
+  .ctaPrimary:hover,
+  .ctaSecondary:hover,
+  .ctaPrimaryLight:hover,
+  .ctaSecondaryLight:hover,
+  .stickyBtn:hover,
+  .backTop:hover {
+    transform: none;
   }
 }

@@ -211,12 +211,6 @@ const content: ServicePageContent = {
       text: "The project runs live, not just on one laptop, so your demo survives the review room and the final evaluation.",
     },
   ],
-  projects: [
-    { name: "Event Management System", blurb: "full-stack event platform", stack: "Node, Express, MongoDB" },
-    { name: "Super AI Prompts", blurb: "MERN prompt library", stack: "React, Express" },
-    { name: "RXShield AI", blurb: "prescription intelligence platform", stack: "Next.js, TypeScript" },
-    { name: "Externify", blurb: "AI internship matching agent", stack: "FastAPI, spaCy" },
-  ],
   deliverablesHeading: "Every CSE project includes",
   deliverables: [
     "Branch-matched topic selection for CSE or IT",

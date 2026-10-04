@@ -150,7 +150,8 @@ const INDUSTRIES = [
   { href: "/websites-for-small-businesses", name: "Small Businesses", blurb: "Affordable websites for small businesses." },
 ];
 
-const MINI_STEPS = [  {
+const MINI_STEPS = [
+  {
     num: "01",
     title: "Tell us about your business",
     text: "Fill the form or message us on WhatsApp. Share your business, your services, and what a good enquiry looks like for you.",
@@ -283,12 +284,12 @@ export default function WebsitesForBusinessesPage() {
                 <span>You own the site outright</span>
               </div>
             </div>
-            <div className={styles.heroArt} aria-hidden="true">
+            <div className={styles.heroArt}>
               {STOREFRONT_ART}
               <div className={styles.heroPhoto}>
                 <Image
                   src="/images/business-counter.jpg"
-                  alt=""
+                  alt="Small business shop counter, the kind of local business ProjectKaro builds websites for"
                   width={1400}
                   height={934}
                   loading="lazy"

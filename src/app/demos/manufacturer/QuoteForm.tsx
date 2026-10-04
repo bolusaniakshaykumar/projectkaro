@@ -11,11 +11,15 @@ export default function QuoteRequestForm() {
   const [partDetails, setPartDetails] = useState("");
   const [quantity, setQuantity] = useState("");
   const [timeline, setTimeline] = useState("2 to 4 weeks");
+  const [sending, setSending] = useState(false);
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const text = `Quote request (sample demo)\nName: ${name}\nCompany: ${company}\nPhone: ${phone}\nPart details: ${partDetails}\nQuantity: ${quantity}\nTimeline: ${timeline}`;
     window.open(demoWhatsAppLink(text), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   };
 
   return (
@@ -81,8 +85,8 @@ export default function QuoteRequestForm() {
           </select>
         </label>
       </div>
-      <button type="submit" className={styles.primaryBtn}>
-        Send Quote Request via WhatsApp
+      <button type="submit" className={styles.primaryBtn} disabled={sending}>
+        {sending ? "Opening WhatsApp…" : "Send Quote Request via WhatsApp"}
       </button>
     </form>
   );

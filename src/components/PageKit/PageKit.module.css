@@ -126,3 +126,11 @@
     transition: opacity 0.01s linear, visibility 0.01s linear;
   }
 }
+
+/* When the sticky quote bar is up, the WhatsApp float lifts to the same
+   height as back-to-top. Stack back-to-top above it on narrow viewports. */
+@media (max-width: 48rem) {
+  body[data-sticky-cta="on"] .backTop {
+    bottom: 10rem;
+  }
+}

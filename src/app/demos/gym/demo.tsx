@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import {
   DEMO_PHONE_DISPLAY,
   DEMO_PHONE_LINK,
@@ -165,8 +165,12 @@ const timings = [
 ];
 
 export default function GymDemo() {
+  const [sending, setSending] = useState(false);
+
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
     const data = new FormData(e.currentTarget);
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
@@ -176,6 +180,7 @@ export default function GymDemo() {
       `Hello IronPulse Fitness Studio, this is a demo trial booking.\n` +
       `Name: ${name}\nPhone: ${phone}\nGoal: ${goal}\nPreferred slot: ${slot}`;
     window.open(demoWhatsAppLink(text), "_blank");
+    window.setTimeout(() => setSending(false), 1200);
   }
 
   return (
@@ -406,9 +411,9 @@ export default function GymDemo() {
                     </select>
                   </div>
                 </div>
-                <button type="submit" className={styles.btnPrimary}>
+                <button type="submit" className={styles.btnPrimary} disabled={sending}>
                   <WhatsAppIcon />
-                  Book Trial on WhatsApp
+                  {sending ? "Opening WhatsApp…" : "Book Trial on WhatsApp"}
                 </button>
                 <p className={styles.formNote}>
                   Submitting opens WhatsApp with your booking pre-filled. Demo only, no data is stored.

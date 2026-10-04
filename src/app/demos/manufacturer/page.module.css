@@ -158,6 +158,28 @@
   background: var(--orange-deep);
   border-color: var(--orange-deep);
 }
+
+/* Visible keyboard focus on every interactive element. */
+.page a:focus-visible,
+.page button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.primaryBtn:active,
+.ghostBtn:active,
+.callBtn:active,
+.waBtn:active {
+  transform: translateY(1px);
+}
+
+/* On small screens the header keeps brand + one primary contact button so
+   nothing overflows at 390px; both CTAs remain in the hero. */
+@media (max-width: 639px) {
+  .headerCtas .callBtn {
+    display: none;
+  }
+}
 .ghostBtn {
   display: inline-block;
   color: #fff;
@@ -434,4 +456,9 @@
 
 .quoteBand .eyebrow {
   color: #ffc89e;
+}
+
+.primaryBtn:disabled {
+  opacity: 0.75;
+  cursor: wait;
 }

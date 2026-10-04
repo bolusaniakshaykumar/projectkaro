@@ -201,12 +201,6 @@ const content: ServicePageContent = {
       text: "The model ships inside a working web app, so the examiner interacts with the project instead of watching a notebook.",
     },
   ],
-  projects: [
-    { name: "Ecommerce Recommendation System", blurb: "hybrid product recommender", stack: "FastAPI, scikit-learn" },
-    { name: "Anemia ML Pipeline", blurb: "explainable ML diagnostics", stack: "scikit-learn, SHAP" },
-    { name: "Deepfake Detection", blurb: "image forgery detection", stack: "PyTorch" },
-    { name: "SkinCare AI", blurb: "CNN skin analysis served as a web app", stack: "Python, PyTorch, FastAPI" },
-  ],
   deliverablesHeading: "Every AI/ML project includes",
   deliverables: [
     "Dataset selection, cleaning, and documentation",
