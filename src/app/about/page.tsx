@@ -190,10 +190,10 @@ export default function AboutPage() {
             <figure className={styles.founderFigure}>
               <div className={styles.portraitFrame}>
                 <Image
-                  src="/images/founder-akshay-v4.jpg"
+                  src="/images/founder-akshay-v7.jpg"
                   alt="Portrait of Akshay Kumar Bolusani, Founder and CEO of ProjectKaro, in a bright modern office"
                   width={800}
-                  height={1000}
+                  height={800}
                   loading="lazy"
                   sizes="(min-width: 961px) 400px, 100vw"
                 />
