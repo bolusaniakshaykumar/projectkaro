@@ -219,6 +219,9 @@ export default function Header() {
             aria-expanded={menuOpen}
             aria-controls="main-nav"
             onClick={() => setMenuOpen((v) => !v)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape" && menuOpen) setMenuOpen(false);
+            }}
           >
             <span className={styles.menuIcon} aria-hidden="true">
               <span></span>
