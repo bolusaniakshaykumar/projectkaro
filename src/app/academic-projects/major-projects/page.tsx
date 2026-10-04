@@ -14,7 +14,7 @@ import styles from "./page.module.css";
 const pageTitle = "Final Year Major Projects for BTech Students";
 const pagePath = "/academic-projects/major-projects";
 const pageDescription =
-  "Complete final year major projects for BTech and engineering students. Working code, documentation, report support and viva prep, delivered before your deadline.";
+  "Complete final year major projects for BTech and engineering students. Working code, documentation, report support and viva prep, with guidance so you can explain every part of it.";
 
 export const metadata = createPageMetadata({
   title: `${pageTitle} | ProjectKaro`,
@@ -50,8 +50,8 @@ const PAINS = [
 
 const OUTCOMES = [
   {
-    title: "Working code, built for you",
-    text: "A complete, running project matched to your branch and syllabus, in web, full-stack, AI/ML, or IoT. Tested before it reaches you.",
+    title: "Working code, built with you",
+    text: "A complete, running project matched to your branch and syllabus, in web, full-stack, AI/ML, or IoT. Tested before it reaches you, and explained so you can present every part of it.",
   },
   {
     title: "Code you can actually explain",
@@ -273,10 +273,10 @@ export default function MajorProjectsPage() {
               </h1>
               <p className={styles.intro}>
                 Your major project carries the most weight in your final year,
-                in marks and in interviews. ProjectKaro builds complete, working
-                major projects for BTech and engineering students: real code you
+                in marks and in interviews. ProjectKaro helps BTech and engineering
+                students build complete, working major projects: real code you
                 can explain, full documentation, project report support, and
-                viva preparation, delivered before your deadline.
+                viva preparation, ready before your deadline.
               </p>
               <div className={styles.heroCtas}>
                 <Link href="/start-a-project" className={styles.ctaPrimary}>

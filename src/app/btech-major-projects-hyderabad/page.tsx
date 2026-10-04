@@ -614,7 +614,7 @@ export default function BTechMajorProjectsHyderabadPage() {
           <Reveal className={styles.ctaInner}>
             <p className={styles.ctaEyebrow}>Based in Hyderabad</p>
             <h2 id="btech-cta-heading" className={styles.ctaTitle}>
-              Get your major project delivered before your deadline
+              Get your major project ready before your deadline
             </h2>
             <p className={styles.ctaText}>
               Share your topic, branch, and submission date. ProjectKaro responds

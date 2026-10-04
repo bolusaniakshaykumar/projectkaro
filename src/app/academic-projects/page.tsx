@@ -265,7 +265,7 @@ export default function AcademicProjectsPage() {
                 For students
               </p>
               <h1 id="acad-heading" className={styles.heroTitle}>
-                Your major project, <em>delivered before your deadline.</em>
+                Your major project, <em>built with you before your deadline.</em>
               </h1>
               <p className={styles.heroSub}>
                 ProjectKaro provides B.Tech major project development and technical support
