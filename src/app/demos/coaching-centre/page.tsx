@@ -1,5 +1,7 @@
 import DemoShell from "@/components/DemoShell/DemoShell";
 import CoachingDemo from "./demo";
+import JsonLd from "@/components/JsonLd";
+import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata = {
   title: "Aspire Academy | Sample Coaching Website by ProjectKaro",
@@ -9,8 +11,23 @@ export const metadata = {
 
 export default function Page() {
   return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/demos/coaching-centre",
+            title: 'Aspire Academy | Sample Coaching Website by ProjectKaro',
+            description: 'A sample coaching centre website concept crafted by ProjectKaro: JEE and NEET preparation with small batches, expert faculty and proven results.',
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: 'Coaching Centre Demo', path: "/demos/coaching-centre" },
+          ]),
+        ]}
+      />
     <DemoShell businessName="Aspire Academy">
       <CoachingDemo />
     </DemoShell>
+    </>
   );
 }

@@ -7,6 +7,8 @@ import {
 } from "@/components/DemoShell/demo-constants";
 import ConsultantContactForm from "./ContactForm";
 import styles from "./page.module.css";
+import JsonLd from "@/components/JsonLd";
+import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "A. Rao, Business Consultant (Sample) | Demo",
@@ -60,6 +62,20 @@ const testimonials = [
 
 export default function ConsultantDemoPage() {
   return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/demos/consultant",
+            title: 'A. Rao, Business Consultant (Sample) | Demo',
+            description: 'Sample consultant website demo: growth strategy, operations, sales systems, and financial clarity for SMEs.',
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: 'Consultant Demo', path: "/demos/consultant" },
+          ]),
+        ]}
+      />
     <DemoShell businessName="A. Rao, Business Consultant (Sample)">
       <div className={styles.page}>
         <header className={styles.header}>
@@ -276,5 +292,6 @@ export default function ConsultantDemoPage() {
         </footer>
       </div>
     </DemoShell>
+    </>
   );
 }

@@ -7,6 +7,8 @@ import {
 } from "@/components/DemoShell/demo-constants";
 import BookingForm from "./BookingForm";
 import styles from "./page.module.css";
+import JsonLd from "@/components/JsonLd";
+import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GlowSkin Clinic (Sample) | ProjectKaro Demo",
@@ -148,6 +150,20 @@ const FAQS = [
 
 export default function DermatologistDemo() {
   return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/demos/dermatologist",
+            title: 'GlowSkin Clinic (Sample) | ProjectKaro Demo',
+            description: 'A sample dermatology clinic website concept by ProjectKaro: skin treatments with sample pricing, results gallery, testimonials, and WhatsApp booking.',
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: 'Dermatologist Demo', path: "/demos/dermatologist" },
+          ]),
+        ]}
+      />
     <DemoShell businessName="GlowSkin Clinic">
       <div className={styles.page}>
         <header className={styles.siteHeader}>
@@ -460,5 +476,6 @@ export default function DermatologistDemo() {
         </footer>
       </div>
     </DemoShell>
+    </>
   );
 }

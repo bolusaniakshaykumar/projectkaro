@@ -7,6 +7,8 @@ import {
 } from "@/components/DemoShell/demo-constants";
 import AppointmentForm from "./AppointmentForm";
 import styles from "./page.module.css";
+import JsonLd from "@/components/JsonLd";
+import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "SmileCare Dental Clinic (Sample) | ProjectKaro Demo",
@@ -146,6 +148,20 @@ const FAQS = [
 
 export default function DentalClinicDemo() {
   return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/demos/dental-clinic",
+            title: 'SmileCare Dental Clinic (Sample) | ProjectKaro Demo',
+            description: 'A sample dental clinic website concept by ProjectKaro: treatments with sample pricing, doctors, patient stories, and WhatsApp appointment booking.',
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: 'Dental Clinic Demo', path: "/demos/dental-clinic" },
+          ]),
+        ]}
+      />
     <DemoShell businessName="SmileCare Dental Clinic">
       <div className={styles.page}>
         <header className={styles.siteHeader}>
@@ -455,5 +471,6 @@ export default function DentalClinicDemo() {
         </footer>
       </div>
     </DemoShell>
+    </>
   );
 }

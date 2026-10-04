@@ -7,6 +7,8 @@ import {
 } from "@/components/DemoShell/demo-constants";
 import QuoteRequestForm from "./QuoteForm";
 import styles from "./page.module.css";
+import JsonLd from "@/components/JsonLd";
+import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Deccan Precision Works (Sample) | Demo",
@@ -46,6 +48,20 @@ const industries = ["Automotive", "Aerospace", "Pharma", "Construction", "Electr
 
 export default function ManufacturerDemoPage() {
   return (
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            path: "/demos/manufacturer",
+            title: 'Deccan Precision Works (Sample) | Demo',
+            description: 'Sample manufacturer website demo: CNC machined parts, sheet metal fabrication, fasteners, and custom tooling.',
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: 'Manufacturer Demo', path: "/demos/manufacturer" },
+          ]),
+        ]}
+      />
     <DemoShell businessName="Deccan Precision Works (Sample)">
       <div className={styles.page}>
         <header className={styles.header}>
@@ -213,5 +229,6 @@ export default function ManufacturerDemoPage() {
         </footer>
       </div>
     </DemoShell>
+    </>
   );
 }
