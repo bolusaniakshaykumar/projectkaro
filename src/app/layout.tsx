@@ -80,14 +80,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32", type: "image/x-icon" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
-    apple: "/logo.png",
+    apple: "/favicon-180.png",
     other: {
       rel: "apple-touch-icon-precomposed",
-      url: "/logo.png",
+      url: "/favicon-180.png",
     },
   },
   appleWebApp: {
