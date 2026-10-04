@@ -54,6 +54,7 @@ const SERVICE_CATEGORIES: {
         description: "Polished, professional portfolio sites that effectively showcase your skills, experience, and projects to clients, employers, or recruiters.",
         outcome: "A polished portfolio that presents your work at its best.",
         deliverables: ["Custom design", "Project showcase section", "Contact form integration", "Live deployment"],
+        learnMore: "/websites-for-portfolios",
         icon: (
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2" />
