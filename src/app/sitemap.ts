@@ -35,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/websites-for-cas", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/websites-for-small-businesses", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/websites-for-startups", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/websites-for-portfolios", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/academic-projects", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/academic-projects/major-projects", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/academic-projects/minor-projects", priority: 0.85, changeFrequency: "monthly" as const },

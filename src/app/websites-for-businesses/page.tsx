@@ -148,6 +148,7 @@ const INDUSTRIES = [
   { href: "/websites-for-coaching-centres", name: "Coaching Centres", blurb: "Enrolment-focused websites for coaching institutes." },
   { href: "/websites-for-consultants", name: "Consultants", blurb: "Authority-building websites for consultants." },
   { href: "/websites-for-small-businesses", name: "Small Businesses", blurb: "Affordable websites for small businesses." },
+  { href: "/websites-for-portfolios", name: "Portfolios", blurb: "Personal websites for freelancers and creators." },
 ];
 
 const MINI_STEPS = [
