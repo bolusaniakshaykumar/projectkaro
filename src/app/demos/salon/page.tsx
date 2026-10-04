@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import DemoClient from "./DemoClient";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Lumiere Salon & Spa | Demo Website by ProjectKaro",
   description:
     "A sample salon and spa website concept by ProjectKaro: services, stylists, gallery, testimonials and online appointment booking.",
-};
+  path: "/demos/salon",
+});
 
 export default function SalonDemoPage() {
   return (

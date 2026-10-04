@@ -16,7 +16,7 @@ const pageDescription =
   "Salon and spa websites in Hyderabad that fill appointment slots. Services with prices, stylists, WhatsApp booking and local SEO. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

@@ -14,10 +14,10 @@ import styles from "./page.module.css";
 const PATH = "/btech-major-projects-hyderabad";
 const pageTitle = "B.Tech Major Projects in Hyderabad";
 const pageDescription =
-  "B.Tech major project development in Hyderabad for CSE, IT, ECE and other branches. AI/ML, IoT, web, full-stack and cybersecurity projects with documentation and viva prep.";
+  "B.Tech major project development in Hyderabad for CSE, IT, ECE and more. AI/ML, IoT, web and full-stack projects with documentation and viva prep.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

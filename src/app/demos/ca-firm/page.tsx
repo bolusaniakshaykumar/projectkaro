@@ -1,13 +1,14 @@
 import DemoShell from "@/components/DemoShell/DemoShell";
 import CaFirmDemo from "./demo";
 import JsonLd from "@/components/JsonLd";
-import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
+import { webPageSchema, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Verma & Associates, Chartered Accountants | Sample Website by ProjectKaro",
   description:
     "A sample CA firm website concept crafted by ProjectKaro: income tax filing, GST, audits and bookkeeping for growing businesses.",
-};
+  path: "/demos/ca-firm",
+});
 
 export default function Page() {
   return (

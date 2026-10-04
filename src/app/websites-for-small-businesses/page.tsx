@@ -16,7 +16,7 @@ const pageDescription =
   "Affordable websites for small businesses in Hyderabad. Services, gallery, reviews and WhatsApp enquiries that turn searches into customers. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

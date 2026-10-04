@@ -17,7 +17,7 @@ const pageDescription =
   "Indicative starting prices for websites and student projects in India. Business website from ₹15,000. Final per-project quote shared within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: pagePath,
   keywords: [

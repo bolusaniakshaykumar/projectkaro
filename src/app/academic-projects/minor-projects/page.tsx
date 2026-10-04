@@ -17,7 +17,7 @@ const pageDescription =
   "Quick minor and mini projects for BTech students, delivered in 2 to 5 days with working code and documentation. Per-project pricing, quote within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: pagePath,
   keywords: [

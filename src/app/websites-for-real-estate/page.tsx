@@ -16,7 +16,7 @@ const pageDescription =
   "Real estate websites in Hyderabad that turn property searches into site-visit enquiries. Listings, agent profile, WhatsApp enquiries and local SEO. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

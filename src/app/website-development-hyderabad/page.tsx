@@ -11,13 +11,13 @@ import {
 } from "@/lib/seo";
 import styles from "./page.module.css";
 
-const pageTitle = "Website Development Company in Hyderabad";
+const pageTitle = "Website Development in Hyderabad";
 const pagePath = "/website-development-hyderabad";
 const pageDescription =
   "ProjectKaro is a website development company in Hyderabad building business websites that bring enquiries. Per-project pricing, detailed quote within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: pagePath,
   keywords: [

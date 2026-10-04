@@ -1,13 +1,14 @@
 import DemoShell from "@/components/DemoShell/DemoShell";
 import GymDemo from "./demo";
 import JsonLd from "@/components/JsonLd";
-import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
+import { webPageSchema, breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "IronPulse Fitness Studio | Sample Gym Website by ProjectKaro",
   description:
     "A sample fitness studio website concept crafted by ProjectKaro: strength training, HIIT, yoga and personal training with flexible membership plans.",
-};
+  path: "/demos/gym",
+});
 
 export default function Page() {
   return (

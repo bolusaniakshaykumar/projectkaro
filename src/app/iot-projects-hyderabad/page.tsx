@@ -17,7 +17,7 @@ const pageDescription =
   "IoT and embedded final-year projects in Hyderabad: sensor hardware, Arduino/Raspberry Pi builds, dashboards, documentation and viva preparation.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

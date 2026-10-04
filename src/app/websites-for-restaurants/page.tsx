@@ -16,7 +16,7 @@ const pageDescription =
   "Restaurant websites in Hyderabad that turn searches into table bookings and orders. Menu, reservations, gallery and local SEO. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

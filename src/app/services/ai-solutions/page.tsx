@@ -16,7 +16,7 @@ const PAGE_DESCRIPTION =
   "AI solution development in India. ProjectKaro builds custom AI agents, chatbots, and automation wired into your workflow. Per-project pricing, quote in 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${PAGE_TITLE} | ProjectKaro`,
+  title: `${PAGE_TITLE}`,
   description: PAGE_DESCRIPTION,
   path: PAGE_PATH,
   keywords: [

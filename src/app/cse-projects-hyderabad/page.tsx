@@ -17,7 +17,7 @@ const pageDescription =
   "B.Tech CSE and IT final-year projects in Hyderabad: web apps, AI/ML, full-stack and software projects with documentation, PPT and viva preparation.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

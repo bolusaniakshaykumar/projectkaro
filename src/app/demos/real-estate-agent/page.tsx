@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import DemoClient from "./DemoClient";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "CityNest Properties | Demo Website by ProjectKaro",
   description:
     "A sample real estate agent website concept by ProjectKaro: featured Hyderabad listings, agent profile, testimonials and enquiry form.",
-};
+  path: "/demos/real-estate-agent",
+});
 
 export default function RealEstateDemoPage() {
   return (

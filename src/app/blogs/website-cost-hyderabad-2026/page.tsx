@@ -16,7 +16,7 @@ const POST_DESCRIPTION =
 const DATE_PUBLISHED = "2026-10-04";
 
 export const metadata = createPageMetadata({
-  title: "Website Cost in Hyderabad (2026): What Should You Budget?",
+  title: "Website Cost in Hyderabad (2026)",
   description: POST_DESCRIPTION,
   path: POST_PATH,
   keywords: [

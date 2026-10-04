@@ -17,7 +17,7 @@ const pageDescription =
   "Final-year B.Tech project support in Hyderabad: topic selection, implementation, documentation, PPT and viva prep, planned across your final year.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

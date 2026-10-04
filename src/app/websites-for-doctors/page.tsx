@@ -16,7 +16,7 @@ const pageDescription =
   "Professional websites for doctors and specialty practices in Hyderabad. Profiles, treatments, appointment booking and local SEO. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

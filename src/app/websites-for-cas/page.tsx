@@ -16,7 +16,7 @@ const pageDescription =
   "CA websites in Hyderabad that turn compliance searches into client enquiries. Services, team, deadlines and WhatsApp consultation booking. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

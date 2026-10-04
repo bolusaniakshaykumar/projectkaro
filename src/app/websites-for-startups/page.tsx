@@ -16,7 +16,7 @@ const pageDescription =
   "Startup websites in Hyderabad that convert visitors into users, demos and investors. Positioning, product pages and launch-ready builds. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

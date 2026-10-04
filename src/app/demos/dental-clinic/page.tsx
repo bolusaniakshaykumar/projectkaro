@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import {
   DEMO_PHONE_DISPLAY,
@@ -10,11 +10,12 @@ import styles from "./page.module.css";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "SmileCare Dental Clinic (Sample) | ProjectKaro Demo",
   description:
     "A sample dental clinic website concept by ProjectKaro: treatments with sample pricing, doctors, patient stories, and WhatsApp appointment booking.",
-};
+  path: "/demos/dental-clinic",
+});
 
 function ToothIcon({ className }: { className?: string }) {
   return (

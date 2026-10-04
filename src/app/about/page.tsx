@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 export const metadata = createPageMetadata({
   title: "About Us",
   description:
-    "ProjectKaro (Project Karo) is a professional development studio in India focused on websites, full-stack applications, and complete student project delivery. Learn about our mission, values, and approach.",
+    "ProjectKaro is a development studio in India building websites, full-stack apps, and student projects. Our mission, values, and approach.",
   path: "/about",
 });
 

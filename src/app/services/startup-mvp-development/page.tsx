@@ -16,7 +16,7 @@ const PAGE_DESCRIPTION =
   "MVP development company in India. ProjectKaro designs and builds lean, launch-ready MVPs for startups in weeks. Per-project pricing, quote within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${PAGE_TITLE} | ProjectKaro`,
+  title: `${PAGE_TITLE}`,
   description: PAGE_DESCRIPTION,
   path: PAGE_PATH,
   keywords: [

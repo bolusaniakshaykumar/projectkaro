@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import {
   DEMO_PHONE_DISPLAY,
@@ -10,11 +10,12 @@ import styles from "./page.module.css";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "A. Rao, Business Consultant (Sample) | Demo",
   description:
     "Sample consultant website demo: growth strategy, operations, sales systems, and financial clarity for SMEs.",
-};
+  path: "/demos/consultant",
+});
 
 const services = [
   {

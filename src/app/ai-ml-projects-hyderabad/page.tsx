@@ -17,7 +17,7 @@ const pageDescription =
   "AI and machine learning final-year projects in Hyderabad: model development, datasets, explainability, documentation and viva prep for CSE students.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

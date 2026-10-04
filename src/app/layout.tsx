@@ -28,7 +28,7 @@ const display = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "ProjectKaro | Websites, AI Solutions & B.Tech Major Projects in Hyderabad",
+    default: "ProjectKaro | Websites, AI Solutions & Student Projects",
     template: "%s | ProjectKaro",
   },
   description: SITE_CONFIG.description,

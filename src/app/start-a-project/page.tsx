@@ -12,7 +12,7 @@ const StartProjectForm = dynamic(() => import("@/components/StartProjectForm/Sta
 export const metadata = createPageMetadata({
   title: "Get a Free Quote",
   description:
-    "Submit your project requirements to ProjectKaro (Project Karo). We respond within 24 hours with a detailed proposal, per-project quote, and timeline for web development or student project work.",
+    "Tell ProjectKaro about your project. We respond within 24 hours with a detailed proposal, quote, and timeline for web or student project work.",
   path: "/start-a-project",
 });
 

@@ -16,7 +16,7 @@ const pageDescription =
   "Consultant websites in Hyderabad that turn expertise into client enquiries. Services, case studies, thought leadership and booking. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [

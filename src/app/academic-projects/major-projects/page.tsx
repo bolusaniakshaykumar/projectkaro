@@ -17,7 +17,7 @@ const pageDescription =
   "Complete final year major projects for BTech and engineering students. Working code, documentation, report support and viva prep, with guidance so you can explain every part of it.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: pagePath,
   keywords: [

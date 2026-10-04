@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import {
   DEMO_PHONE_DISPLAY,
@@ -10,11 +10,12 @@ import styles from "./page.module.css";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "GlowSkin Clinic (Sample) | ProjectKaro Demo",
   description:
     "A sample dermatology clinic website concept by ProjectKaro: skin treatments with sample pricing, results gallery, testimonials, and WhatsApp booking.",
-};
+  path: "/demos/dermatologist",
+});
 
 function SparkleIcon({ className }: { className?: string }) {
   return (

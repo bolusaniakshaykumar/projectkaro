@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import DemoClient from "./DemoClient";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Spice Route Kitchen | Demo Website by ProjectKaro",
   description:
     "A sample restaurant website concept by ProjectKaro: menu, gallery, reviews and online table reservations for a fictional eatery.",
-};
+  path: "/demos/restaurant",
+});
 
 export default function RestaurantDemoPage() {
   return (

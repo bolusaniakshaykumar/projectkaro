@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo";
 import DemoShell from "@/components/DemoShell/DemoShell";
 import {
   DEMO_PHONE_DISPLAY,
@@ -10,11 +10,12 @@ import styles from "./page.module.css";
 import JsonLd from "@/components/JsonLd";
 import { webPageSchema, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Deccan Precision Works (Sample) | Demo",
   description:
     "Sample manufacturer website demo: CNC machined parts, sheet metal fabrication, fasteners, and custom tooling.",
-};
+  path: "/demos/manufacturer",
+});
 
 const products = [
   {

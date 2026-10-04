@@ -17,7 +17,7 @@ const pageDescription =
   "IEEE-based final-year projects in Hyderabad: base paper implementation, literature survey, IEEE-format documentation and viva prep for B.Tech students.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

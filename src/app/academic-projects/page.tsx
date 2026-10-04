@@ -19,9 +19,9 @@ const StartProjectForm = dynamic(() => import("@/components/StartProjectForm/Sta
 });
 
 export const metadata = createPageMetadata({
-  title: "B.Tech Major Projects in Hyderabad | ProjectKaro",
+  title: "B.Tech Major Projects in Hyderabad",
   description:
-    "B.Tech major project development in Hyderabad for CSE, IT, ECE and other engineering branches. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
+    "B.Tech major projects in Hyderabad for CSE, IT, ECE and more. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
   path: "/academic-projects",
   keywords: [
     "btech major projects hyderabad",
@@ -224,7 +224,7 @@ export default function AcademicProjectsPage() {
             path: "/academic-projects",
             title: pageTitle,
             description:
-              "B.Tech major project development in Hyderabad for CSE, IT, ECE and other engineering branches. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
+              "B.Tech major projects in Hyderabad for CSE, IT, ECE and more. AI/ML, web, IoT and full-stack projects with documentation and viva prep.",
           }),
           faqPageSchema(FAQS),
           breadcrumbSchema([

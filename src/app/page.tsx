@@ -21,7 +21,7 @@ import HeroVisual from "./HeroVisual";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata({
-  title: "ProjectKaro | Websites, AI Solutions & B.Tech Major Projects in Hyderabad",
+  title: "ProjectKaro | Websites, AI Solutions & Student Projects",
   description:
     "ProjectKaro builds business websites, AI solutions, full-stack applications and B.Tech major projects in Hyderabad, with documentation and viva support.",
   path: "/",

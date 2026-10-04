@@ -10,10 +10,10 @@ import styles from "./page.module.css";
 const PATH = "/demos";
 const pageTitle = "Demo Websites";
 const pageDescription =
-  "Explore sample websites crafted by ProjectKaro: clinics, restaurants, salons, real estate, CA firms, coaching centres, gyms, consultants, and more. Each demo is a fictional concept showing what we can build for you.";
+  "Sample websites crafted by ProjectKaro: clinics, restaurants, salons, real estate, CA firms, coaching, gyms and more. Fictional concepts showing what we build.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} | ProjectKaro`,
+  title: `${pageTitle}`,
   description: pageDescription,
   path: PATH,
   keywords: [

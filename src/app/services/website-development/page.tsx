@@ -16,7 +16,7 @@ const PAGE_DESCRIPTION =
   "Website development company in India building fast, SEO-ready business websites that turn visitors into enquiries. Per-project pricing, quote within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${PAGE_TITLE} | ProjectKaro`,
+  title: `${PAGE_TITLE}`,
   description: PAGE_DESCRIPTION,
   path: PAGE_PATH,
   keywords: [

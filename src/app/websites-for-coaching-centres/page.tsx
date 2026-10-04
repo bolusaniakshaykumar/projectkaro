@@ -16,7 +16,7 @@ const pageDescription =
   "Coaching institute websites in Hyderabad that convert searches into admission enquiries. Courses, faculty, results and WhatsApp admissions. Proposal within 24 hours.";
 
 export const metadata = createPageMetadata({
-  title: `${pageTitle} in Hyderabad | ProjectKaro`,
+  title: `${pageTitle} in Hyderabad`,
   description: pageDescription,
   path: PATH,
   keywords: [
