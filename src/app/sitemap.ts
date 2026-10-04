@@ -42,6 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/how-it-works", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/start-a-project", priority: 0.95, changeFrequency: "monthly" as const },
+    { path: "/demos", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/demos/dental-clinic", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/demos/dermatologist", priority: 0.6, changeFrequency: "monthly" as const },
     { path: "/demos/restaurant", priority: 0.6, changeFrequency: "monthly" as const },

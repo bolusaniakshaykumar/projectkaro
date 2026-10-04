@@ -402,7 +402,12 @@ export default function HomePage() {
                 websites for your industry
                 <span className={styles.linkArrow} aria-hidden="true">{ARROW_ICON}</span>
               </Link>
-              , from dental clinics to real estate.
+              , from dental clinics to real estate. Or browse all{" "}
+              <Link href="/demos" className={styles.textLink}>
+                10 demo websites
+                <span className={styles.linkArrow} aria-hidden="true">{ARROW_ICON}</span>
+              </Link>
+              .
             </p>
           </Reveal>
         </div>

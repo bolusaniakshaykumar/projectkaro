@@ -84,6 +84,8 @@
 
 ## Demo websites
 
+All demos in one place: https://projectkaro.com/demos
+
 Sample websites crafted by ProjectKaro to show prospects what their own site could look like (fictional businesses, clearly labeled demo concepts):
 
 - SmileCare Dental Clinic: https://projectkaro.com/demos/dental-clinic
