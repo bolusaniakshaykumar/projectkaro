@@ -209,6 +209,11 @@ const content: IndustryPageContent = {
     "Tell us about your practice area and the kind of clients you want to attract. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: Business Consultant",
+      path: "/demos/consultant",
+      blurb: "A working sample consultant website with services, case approach, and contact flow.",
+    },
+    {
       name: "Websites for Doctors",
       path: "/websites-for-doctors",
       blurb: "Professional websites for doctors and specialty practices in Hyderabad.",

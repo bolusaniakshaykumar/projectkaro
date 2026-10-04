@@ -76,7 +76,9 @@ export default function ConsultantDemoPage() {
           ]),
         ]}
       />
-    <DemoShell businessName="A. Rao, Business Consultant (Sample)">
+    <DemoShell businessName="A. Rao, Business Consultant (Sample)"
+      industryPath="/websites-for-consultants"
+      industryLabel="consultants">
       <div className={styles.page}>
         <header className={styles.header}>
           <div className={styles.headerInner}>

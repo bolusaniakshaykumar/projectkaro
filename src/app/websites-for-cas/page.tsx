@@ -242,6 +242,11 @@ const content: IndustryPageContent = {
     "Tell us about your firm's services and the clients you want to attract. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: Verma & Associates",
+      path: "/demos/ca-firm",
+      blurb: "A working sample CA firm website with services, team, and consultation booking.",
+    },
+    {
       name: "Websites for Consultants",
       path: "/websites-for-consultants",
       blurb: "Professional websites for consultants and advisory practices in Hyderabad.",

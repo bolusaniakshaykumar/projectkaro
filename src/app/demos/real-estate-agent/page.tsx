@@ -26,7 +26,9 @@ export default function RealEstateDemoPage() {
           ]),
         ]}
       />
-    <DemoShell businessName="CityNest Properties">
+    <DemoShell businessName="CityNest Properties"
+      industryPath="/websites-for-real-estate"
+      industryLabel="real estate professionals">
       <DemoClient />
     </DemoShell>
     </>

@@ -25,7 +25,9 @@ export default function Page() {
           ]),
         ]}
       />
-    <DemoShell businessName="Verma & Associates">
+    <DemoShell businessName="Verma & Associates"
+      industryPath="/websites-for-cas"
+      industryLabel="CA firms">
       <CaFirmDemo />
     </DemoShell>
     </>

@@ -164,7 +164,9 @@ export default function DermatologistDemo() {
           ]),
         ]}
       />
-    <DemoShell businessName="GlowSkin Clinic">
+    <DemoShell businessName="GlowSkin Clinic"
+      industryPath="/websites-for-doctors"
+      industryLabel="doctors">
       <div className={styles.page}>
         <header className={styles.siteHeader}>
           <a href="#top" className={styles.logo}>

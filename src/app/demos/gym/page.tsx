@@ -25,7 +25,9 @@ export default function Page() {
           ]),
         ]}
       />
-    <DemoShell businessName="IronPulse Fitness Studio">
+    <DemoShell businessName="IronPulse Fitness Studio"
+      industryPath="/websites-for-small-businesses"
+      industryLabel="small businesses">
       <GymDemo />
     </DemoShell>
     </>

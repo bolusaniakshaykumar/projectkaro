@@ -26,7 +26,9 @@ export default function RestaurantDemoPage() {
           ]),
         ]}
       />
-    <DemoShell businessName="Spice Route Kitchen">
+    <DemoShell businessName="Spice Route Kitchen"
+      industryPath="/websites-for-restaurants"
+      industryLabel="restaurants">
       <DemoClient />
     </DemoShell>
     </>

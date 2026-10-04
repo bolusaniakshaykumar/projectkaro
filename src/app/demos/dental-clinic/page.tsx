@@ -162,7 +162,9 @@ export default function DentalClinicDemo() {
           ]),
         ]}
       />
-    <DemoShell businessName="SmileCare Dental Clinic">
+    <DemoShell businessName="SmileCare Dental Clinic"
+      industryPath="/websites-for-dental-clinics"
+      industryLabel="dental clinics">
       <div className={styles.page}>
         <header className={styles.siteHeader}>
           <a href="#top" className={styles.logo}>

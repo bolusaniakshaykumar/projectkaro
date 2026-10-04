@@ -290,6 +290,11 @@ const content: IndustryPageContent = {
     "Tell us your speciality and a little about your practice. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: GlowSkin Clinic",
+      path: "/demos/dermatologist",
+      blurb: "A working sample clinic website with services, doctor profiles, and online booking.",
+    },
+    {
       name: "Websites for Dental Clinics",
       path: "/websites-for-dental-clinics",
       blurb: "Appointment-focused websites for dental clinics in Hyderabad.",

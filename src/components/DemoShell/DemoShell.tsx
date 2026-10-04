@@ -5,9 +5,13 @@ import styles from "./DemoShell.module.css";
 
 export default function DemoShell({
   businessName,
+  industryPath,
+  industryLabel,
   children,
 }: {
   businessName: string;
+  industryPath?: string;
+  industryLabel?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -29,6 +33,13 @@ export default function DemoShell({
             Built by ProjectKaro
           </Link>
         </p>
+        {industryPath && industryLabel && (
+          <p>
+            <Link href={industryPath} className={styles.creditLink}>
+              See how ProjectKaro builds websites for {industryLabel}
+            </Link>
+          </p>
+        )}
       </footer>
     </div>
   );

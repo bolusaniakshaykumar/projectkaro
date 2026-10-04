@@ -26,7 +26,9 @@ export default function SalonDemoPage() {
           ]),
         ]}
       />
-    <DemoShell businessName="Lumiere Salon & Spa">
+    <DemoShell businessName="Lumiere Salon & Spa"
+      industryPath="/websites-for-salons"
+      industryLabel="salons and spas">
       <DemoClient />
     </DemoShell>
     </>

@@ -62,7 +62,9 @@ export default function ManufacturerDemoPage() {
           ]),
         ]}
       />
-    <DemoShell businessName="Deccan Precision Works (Sample)">
+    <DemoShell businessName="Deccan Precision Works (Sample)"
+      industryPath="/websites-for-small-businesses"
+      industryLabel="small businesses">
       <div className={styles.page}>
         <header className={styles.header}>
           <div className={styles.headerInner}>

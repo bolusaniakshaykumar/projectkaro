@@ -264,6 +264,11 @@ const content: IndustryPageContent = {
     "Tell us about your clinic and what you want the website to do. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: SmileCare Dental Clinic",
+      path: "/demos/dental-clinic",
+      blurb: "A working sample dental clinic website with treatments, doctors, and WhatsApp appointment booking.",
+    },
+    {
       name: "Websites for Doctors",
       path: "/websites-for-doctors",
       blurb: "Professional websites for doctors and specialty practices in Hyderabad, built around patient enquiries.",

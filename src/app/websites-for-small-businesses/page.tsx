@@ -224,6 +224,11 @@ const content: IndustryPageContent = {
     "Tell us about your business and the area you serve. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: IronPulse Fitness Studio",
+      path: "/demos/gym",
+      blurb: "A working sample small business website with programs, trainers, and membership enquiries.",
+    },
+    {
       name: "Websites for Restaurants",
       path: "/websites-for-restaurants",
       blurb: "Menu, reservations, and delivery-focused websites for restaurants and cafes.",

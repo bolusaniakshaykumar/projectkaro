@@ -25,7 +25,9 @@ export default function Page() {
           ]),
         ]}
       />
-    <DemoShell businessName="Aspire Academy">
+    <DemoShell businessName="Aspire Academy"
+      industryPath="/websites-for-coaching-centres"
+      industryLabel="coaching centres">
       <CoachingDemo />
     </DemoShell>
     </>

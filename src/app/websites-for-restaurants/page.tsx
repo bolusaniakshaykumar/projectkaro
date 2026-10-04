@@ -278,6 +278,11 @@ const content: IndustryPageContent = {
     "Tell us your cuisine, location, and seating capacity. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Live demo: Spice Route Kitchen",
+      path: "/demos/restaurant",
+      blurb: "A working sample restaurant website with menu, reservations, and location info.",
+    },
+    {
       name: "Websites for Salons & Spas",
       path: "/websites-for-salons",
       blurb: "Booking-focused websites for salons, spas, and beauty clinics.",
