@@ -209,6 +209,11 @@ const content: IndustryPageContent = {
     "Tell us about your practice area and the kind of clients you want to attract. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: Business Consultant",
       path: "/demos/consultant",
       blurb: "A working sample consultant website with services, case approach, and contact flow.",

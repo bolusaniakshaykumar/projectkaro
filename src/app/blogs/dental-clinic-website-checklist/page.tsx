@@ -227,6 +227,12 @@ export default function DentalClinicWebsiteChecklistPage() {
               </Link>
             </li>
             <li className={extras.relatedItem}>
+              <Link href="/demos/dental-clinic" className={extras.relatedLink}>
+                Live Demo: Dental Clinic Website
+                <small>See a working appointment-ready dental website in action.</small>
+              </Link>
+            </li>
+            <li className={extras.relatedItem}>
               <Link href="/blogs/website-before-google-ads" className={extras.relatedLink}>
                 7 things your business website should have before running Google Ads
                 <small>The essentials to fix before you spend a rupee on ads.</small>

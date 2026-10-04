@@ -279,6 +279,11 @@ const content: IndustryPageContent = {
     "Tell us your services and location. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: Lumiere Salon & Spa",
       path: "/demos/salon",
       blurb: "A working sample salon website with services, pricing, and appointment booking.",

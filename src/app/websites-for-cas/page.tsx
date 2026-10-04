@@ -242,6 +242,11 @@ const content: IndustryPageContent = {
     "Tell us about your firm's services and the clients you want to attract. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: Verma & Associates",
       path: "/demos/ca-firm",
       blurb: "A working sample CA firm website with services, team, and consultation booking.",

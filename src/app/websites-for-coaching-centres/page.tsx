@@ -236,6 +236,11 @@ const content: IndustryPageContent = {
     "Tell us about your courses and how many branches the website needs to cover. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: Aspire Academy",
       path: "/demos/coaching-centre",
       blurb: "A working sample coaching centre website with courses, faculty, and admissions enquiries.",

@@ -279,6 +279,11 @@ const content: IndustryPageContent = {
     "Tell us about the areas you serve and roughly how many listings you want live at launch. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: CityNest Properties",
       path: "/demos/real-estate-agent",
       blurb: "A working sample real estate website with listings, agent profiles, and enquiry forms.",

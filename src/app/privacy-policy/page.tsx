@@ -10,7 +10,7 @@ export const metadata = createPageMetadata({
   noIndex: false,
 });
 
-const LAST_UPDATED = "2 October 2026";
+const LAST_UPDATED = "4 October 2026";
 
 const SECTIONS = [
   {
@@ -26,6 +26,7 @@ const SECTIONS = [
       "We collect personal data only when you choose to share it with us:",
       "Quote form: your name, email address, phone number, the service you are interested in, and the project details you describe. These fields are needed to prepare your quote.",
       "Direct contact: if you email us or message us on WhatsApp, we receive whatever you send, such as your name, contact details, and your enquiry.",
+      "Documents you share: if you send us project documents, abstracts, or reference material (for example over WhatsApp or email), we use them only to understand and deliver your project.",
       "We do not run advertising trackers on this site, and we do not buy or collect personal data from third parties.",
     ],
   },
@@ -41,7 +42,7 @@ const SECTIONS = [
     body: [
       "Form submissions are emailed to our business inbox and logged in our internal lead tracker so we can respond and keep a record of the conversation.",
       "We take reasonable steps to protect your data: access is limited to the ProjectKaro team, accounts are password protected, and we do not publish or expose your details publicly.",
-      "We keep enquiry records only as long as needed for the purpose they were collected for, such as maintaining project history and support.",
+      "We keep enquiry records while the conversation or project is active and for a reasonable support period afterwards, so we can help you if you come back. You can ask us to delete your details at any time, and we will.",
     ],
   },
   {
@@ -52,9 +53,20 @@ const SECTIONS = [
     ],
   },
   {
+    title: "Third-party services",
+    body: [
+      "We use a small number of third-party services to run this website, and your data passes through them only as needed for their function:",
+      "Google Analytics: measures anonymous page views and site usage so we can see which pages people find useful. It sets its own cookies; you can opt out at any time with Google's opt-out add-on or your browser's cookie settings.",
+      "Vercel: hosts this website and provides privacy-friendly traffic analytics.",
+      "Zoho Mail: our business inbox where quote-form submissions arrive.",
+      "WhatsApp (Meta): if you message us there, your conversation is handled under WhatsApp's own privacy policy in addition to ours.",
+      "We do not share your data with any other third party, and never for advertising.",
+    ],
+  },
+  {
     title: "Cookies",
     body: [
-      "This site uses only the technical storage needed to make pages work (for example, remembering your theme or form state). We do not use advertising or cross-site tracking cookies.",
+      "Besides the Google Analytics cookies described above, this site uses only the technical storage needed to make pages work (for example, remembering your theme or form state). We do not use advertising or cross-site tracking cookies.",
     ],
   },
   {

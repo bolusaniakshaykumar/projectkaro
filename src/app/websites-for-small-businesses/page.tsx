@@ -224,6 +224,11 @@ const content: IndustryPageContent = {
     "Tell us about your business and the area you serve. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: IronPulse Fitness Studio",
       path: "/demos/gym",
       blurb: "A working sample small business website with programs, trainers, and membership enquiries.",

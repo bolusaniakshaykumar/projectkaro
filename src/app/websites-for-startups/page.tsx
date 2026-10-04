@@ -241,6 +241,11 @@ const content: IndustryPageContent = {
     "Tell us about your product, your stage, and your launch date. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Websites for Consultants",
       path: "/websites-for-consultants",
       blurb: "Professional websites for consultants and advisory practices in Hyderabad.",

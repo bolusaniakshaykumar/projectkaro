@@ -264,6 +264,11 @@ const content: IndustryPageContent = {
     "Tell us about your clinic and what you want the website to do. ProjectKaro responds within 24 hours with a detailed proposal, scope, and timeline.",
   related: [
     {
+      name: "Website Development Service",
+      path: "/services/website-development",
+      blurb: "How ProjectKaro builds websites: process, technology, and what you get.",
+    },
+    {
       name: "Live demo: SmileCare Dental Clinic",
       path: "/demos/dental-clinic",
       blurb: "A working sample dental clinic website with treatments, doctors, and WhatsApp appointment booking.",

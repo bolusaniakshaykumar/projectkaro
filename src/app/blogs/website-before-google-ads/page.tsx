@@ -245,6 +245,12 @@ export default function WebsiteBeforeGoogleAdsPage() {
           <h2 className={extras.relatedHeading}>Keep reading</h2>
           <ul className={extras.relatedList}>
             <li className={extras.relatedItem}>
+              <Link href="/services/website-development" className={extras.relatedLink}>
+                Website Development
+                <small>How ProjectKaro builds websites: process, technology, and what you get.</small>
+              </Link>
+            </li>
+            <li className={extras.relatedItem}>
               <Link href="/pricing" className={extras.relatedLink}>
                 Pricing
                 <small>Transparent website pricing bands, quote within 24 hours.</small>
