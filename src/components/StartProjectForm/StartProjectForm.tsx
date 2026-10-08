@@ -59,6 +59,20 @@ interface StartProjectFormProps {
   initialProjectType?: string;
 }
 
+// Strip a duplicated country code when the user typed it into the phone field
+// (e.g. "+91" selected and "917219797946" typed -> "+91 7219797946").
+// Only strips when a full national number remains, so a number that merely
+// starts with the same digits is never mangled.
+function normalizePhone(countryCode: string, phone: string): string {
+  const digits = phone.replace(/\D/g, "");
+  const ccDigits = countryCode.replace(/\D/g, "");
+  let rest = digits;
+  if (ccDigits && rest.startsWith(ccDigits) && rest.length - ccDigits.length >= 10) {
+    rest = rest.slice(ccDigits.length);
+  }
+  return `${countryCode} ${rest}`;
+}
+
 export default function StartProjectForm({ initialProjectType }: StartProjectFormProps) {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -121,7 +135,7 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
     const formData = new FormData();
     formData.append("fullName", fullName.trim());
     formData.append("email", email.trim());
-    formData.append("phone", `${countryCode} ${phone.trim()}`);
+    formData.append("phone", normalizePhone(countryCode, phone.trim()));
     formData.append("projectTitle", projectTitle.trim());
     formData.append("projectType", projectType);
     formData.append("message", message.trim());
