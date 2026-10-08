@@ -7,6 +7,7 @@ export const metadata = createPageMetadata({
   title: "Verma & Associates, Chartered Accountants | Sample Website by ProjectKaro",
   description:
     "A sample CA firm website concept crafted by ProjectKaro: income tax filing, GST, audits and bookkeeping for growing businesses.",
+  noIndex: true,
   path: "/demos/ca-firm",
 });
 

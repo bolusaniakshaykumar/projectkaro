@@ -14,6 +14,7 @@ export const metadata = createPageMetadata({
   title: "Deccan Precision Works (Sample) | Demo",
   description:
     "Sample manufacturer website demo: CNC machined parts, sheet metal fabrication, fasteners, and custom tooling.",
+  noIndex: true,
   path: "/demos/manufacturer",
 });
 
