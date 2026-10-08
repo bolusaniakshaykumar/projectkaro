@@ -47,6 +47,9 @@ const NAV_GROUPS: NavGroup[] = [
     children: [
       { href: "/academic-projects", label: "Academic Projects" },
       { href: "/btech-major-projects-hyderabad", label: "B.Tech Major Projects in Hyderabad" },
+      { href: "/btech-final-year-projects-hyderabad", label: "B.Tech Final Year Projects in Hyderabad" },
+      { href: "/cse-projects-hyderabad", label: "CSE Projects in Hyderabad" },
+      { href: "/ai-ml-projects-hyderabad", label: "AI & ML Projects in Hyderabad" },
       { href: "/academic-projects/major-projects", label: "Major Projects" },
       { href: "/academic-projects/minor-projects", label: "Minor Projects" },
     ],
@@ -208,6 +211,7 @@ export default function Header() {
               alt="ProjectKaro (Project Karo) academic project platform logo"
               width={180}
               height={45}
+              priority
               sizes="(max-width: 1024px) 140px, 180px"
               className={styles.logoImage}
             />

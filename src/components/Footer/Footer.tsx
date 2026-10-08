@@ -20,6 +20,11 @@ const INDUSTRY_SUBGROUP_LINKS = INDUSTRY_LINKS.map((link) => ({
 const STUDENTS_LINKS = [
   { href: "/academic-projects", label: "Academic Projects" },
   { href: "/btech-major-projects-hyderabad", label: "B.Tech Major Projects in Hyderabad" },
+  { href: "/btech-final-year-projects-hyderabad", label: "B.Tech Final Year Projects in Hyderabad" },
+  { href: "/cse-projects-hyderabad", label: "CSE Projects in Hyderabad" },
+  { href: "/ai-ml-projects-hyderabad", label: "AI & ML Projects in Hyderabad" },
+  { href: "/iot-projects-hyderabad", label: "IoT Projects in Hyderabad" },
+  { href: "/ieee-projects-hyderabad", label: "IEEE Projects in Hyderabad" },
   { href: "/academic-projects/major-projects", label: "Major Projects" },
   { href: "/academic-projects/minor-projects", label: "Minor Projects" },
 ];
@@ -98,6 +103,11 @@ export default function Footer() {
             <p className={styles.tagline}>
               Websites for growing businesses and complete project delivery for students, built with care in Hyderabad, India.
             </p>
+            <address className={styles.napBlock}>
+              <span>Hyderabad, Telangana, India</span>
+              <a href="tel:+917396991624">+91 73969 91624</a>
+              <a href="mailto:contact@projectkaro.com">contact@projectkaro.com</a>
+            </address>
             <a
               href={WHATSAPP_LINK}
               target="_blank"
