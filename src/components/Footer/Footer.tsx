@@ -145,7 +145,7 @@ export default function Footer() {
                 className={styles.socialLink}
                 aria-label="ProjectKaro on Google Maps"
               >
-                <span>Google Reviews</span>
+                <span>Google Maps</span>
               </a>
             </div>
           </div>
