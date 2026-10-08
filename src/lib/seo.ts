@@ -95,6 +95,7 @@ export function organizationSchema() {
     description: SITE_CONFIG.description,
     email: CONTACT_INFO.email,
     telephone: CONTACT_INFO.phone,
+    sameAs: ["https://www.google.com/maps?cid=13782071695098891784"],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Hyderabad",

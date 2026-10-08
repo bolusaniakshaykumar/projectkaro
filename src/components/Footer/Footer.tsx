@@ -138,6 +138,15 @@ export default function Footer() {
                 <InstagramIcon />
                 <span>Instagram</span>
               </a>
+              <a
+                href="https://www.google.com/maps?cid=13782071695098891784"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="ProjectKaro on Google Maps"
+              >
+                <span>Google Reviews</span>
+              </a>
             </div>
           </div>
 
