@@ -514,7 +514,7 @@ export default function HomePage() {
                 What is ProjectKaro?
               </h2>
               <p id="site-definition" className={styles.definitionText}>
-                ProjectKaro is a professional web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work, with a clear scope, a detailed quote within 24 hours, and on-time delivery.
+                ProjectKaro is a software studio for websites, startup MVPs and AI products, with deep engineering and research project experience. Based in Hyderabad, India, we have delivered 100+ projects across academic, research and business work. Student projects are a named offering, not hidden.
               </p>
               <div className={styles.definitionLinks}>
                 <Link href="/about">About us</Link>
