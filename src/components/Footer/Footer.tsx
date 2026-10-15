@@ -1,25 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { WHATSAPP_LINK } from "@/lib/site-config";
-import { INDUSTRY_LINKS } from "@/lib/industry-links";
 import styles from "./Footer.module.css";
 
 const WEBSITES_LINKS = [
   { href: "/websites-for-businesses", label: "Websites for Businesses" },
-  { href: "/services/website-development", label: "Website Development" },
   { href: "/website-development-hyderabad", label: "Website Development in Hyderabad" },
   { href: "/pricing", label: "Pricing" },
   { href: "/blogs", label: "Blogs" },
 ];
 
-const INDUSTRY_SUBGROUP_LINKS = INDUSTRY_LINKS.map((link) => ({
-  href: link.href,
-  label: `Websites for ${link.label}`,
-}));
-
 const STUDENTS_LINKS = [
   { href: "/academic-projects", label: "Academic Projects" },
-  { href: "/btech-major-projects-hyderabad", label: "B.Tech Major Projects in Hyderabad" },
   { href: "/academic-projects/major-projects", label: "Major Projects" },
   { href: "/academic-projects/minor-projects", label: "Minor Projects" },
 ];
@@ -39,15 +31,10 @@ interface FooterLink {
 interface FooterColumn {
   label: string;
   links: FooterLink[];
-  subgroups?: { label: string; links: FooterLink[] }[];
 }
 
 const FOOTER_COLUMNS: FooterColumn[] = [
-  {
-    label: "Websites",
-    links: WEBSITES_LINKS,
-    subgroups: [{ label: "By industry", links: INDUSTRY_SUBGROUP_LINKS }],
-  },
+  { label: "Websites", links: WEBSITES_LINKS },
   { label: "Students", links: STUDENTS_LINKS },
   { label: "Company", links: COMPANY_LINKS },
 ];
@@ -131,7 +118,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {FOOTER_COLUMNS.map(({ label, links, subgroups }) => (
+          {FOOTER_COLUMNS.map(({ label, links }) => (
             <nav key={label} className={styles.nav} aria-label={`Footer ${label.toLowerCase()}`}>
               <p className={styles.columnLabel}>{label}</p>
               <ul className={styles.navList}>
@@ -143,20 +130,6 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              {subgroups?.map((sub) => (
-                <div key={sub.label} className={styles.subGroup}>
-                  <p className={styles.subLabel}>{sub.label}</p>
-                  <ul className={`${styles.navList} ${styles.industryList}`}>
-                    {sub.links.map(({ href, label: linkLabel }) => (
-                      <li key={href}>
-                        <Link href={href} className={styles.navLink}>
-                          {linkLabel}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </nav>
           ))}
         </div>
