@@ -129,6 +129,27 @@ export function organizationSchema() {
   };
 }
 
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${SITE_CONFIG.url}/#localbusiness`,
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    priceRange: "₹₹",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Hyderabad",
+      addressRegion: "Telangana",
+      addressCountry: "IN",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Hyderabad",
+    },
+  };
+}
+
 export function websiteSchema() {
   return {
     "@context": "https://schema.org",

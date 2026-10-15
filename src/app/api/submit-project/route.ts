@@ -51,6 +51,10 @@ export async function POST(request: Request) {
     if (!fullName) {
       return NextResponse.json({ error: "Full name is required." }, { status: 400 });
     }
+    // Block junk submissions: email pasted into the name field, or a number in it.
+    if (fullName.includes("@") || !/[^\W\d_]/.test(fullName)) {
+      return NextResponse.json({ error: "Please enter your full name (not an email address)." }, { status: 400 });
+    }
     if (!email) {
       return NextResponse.json({ error: "Email address is required." }, { status: 400 });
     }
@@ -59,6 +63,15 @@ export async function POST(request: Request) {
     }
     if (!phone) {
       return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
+    }
+    // Block junk submissions: impossible phone numbers (e.g. 12 digits after +91).
+    const phoneCountry = phone.split(" ")[0] || "";
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (phoneCountry === "+91" && !/^[6-9]\d{9}$/.test(phoneDigits)) {
+      return NextResponse.json({ error: "Enter a valid 10-digit Indian mobile number." }, { status: 400 });
+    }
+    if (!/^\d{7,15}$/.test(phoneDigits)) {
+      return NextResponse.json({ error: "Enter a valid phone number." }, { status: 400 });
     }
     // projectTitle and message are OPTIONAL on the client form (only fullName, email,
     // phone, and projectType are required), so the API must not reject empty values.

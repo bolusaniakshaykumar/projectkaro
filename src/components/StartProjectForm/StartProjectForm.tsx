@@ -94,7 +94,14 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
 
   function validate(): boolean {
     const newErrors: FormErrors = {};
-    if (!fullName.trim()) newErrors.fullName = "Full name is required.";
+    const name = fullName.trim();
+    if (!name) {
+      newErrors.fullName = "Full name is required.";
+    } else if (name.includes("@")) {
+      newErrors.fullName = "Please enter your name, not your email address.";
+    } else if (!/[^\W\d_]/.test(name)) {
+      newErrors.fullName = "Please enter your full name.";
+    }
     if (!email.trim()) {
       newErrors.email = "Email address is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -102,7 +109,9 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
     }
     if (!phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^\d{4,15}$/.test(phone.replace(/\D/g, ''))) {
+    } else if (countryCode === "+91" && !/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ''))) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number.";
+    } else if (!/^\d{7,15}$/.test(phone.replace(/\D/g, ''))) {
       newErrors.phone = "Enter a valid phone number.";
     }
     if (!projectType) newErrors.projectType = "Please select a project type.";

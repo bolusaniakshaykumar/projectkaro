@@ -181,7 +181,7 @@ const TICKER_ITEMS = [
   "Websites from ₹15,000",
   "Quote within 24 hours",
   "100+ projects delivered",
-  "20+ team members",
+  "23 team members",
   "MSME registered",
   "Documentation with every build",
 ];
@@ -252,7 +252,7 @@ export default function HomePage() {
               </div>
               <ul className={styles.heroTrust} aria-label="Why trust ProjectKaro">
                 <li>{CHECK_ICON}<span><strong>100+</strong> projects delivered</span></li>
-                <li>{CHECK_ICON}<span><strong>20+</strong> team members</span></li>
+                <li>{CHECK_ICON}<span><strong>23</strong> team members</span></li>
                 <li>{CHECK_ICON}<span>Registered <strong>MSME</strong> (Udyam)</span></li>
                 <li>{CHECK_ICON}<span>Quote <strong>within 24 hours</strong></span></li>
               </ul>

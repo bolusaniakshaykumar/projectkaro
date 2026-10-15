@@ -6,23 +6,24 @@ import {
   breadcrumbSchema,
   createPageMetadata,
   faqPageSchema,
+  localBusinessSchema,
   serviceSchema,
   webPageSchema,
 } from "@/lib/seo";
 
-const PAGE_TITLE = "Website Development Company in India";
+const PAGE_TITLE = "Website Development Services";
 const PAGE_PATH = "/services/website-development";
 const PAGE_DESCRIPTION =
-  "Website development company in India building fast, SEO-ready business websites that turn visitors into enquiries. Per-project pricing, quote within 24 hours.";
+  "Website development services for fast, SEO-ready business websites that turn visitors into enquiries. Per-project pricing, quote within 24 hours.";
 
 export const metadata = createPageMetadata({
   title: `${PAGE_TITLE}`,
   description: PAGE_DESCRIPTION,
   path: PAGE_PATH,
   keywords: [
-    "website development company in india",
-    "business website development",
-    "professional website development india",
+    "website development services",
+    "business website development services",
+    "professional website development",
     "custom website development india",
   ],
 });
@@ -239,22 +240,28 @@ const content: ServicePageContent = {
     "Tell us about your business and what you need the website to do. Within 24 hours you will have a detailed quote with scope and timeline. No commitment, no pushy sales calls.",
   related: [
     {
-      name: "Startup MVP Development",
-      path: "/services/startup-mvp-development",
-      blurb:
-        "Launching something new? We build lean, launch-ready MVPs for startups in weeks.",
-    },
-    {
-      name: "AI Solutions",
-      path: "/services/ai-solutions",
-      blurb:
-        "Custom AI agents and chatbots that handle support, sales, and repetitive work.",
-    },
-    {
-      name: "Website Development in Hyderabad",
+      name: "Website Developer in Hyderabad",
       path: "/website-development-hyderabad",
       blurb:
         "Local business in Hyderabad? See how we build sites for companies here.",
+    },
+    {
+      name: "Websites for Doctors",
+      path: "/websites-for-doctors",
+      blurb:
+        "Enquiry-focused websites for clinics and doctors, built to bring patients.",
+    },
+    {
+      name: "Websites for Dental Clinics",
+      path: "/websites-for-dental-clinics",
+      blurb:
+        "Dental clinic websites that turn Google searches into appointments.",
+    },
+    {
+      name: "Websites for Small Businesses",
+      path: "/websites-for-small-businesses",
+      blurb:
+        "Affordable starter sites for local businesses.",
     },
   ],
 };
@@ -274,6 +281,7 @@ export default function WebsiteDevelopmentPage() {
             description: PAGE_DESCRIPTION,
             path: PAGE_PATH,
           }),
+          localBusinessSchema(),
           faqPageSchema(FAQS),
           breadcrumbSchema(content.breadcrumbs),
         ]}
