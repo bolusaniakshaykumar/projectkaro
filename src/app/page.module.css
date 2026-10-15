@@ -1262,3 +1262,94 @@
   text-decoration: underline;
   text-underline-offset: 4px;
 }
+
+/* ── Proof band (canonical facts) ─────────────────────────── */
+.proof {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.proof .eyebrow {
+  color: var(--brand-light, #a5b4ff);
+}
+
+.proof .sectionTitle {
+  color: var(--paper);
+}
+
+.proof .sectionIntro {
+  color: var(--paper-soft, #c6c8d8);
+  margin-bottom: 2.5rem;
+}
+
+.proofGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .proofGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proofCard {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+}
+
+.proofValue {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  line-height: 1;
+}
+
+.proofLabel {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--paper);
+}
+
+.proofDetail {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--paper-soft, #c6c8d8);
+}
+
+.proofTypesLabel {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-soft, #c6c8d8);
+  margin: 0 0 1rem;
+}
+
+.proofTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.proofChip {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--paper);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+}

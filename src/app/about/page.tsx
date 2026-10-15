@@ -269,6 +269,9 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+          <p className={styles.statsNote}>
+            Our 23: developers, the IoT team, interns and campus ambassadors.
+          </p>
         </div>
       </section>
 

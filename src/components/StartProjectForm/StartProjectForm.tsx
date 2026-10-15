@@ -81,6 +81,21 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Source tracking: capture UTM params + referrer once on mount
+  const [source] = useState(() => {
+    if (typeof window === "undefined") return { landingPage: "", referrer: "", utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "" };
+    const params = new URLSearchParams(window.location.search);
+    return {
+      landingPage: window.location.pathname,
+      referrer: document.referrer || "",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+    };
+  });
+
   // Close dropdown on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -134,6 +149,13 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
     formData.append("projectTitle", projectTitle.trim());
     formData.append("projectType", projectType);
     formData.append("message", message.trim());
+    formData.append("landingPage", source.landingPage);
+    formData.append("referrer", source.referrer);
+    formData.append("utm_source", source.utm_source);
+    formData.append("utm_medium", source.utm_medium);
+    formData.append("utm_campaign", source.utm_campaign);
+    formData.append("utm_term", source.utm_term);
+    formData.append("utm_content", source.utm_content);
 
     try {
       const res = await fetch("/api/submit-project", {

@@ -621,3 +621,10 @@
 @media (prefers-reduced-motion: reduce) {
   .statItem, .valueCard, .finePrintItem { transition: none; }
 }
+
+.statsNote {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-align: left;
+}

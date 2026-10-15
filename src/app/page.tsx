@@ -128,6 +128,38 @@ const CRAFT = [
   },
 ];
 
+/* ── Proof: canonical facts only. No client names, no borrowed logos. ── */
+const PROOF = [
+  {
+    value: "100+",
+    label: "Projects delivered",
+    detail: "Across academic, research and business work, since January 2024.",
+  },
+  {
+    value: "300+",
+    label: "Engineering students mentored",
+    detail: "Through final-year projects, with documentation and viva support.",
+  },
+  {
+    value: "23",
+    label: "Person team",
+    detail: "Developers, the IoT team, interns and campus ambassadors.",
+  },
+  {
+    value: "100+",
+    label: "Websites built by our founder",
+    detail: "Built and maintained at Digital Connect, Sep 2022 to May 2026.",
+  },
+];
+
+const PROOF_TYPES = [
+  "IEEE-format papers",
+  "IoT projects",
+  "ML projects",
+  "Business websites",
+  "Startup MVP",
+];
+
 const STEP_ICONS = {
   submit: (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -409,6 +441,43 @@ export default function HomePage() {
               </Link>
               .
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══ PROOF ══════════════════════════════════════ */}
+      <section className={styles.proof} aria-labelledby="proof-h">
+        <div className="container">
+          <Reveal>
+            <p className={styles.eyebrow}>Proof</p>
+            <h2 id="proof-h" className={styles.sectionTitle}>
+              Numbers, not adjectives.
+            </h2>
+            <p className={styles.sectionIntro}>
+              What we have actually done. No client names, no borrowed logos,
+              just the record.
+            </p>
+          </Reveal>
+          <div className={styles.proofGrid}>
+            {PROOF.map((p, i) => (
+              <Reveal key={p.label} delay={i * 80}>
+                <div className={styles.proofCard}>
+                  <span className={styles.proofValue}>{p.value}</span>
+                  <span className={styles.proofLabel}>{p.label}</span>
+                  <span className={styles.proofDetail}>{p.detail}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <p className={styles.proofTypesLabel}>Project types delivered</p>
+            <div className={styles.proofTypes} role="list" aria-label="Project types delivered">
+              {PROOF_TYPES.map((t) => (
+                <span key={t} role="listitem" className={styles.proofChip}>
+                  {t}
+                </span>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
