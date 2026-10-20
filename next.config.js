@@ -38,6 +38,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/contact",
+        destination: "/start-a-project",
+        permanent: true,
+      },
+      {
         source: "/projects",
         destination: "/services",
         permanent: true,
