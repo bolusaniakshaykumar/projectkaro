@@ -14,6 +14,7 @@ export const metadata = createPageMetadata({
   title: "A. Rao, Business Consultant (Sample) | Demo",
   description:
     "Sample consultant website demo: growth strategy, operations, sales systems, and financial clarity for SMEs.",
+  noIndex: true,
   path: "/demos/consultant",
 });
 

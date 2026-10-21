@@ -265,7 +265,8 @@ export default function HomePage() {
             <div className={styles.heroCopy}>
               <p className={styles.heroEyebrow}>Web design studio · Hyderabad, India</p>
               <h1 id="hero-heading" className={styles.heroTitle}>
-                We build websites that <span className={styles.heroAccent}>win customers.</span>
+                Website design company in Hyderabad that{" "}
+                <span className={styles.heroAccent}>wins customers.</span>
               </h1>
               <p id="hero-summary" className={styles.heroValue}>
                 ProjectKaro designs and builds websites, apps, and AI solutions
@@ -583,7 +584,7 @@ export default function HomePage() {
                 What is ProjectKaro?
               </h2>
               <p id="site-definition" className={styles.definitionText}>
-                ProjectKaro is a software studio for websites, startup MVPs and AI products, with deep engineering and research project experience. Based in Hyderabad, India, we have delivered 100+ projects across academic, research and business work. Student projects are a named offering, not hidden.
+                ProjectKaro is a Hyderabad-based web development and student project studio in India. We help businesses, startups, freelancers, and students with websites, full-stack applications, major and minor academic projects, and research work, with a clear scope, a detailed quote within 24 hours, and on-time delivery.
               </p>
               <div className={styles.definitionLinks}>
                 <Link href="/about">About us</Link>

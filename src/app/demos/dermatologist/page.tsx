@@ -14,6 +14,7 @@ export const metadata = createPageMetadata({
   title: "GlowSkin Clinic (Sample) | ProjectKaro Demo",
   description:
     "A sample dermatology clinic website concept by ProjectKaro: skin treatments with sample pricing, results gallery, testimonials, and WhatsApp booking.",
+  noIndex: true,
   path: "/demos/dermatologist",
 });
 

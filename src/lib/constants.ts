@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   alternateName: 'Project Karo',
   alternateNames: ['Project Karo', 'Project Karo India', 'project karo'] as const,
   description:
-    'ProjectKaro is a software studio for websites, startup MVPs and AI products, with deep engineering and research project experience. Based in Hyderabad, India. 100+ projects delivered across academic, research and business work.',
+    'ProjectKaro is a Hyderabad web design company building websites, apps, and AI solutions for businesses. Scoped in writing, quoted within 24 hours. Get a free quote.',
   url: 'https://projectkaro.com',
   ogImage: '/og-image.png',
   locale: 'en_IN',
@@ -44,6 +44,7 @@ export const SEO_KEYWORDS = [
 
 export const CONTACT_INFO = {
   email: 'contact@projectkaro.com',
+  phone: '+91 73969 91624',
   responseTime: '24 hours',
 } as const;
 

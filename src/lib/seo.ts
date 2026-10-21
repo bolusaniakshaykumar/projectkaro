@@ -94,6 +94,7 @@ export function organizationSchema() {
     image: absoluteUrl("/og-image.png"),
     description: SITE_CONFIG.description,
     email: CONTACT_INFO.email,
+    telephone: CONTACT_INFO.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Hyderabad",
@@ -110,6 +111,7 @@ export function organizationSchema() {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: CONTACT_INFO.email,
+      telephone: CONTACT_INFO.phone,
       availableLanguage: ["English", "Hindi"],
     },
     hasOfferCatalog: {

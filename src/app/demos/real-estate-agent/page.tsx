@@ -8,6 +8,7 @@ export const metadata = createPageMetadata({
   title: "CityNest Properties | Demo Website by ProjectKaro",
   description:
     "A sample real estate agent website concept by ProjectKaro: featured Hyderabad listings, agent profile, testimonials and enquiry form.",
+  noIndex: true,
   path: "/demos/real-estate-agent",
 });
 

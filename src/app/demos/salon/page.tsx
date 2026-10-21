@@ -8,6 +8,7 @@ export const metadata = createPageMetadata({
   title: "Lumiere Salon & Spa | Demo Website by ProjectKaro",
   description:
     "A sample salon and spa website concept by ProjectKaro: services, stylists, gallery, testimonials and online appointment booking.",
+  noIndex: true,
   path: "/demos/salon",
 });
 

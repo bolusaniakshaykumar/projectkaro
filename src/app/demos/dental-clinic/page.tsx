@@ -14,6 +14,7 @@ export const metadata = createPageMetadata({
   title: "SmileCare Dental Clinic (Sample) | ProjectKaro Demo",
   description:
     "A sample dental clinic website concept by ProjectKaro: treatments with sample pricing, doctors, patient stories, and WhatsApp appointment booking.",
+  noIndex: true,
   path: "/demos/dental-clinic",
 });
 

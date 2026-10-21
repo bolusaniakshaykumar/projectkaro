@@ -7,6 +7,7 @@ export const metadata = createPageMetadata({
   title: "IronPulse Fitness Studio | Sample Gym Website by ProjectKaro",
   description:
     "A sample fitness studio website concept crafted by ProjectKaro: strength training, HIIT, yoga and personal training with flexible membership plans.",
+  noIndex: true,
   path: "/demos/gym",
 });
 

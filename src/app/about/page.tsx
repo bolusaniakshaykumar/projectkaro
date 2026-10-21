@@ -6,9 +6,9 @@ import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import styles from "./page.module.css";
 
 export const metadata = createPageMetadata({
-  title: "About Us",
+  title: "About ProjectKaro",
   description:
-    "ProjectKaro is a development studio in India building websites, full-stack apps, and student projects. Our mission, values, and approach.",
+    "ProjectKaro is a Hyderabad web design and development studio building websites, full-stack apps, and student projects. Our mission, values, and approach.",
   path: "/about",
 });
 

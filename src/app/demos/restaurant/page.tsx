@@ -8,6 +8,7 @@ export const metadata = createPageMetadata({
   title: "Spice Route Kitchen | Demo Website by ProjectKaro",
   description:
     "A sample restaurant website concept by ProjectKaro: menu, gallery, reviews and online table reservations for a fictional eatery.",
+  noIndex: true,
   path: "/demos/restaurant",
 });
 
