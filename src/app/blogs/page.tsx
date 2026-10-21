@@ -10,6 +10,38 @@ import styles from "./page.module.css";
 
 const POSTS = [
   {
+    slug: "wordpress-website-cost-india",
+    title: "How much does a WordPress website cost in India?",
+    date: "20 October 2026",
+    dateTime: "2026-10-20",
+    excerpt:
+      "DIY, freelancer and studio price bands for 2026, what actually drives the price, and the yearly running costs (hosting, licences, maintenance) that nobody mentions upfront.",
+  },
+  {
+    slug: "wordpress-vs-custom-website",
+    title: "WordPress or a custom-built website: which should you choose?",
+    date: "20 October 2026",
+    dateTime: "2026-10-20",
+    excerpt:
+      "An honest comparison of cost, speed, self-updates, maintenance and control, with a simple decision guide for when each option genuinely fits.",
+  },
+  {
+    slug: "website-visits-no-enquiries",
+    title: "Your website gets visits but no enquiries?",
+    date: "20 October 2026",
+    dateTime: "2026-10-20",
+    excerpt:
+      "Traffic is not the problem, conversion is. The seven leaks we find most often, from the Not Secure warning to a silently broken contact form, and how to fix each one.",
+  },
+  {
+    slug: "how-to-choose-website-company-hyderabad",
+    title: "How to choose a website company in Hyderabad",
+    date: "20 October 2026",
+    dateTime: "2026-10-20",
+    excerpt:
+      "Quotes in Hyderabad differ by ten times for the same sounding website. Nine questions that separate professionals from gambles, plus the red flags to walk away from.",
+  },
+  {
     slug: "website-cost-hyderabad-2026",
     title: "How much does a website cost in Hyderabad in 2026?",
     date: "4 October 2026",

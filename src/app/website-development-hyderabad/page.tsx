@@ -6,24 +6,25 @@ import {
   breadcrumbSchema,
   createPageMetadata,
   faqPageSchema,
+  localBusinessSchema,
   serviceSchema,
   webPageSchema,
 } from "@/lib/seo";
 import styles from "./page.module.css";
 
-const pageTitle = "Website Development in Hyderabad";
+const pageTitle = "Website Developer in Hyderabad";
 const pagePath = "/website-development-hyderabad";
 const pageDescription =
-  "ProjectKaro is a website development company in Hyderabad building business websites that bring enquiries. Per-project pricing, detailed quote within 24 hours.";
+  "Website developer in Hyderabad building business websites that bring enquiries. Per-project pricing, detailed quote within 24 hours.";
 
 export const metadata = createPageMetadata({
   title: `${pageTitle}`,
   description: pageDescription,
   path: pagePath,
   keywords: [
-    "website development company in hyderabad",
-    "web development company hyderabad",
-    "website designers in hyderabad",
+    "website developer in hyderabad",
+    "web developer hyderabad",
+    "freelance website developer hyderabad",
   ],
 });
 
@@ -131,19 +132,19 @@ const FAQS = [
 
 const RELATED = [
   {
-    name: "Website Development",
-    path: "/services/website-development",
-    blurb: "Our full website development service: process, deliverables, and scope.",
+    name: "Websites for Doctors",
+    path: "/websites-for-doctors",
+    blurb: "Enquiry-focused websites for clinics and doctors in Hyderabad.",
   },
   {
-    name: "Websites for Businesses",
-    path: "/websites-for-businesses",
-    blurb: "How a professional website turns visitors into enquiries.",
+    name: "Websites for Dental Clinics",
+    path: "/websites-for-dental-clinics",
+    blurb: "Dental clinic websites that turn searches into appointments.",
   },
   {
-    name: "Pricing",
-    path: "/pricing",
-    blurb: "Indicative starting prices and how our per-project quotes work.",
+    name: "Websites for Small Businesses",
+    path: "/websites-for-small-businesses",
+    blurb: "Affordable starter sites for local businesses.",
   },
 ];
 
@@ -235,14 +236,15 @@ export default function HyderabadPage() {
             description: pageDescription,
           }),
           serviceSchema({
-            name: "Website Development in Hyderabad",
+            name: "Website Developer in Hyderabad",
             description: pageDescription,
             path: pagePath,
           }),
+          localBusinessSchema(),
           faqPageSchema(FAQS),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Website Development in Hyderabad", path: pagePath },
+            { name: "Website Developer in Hyderabad", path: pagePath },
           ]),
         ]}
       />
@@ -261,7 +263,7 @@ export default function HyderabadPage() {
             </li>
             <li className={styles.crumbItem}>
               <span className={styles.crumbCurrent} aria-current="page">
-                Website Development in Hyderabad
+                Website Developer in Hyderabad
               </span>
             </li>
           </ol>

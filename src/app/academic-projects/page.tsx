@@ -282,7 +282,7 @@ export default function AcademicProjectsPage() {
                 </a>
               </div>
               <ul className={styles.heroFacts}>
-                <li>60+ college projects delivered</li>
+                <li>Mentored 300+ engineering students through final-year projects</li>
                 <li>Full documentation</li>
                 <li>Viva prep included</li>
                 <li>Deadline-first planning</li>

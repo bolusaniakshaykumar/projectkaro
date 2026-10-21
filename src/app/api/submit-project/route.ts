@@ -46,10 +46,26 @@ export async function POST(request: Request) {
     const projectType = (formData.get("projectType") as string)?.trim() || "";
     const message = (formData.get("message") as string)?.trim() || "";
     const abstract = formData.get("abstract") as File | null;
+    // Source tracking (UTM + referrer + landing page)
+    const landingPage = (formData.get("landingPage") as string)?.trim() || "";
+    const referrer = (formData.get("referrer") as string)?.trim() || "";
+    const utm_source = (formData.get("utm_source") as string)?.trim() || "";
+    const utm_medium = (formData.get("utm_medium") as string)?.trim() || "";
+    const utm_campaign = (formData.get("utm_campaign") as string)?.trim() || "";
+    const utm_term = (formData.get("utm_term") as string)?.trim() || "";
+    const utm_content = (formData.get("utm_content") as string)?.trim() || "";
+    const sourceLine = [utm_source, utm_medium, utm_campaign, utm_term, utm_content].filter(Boolean).join(" / ") || "direct / organic";
+    // WhatsApp quick-chat link for instant follow-up
+    const waNumber = phone.replace(/\D/g, "");
+    const waLink = waNumber ? `https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi ${fullName}, this is Team ProjectKaro. We received your project enquiry and will share your detailed quote within 24 hours.`)}` : "";
 
     // Server-side validation
     if (!fullName) {
       return NextResponse.json({ error: "Full name is required." }, { status: 400 });
+    }
+    // Block junk submissions: email pasted into the name field, or a number in it.
+    if (fullName.includes("@") || !/[^\W\d_]/.test(fullName)) {
+      return NextResponse.json({ error: "Please enter your full name (not an email address)." }, { status: 400 });
     }
     if (!email) {
       return NextResponse.json({ error: "Email address is required." }, { status: 400 });
@@ -59,6 +75,15 @@ export async function POST(request: Request) {
     }
     if (!phone) {
       return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
+    }
+    // Block junk submissions: impossible phone numbers (e.g. 12 digits after +91).
+    const phoneCountry = phone.split(" ")[0] || "";
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (phoneCountry === "+91" && !/^[6-9]\d{9}$/.test(phoneDigits)) {
+      return NextResponse.json({ error: "Enter a valid 10-digit Indian mobile number." }, { status: 400 });
+    }
+    if (!/^\d{7,15}$/.test(phoneDigits)) {
+      return NextResponse.json({ error: "Enter a valid phone number." }, { status: 400 });
     }
     // projectTitle and message are OPTIONAL on the client form (only fullName, email,
     // phone, and projectType are required), so the API must not reject empty values.
@@ -124,12 +149,16 @@ export async function POST(request: Request) {
         `Full Name: ${fullName}`,
         `Email: ${email}`,
         `Phone: ${phone}`,
+        waLink ? `WhatsApp: ${waLink}` : ``,
         `Project Title: ${projectTitle || "Not specified"}`,
         `Project Type: ${projectType || "Not specified"}`,
+        `Source: ${sourceLine}`,
+        landingPage ? `Landing page: ${landingPage}` : ``,
+        referrer ? `Referrer: ${referrer}` : ``,
         ``,
         `Message / Project Description:`,
         message || "Not provided",
-      ].join("\n"),
+      ].filter(Boolean).join("\n"),
       html: [
         `<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#0b0b12;padding:24px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;color:#eaeaf0;">`,
         `<tr><td align="center">`,
@@ -144,8 +173,10 @@ export async function POST(request: Request) {
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Full Name:</strong> <span style="color:#eaeaf0">${fullName}</span></p>`,
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Email:</strong> <span style="color:#eaeaf0">${email}</span></p>`,
         `<p style="margin:0 0 8px;color:#9fa1b6"><strong>Phone:</strong> <span style="color:#eaeaf0">${phone}</span></p>`,
+        waLink ? `<p style="margin:0 0 12px"><a href="${waLink}" style="display:inline-block;background:#25D366;color:#0b0b12;font-weight:700;font-size:14px;text-decoration:none;padding:10px 18px;border-radius:8px">Chat on WhatsApp now</a></p>` : ``,
         `<p style="margin:0;color:#9fa1b6"><strong>Project Title:</strong> <span style="color:#eaeaf0">${projectTitle || "Not specified"}</span></p>`,
 `<p style="margin:0;color:#9fa1b6"><strong>Project Type:</strong> <span style="color:#eaeaf0">${projectType || "Not specified"}</span></p>`,
+        `<p style="margin:8px 0 0;color:#9fa1b6;font-size:13px"><strong>Source:</strong> <span style="color:#eaeaf0">${sourceLine}</span>${landingPage ? ` &nbsp;|&nbsp; <strong>Page:</strong> <span style="color:#eaeaf0">${landingPage}</span>` : ``}${referrer ? ` &nbsp;|&nbsp; <strong>Referrer:</strong> <span style="color:#eaeaf0">${referrer.replace(/</g, "&lt;")}</span>` : ``}</p>`,
         `</div>`,
         `</td></tr>`,
         `<tr><td style="padding:0 24px 16px">`,

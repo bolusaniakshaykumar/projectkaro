@@ -91,7 +91,8 @@ const VALUE_ICONS = [
 
 const STATS = [
   { end: 100, suffix: "+", label: "Projects delivered" },
-  { end: 20, suffix: "+", label: "Team members" },
+  { end: 300, suffix: "+", label: "Engineering students mentored" },
+  { end: 23, suffix: "", label: "Team members" },
   { end: 10, suffix: "", label: "Services offered" },
   { end: 24, suffix: "h", label: "Detailed quote turnaround" },
 ];
@@ -148,14 +149,17 @@ export default function AboutPage() {
                 Small studio. <em>Serious standard.</em>
               </h1>
               <p className={styles.heroLede}>
-                ProjectKaro is a registered MSME development studio in Hyderabad, India. Since 2024 we have
-                delivered 100+ projects, from business websites to final-year academic work, each scoped in
-                writing, priced per project, and delivered on the agreed date.
+                ProjectKaro is a software studio for websites, startup MVPs and AI products, with deep
+                engineering and research project experience. A registered MSME based in Hyderabad, India
+                and founded in January 2024, we have delivered 100+ projects across academic, research and
+                business work (IEEE-format papers, IoT and ML projects, business websites, a startup MVP),
+                each scoped in writing, priced per project, and delivered on the agreed date. Student
+                projects are a named offering, not hidden.
               </p>
               <div className={styles.heroMeta}>
                 <span>Registered MSME (Udyam)</span>
                 <span>Hyderabad, India</span>
-                <span>Since 2024</span>
+                <span>Since January 2024</span>
               </div>
             </div>
             <aside className={styles.studioCard} aria-label="ProjectKaro studio facts">
@@ -231,7 +235,8 @@ export default function AboutPage() {
                 not. He is currently preparing for a Master&apos;s in Cyber
                 Security, which is exactly why the studio runs on systems. A
                 company that only works while its founder watches is not a
-                company. It is a job.
+                company. It is a job. Before and alongside ProjectKaro, he built
+                and maintained 100+ websites at Digital Connect, Sep 2022 to May 2026.
               </p>
               <ul className={styles.founderChips} role="list" aria-label="Founder credentials">
                 <li className={styles.chip}>Founder &amp; CEO</li>
@@ -239,7 +244,7 @@ export default function AboutPage() {
                   <strong>100+</strong> projects delivered
                 </li>
                 <li className={styles.chip}>
-                  <strong>20+</strong> team members
+                  <strong>23</strong> team members
                 </li>
               </ul>
             </div>
@@ -264,6 +269,9 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
+          <p className={styles.statsNote}>
+            Our 23: developers, the IoT team, interns and campus ambassadors.
+          </p>
         </div>
       </section>
 

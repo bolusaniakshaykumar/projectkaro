@@ -375,7 +375,7 @@
 .statsList {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
   margin: 0;
   padding: 0;
@@ -620,4 +620,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .statItem, .valueCard, .finePrintItem { transition: none; }
+}
+
+.statsNote {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-align: left;
 }

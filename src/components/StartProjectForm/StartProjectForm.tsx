@@ -81,6 +81,21 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Source tracking: capture UTM params + referrer once on mount
+  const [source] = useState(() => {
+    if (typeof window === "undefined") return { landingPage: "", referrer: "", utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "" };
+    const params = new URLSearchParams(window.location.search);
+    return {
+      landingPage: window.location.pathname,
+      referrer: document.referrer || "",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_term: params.get("utm_term") || "",
+      utm_content: params.get("utm_content") || "",
+    };
+  });
+
   // Close dropdown on click outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -94,7 +109,14 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
 
   function validate(): boolean {
     const newErrors: FormErrors = {};
-    if (!fullName.trim()) newErrors.fullName = "Full name is required.";
+    const name = fullName.trim();
+    if (!name) {
+      newErrors.fullName = "Full name is required.";
+    } else if (name.includes("@")) {
+      newErrors.fullName = "Please enter your name, not your email address.";
+    } else if (!/[^\W\d_]/.test(name)) {
+      newErrors.fullName = "Please enter your full name.";
+    }
     if (!email.trim()) {
       newErrors.email = "Email address is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -102,7 +124,9 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
     }
     if (!phone.trim()) {
       newErrors.phone = "Phone number is required.";
-    } else if (!/^\d{4,15}$/.test(phone.replace(/\D/g, ''))) {
+    } else if (countryCode === "+91" && !/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ''))) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number.";
+    } else if (!/^\d{7,15}$/.test(phone.replace(/\D/g, ''))) {
       newErrors.phone = "Enter a valid phone number.";
     }
     if (!projectType) newErrors.projectType = "Please select a project type.";
@@ -125,6 +149,13 @@ export default function StartProjectForm({ initialProjectType }: StartProjectFor
     formData.append("projectTitle", projectTitle.trim());
     formData.append("projectType", projectType);
     formData.append("message", message.trim());
+    formData.append("landingPage", source.landingPage);
+    formData.append("referrer", source.referrer);
+    formData.append("utm_source", source.utm_source);
+    formData.append("utm_medium", source.utm_medium);
+    formData.append("utm_campaign", source.utm_campaign);
+    formData.append("utm_term", source.utm_term);
+    formData.append("utm_content", source.utm_content);
 
     try {
       const res = await fetch("/api/submit-project", {
