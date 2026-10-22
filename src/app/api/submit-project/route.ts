@@ -77,8 +77,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Phone number is required." }, { status: 400 });
     }
     // Block junk submissions: impossible phone numbers (e.g. 12 digits after +91).
+    // The client sends "<country-code> <national-number>" (e.g. "+91 7396991624"),
+    // so strip the country-code digits before validating the national number.
     const phoneCountry = phone.split(" ")[0] || "";
-    const phoneDigits = phone.replace(/\D/g, "");
+    let phoneDigits = phone.replace(/\D/g, "");
+    if (phoneCountry === "+91" && phoneDigits.startsWith("91")) {
+      phoneDigits = phoneDigits.slice(2);
+    }
     if (phoneCountry === "+91" && !/^[6-9]\d{9}$/.test(phoneDigits)) {
       return NextResponse.json({ error: "Enter a valid 10-digit Indian mobile number." }, { status: 400 });
     }
