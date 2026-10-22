@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  // Standalone output is required by the OpenNext Cloudflare bundler;
+  // keep it off everywhere else so Vercel builds behave exactly as before.
+  ...(process.env.WORKERS_CI === "1" ? { output: "standalone" } : {}),
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
@@ -59,4 +61,8 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-import("@opennextjs/cloudflare").then((m) => m.initOpenNextCloudflareForDev());
+// Local `next dev` Cloudflare emulation only; never runs in production builds
+// (Vercel, Cloudflare) so it cannot interfere with them.
+if (process.env.NODE_ENV !== "production") {
+  import("@opennextjs/cloudflare").then((m) => m.initOpenNextCloudflareForDev());
+}
